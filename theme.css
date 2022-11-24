@@ -1,0 +1,13 @@
+body{font-family:"Times New Roman",serif;font-size:20px}
+
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+p{text-indent:4em}
+/*The <p> tag here is for C++ code only. Varieties of code colors are as follows*/
+p.c{font:italic	20px Consolas,serif; color: #0078d7; display:inline; letter-spacing:-0.4px; text-indent:0}/*Comment*/
+p.i{font:normal	20px Consolas,serif; color: black;	 display:inline; letter-spacing:-0.4px; text-indent:0}/*Identifier*/
+p.n{font:normal	20px Consolas,serif; color: purple;	 display:inline; letter-spacing:-0.4px; text-indent:0}/*Number*/
+p.p{font:normal	20px Consolas,serif; color: green;	 display:inline; letter-spacing:-0.4px; text-indent:0}/*Preprocessor*/
+p.r{font:bold	20px Consolas,serif; color: black;	 display:inline; letter-spacing:-0.4px; text-indent:0}/*Reserved Word*/
+p.s{font:bold	20px Consolas,serif; color: blue;	 display:inline; letter-spacing:-0.4px; text-indent:0}/*String*/
+p.y{font:bold	20px Consolas,serif; color: red;	 display:inline; letter-spacing:-0.4px; text-indent:0}/*Symbol*/
