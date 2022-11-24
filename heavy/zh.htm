@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head><title>The heavy number</title>
+	<meta http-equiv=Content-Type content="charset=utf-8">
+	<link href="/theme.css" rel=stylesheet>
+	<link href="/article.css" rel=stylesheet>
+</head><body>
+	<h1 align=center>The <em>heavy</em> number</h1>
+<div style="float:right; text-indent:0em; width:205px;  border-radius:4px;  border:solid #ddd 1px;  text-align:center;  padding:8px;  font-size:12px">
+	<a href="zh.htm" style="font-family:'microsoft yahei',sans-serif; color:#aaa; text-decoration:none"><img alt=zh src=zh.png align=absmiddle style=border:0> 中文&nbsp;</a>
+	<a href="ja.htm" style="font-family:'microsoft yahei',sans-serif; color:#aaa; text-decoration:none"><img alt=ja src=ja.png align=absmiddle style=border:0> 日本語&nbsp;</a>
+	<a href="en.htm" style="font-family:'microsoft yahei',sans-serif; color:#aaa; text-decoration:none"><img alt=en src=en.png align=absmiddle style=border:0> English&nbsp;</a>
+</div>
+
+	<h2>一，绪论<img alt="bamboo slip" src="bamboo%20slip.png" width=104 height=88 align=absmiddle></h2>
+
+	<div>今有高精度之术，惟听而无迅捷者。夫灵感者，碎之端也。生之紊乱而郁积在心，遂撰于素缟以志之。每尝夙兴夜寐，惨淡经营，数百天，则终得聚，逢人遍述其旨。告之曰：“__asm__既出，举座皆惊！”而无人识高精度法巧妙绝伦也，或哂，或嗤，或以眉，或不顾。呜呼！周文王著《易》狱中，其言也厉；吾侪发于无产之家，学以饱暖焉，不可大事。然则奇技精于苦练而家财不怙；今友虽鲜，来者必遇。余尝理化骈亡<sup>①</sup>而coding不辍，期年问世，继而形销骨立而实心有衷，如轻抚CYF久之，云云。此与共志者勉。</div>
+	<div>①：这里指物理跟化学都没及格。</div>
+
+	<h2>二，高精度使OI（信息学奥林匹克竞赛）变得更加绚丽多彩</h2>
+
+	<div>当你点开这个简陋的超链接时，一项新的技能正向你徐徐走来，在你的脑海中是否会有这样的想法：高精度可以吃吗？高精度还用得着你教？其实，高精度就在我们身边，OIer的CSP、NOIP、NOI、IOI都离不开高精度。那么，什么是高精度呢？</div>
+	<div>OIer认识高精度并使之成为一门独立的算法，经过了漫长的过程。小时候，在与出题人的种种毒瘤进行抗争中，OIer学会了使用数组和简单的循环，改善了自身的开发环境，从而变得更加聪明和强大。继而OIer又陆续发现了一些数值的变化，如在无符号的unsigned int等整数上面加另一个很大的数，会有溢出位生成。就像这样，OIer在逐步了解和利用这些数值变化的过程中，制得了对OIer编程具有实用价值的程序，如高精度加法，高精度减法等，为OIer提供了更多的代码和做题模板，OIer越来越离不开高精度了。</div>
+	<div>高精度是在内置类型规模以外研究数值表示、显示、运算与大小关系的算法，它使OI生活变得更加美好。</div>
+
+	<h2>三，表示一个高精度数</h2>
+	<div>这里有一个表示高精度heavy数的方法。</div>
+	<ul>
+		<li>首先，设想一些数据、函数、外观和算法。
+		<li>下一步，用这些想象填充heavy类的声明。
+		<li>然后，把类声明放在一旁，用heavy类的定义贯彻它。
+		<li>待安排妥当，将类定义保存为单独的文件，并用g++编译器测试之。
+		<li>最后，把类定义格式化成明智的风格，伴以文档一同分发，如注释和图表。
+	</ul>
+	<div>现在我们将详细介绍。</div>
+	<div>我们将要定义一个高精度类型，让我们叫他<em>heavy</em>吧。在C++中，声明一个数据类型可以用关键字<b>struct</b>或<b>class</b>，就像这样：</div>
+<pre><ul><li><p class=r>class <p class=i>heavy<p class=y>;
+</ul></pre>
+	<div>首先，让我们设想一个heavy数应该是怎么样的。一个heavy数不能像int或long long那样只占4字节或8字节，它需要更多的空间来存储一个更大的数。</div>
+	<div>事实上，一个heavy数需要128字节。正如unsigned char表示0到255的范围，unsigned short表示0到65535的范围，unsigned int表示0到4294967295的范围，而8字节的unsigned long long，表示0到18446744073709551615的范围那样，一个heavy可以容纳从0到2<sup>1024</sup>的一个数，也就是<span style="word-break: break-all">179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216</span>(≈1.798×10<sup>308</sup>)。好大的一个量！你的显示器发现显示这个数十分困难并且把它换成了几行。</div>
+	<div>声明一个128字节的内存块。</div>
+<pre><ul><li><p class=r>class <p class=i>heavy<p class=y>{<p class=r>unsigned <p class=i>d<p class=y>[<p class=n>32<p class=y>];</ul></pre>
+
+
+	<h2>四，加减法</h2>
+	<div>加上一个数或减去一个数是最简单的了，也能体现出汇编语言的优点，因为可以直接用adc指令和sbb指令。所以我们把它放在输入和输出之前。</div>
+	<div>你可能会问我：“你确定要做一些数学运算了吗？你所谓heavy类型的I/O部分都还没有完成呢！”我的回答是：对。因为输入和输出有点麻烦，所以是加减法的编写先完工。另外，他们在同一个标题下因为他们自己几乎是相同的！</div>
+	
+	<h2>五，输入/输出（I/O）</h2>
+	<div>结构化编程以其清晰与简洁而被广泛赞扬，它引导程序员自顶向下（top-down）设计。担心着您是否能理解内嵌汇编，我们在这里开发了一个记忆助手，有着同样算法与效果的C++版本。它也可以正常运行。Bonam fortūnam（祝好运）！ </div>
+	<table border=1 align=right><tr><td><a href=output.cpp>下载代码（不附注释）</a></td></tr></table>
+<pre><ol><li><p class=r>operator char<p class=y>*() <p class=r>const
+<li><p class=y>{ <p class=c>//真实发行版/公测版
+<li>	<p class=r>static long long <p class=i>b<p class=y>[<p class=n>320<p class=y>];
+<li>	<p class=r>int <p class=i>length <p class=y>= <p class=n>1<p class=y>; <p class=c>//length &lt;-- r9
+<li>	<p class=i>b<p class=y>[<p class=n>319<p class=y>] = <p class=n>0<p class=y>;
+<li>	<p class=r>for <p class=y>(<p class=r>int <p class=i>i <p class=y>= <p class=n>32<p class=y>; <p class=i>i<p class=y>; <p class=i>i<p class=y>--) <p class=c>//i &lt;-- r8
+<li>	<p class=y>{
+<li><p class=c>/*0:*/
+<li>		<p class=r>long long <p class=i>D <p class=y>= <p class=i>d<p class=y>[<p class=i>i <p class=y>- <p class=n>1<p class=y>]; <p class=c>//此为lodsl之所在
+<li>			<p class=c>//D（被除数） &lt;-- rax
+<li>			<p class=c>//d[i - 1] &lt;-- (rsi)
+<li>		<p class=r>long long <p class=i>q<p class=y>; <p class=c>//q（商） &lt;-- rdx
+<li>		<p class=r>for <p class=y>(<p class=r>int <p class=i>j <p class=y>= <p class=i>length<p class=y>; <p class=i>j<p class=y>; <p class=i>j<p class=y>--) <p class=c>//j &lt;-- rcx
+<li>		<p class=y>{
+<li><p class=c>/*1:*/
+<li>			<p class=i>D <p class=y>+= <p class=i>b<p class=y>[<p class=n>319 <p class=y>- <p class=i>length <p class=y>+ <p class=i>j<p class=y>] * <p class=n>0x100000000<p class=y>; 
+<li>				<p class=c>//b[319 - length + j] &lt;-- (rdi)
+<li>				<p class=c>//b[319 - length + j] * 0x10000000 &lt;-- (rdi - 4)
+<li>					<p class=c>//左移32位
+<li>			<p class=c>//除法的开始
+<li>			<p class=i>q <p class=y>= <p class=i>D <p class=y>/ <p class=n>10<p class=y>;
+<li>			<p class=i>D <p class=y>-= <p class=i>q <p class=y>* <p class=n>10<p class=y>; <p class=c>//rax被减掉了rdx * 10
+<li>			<p class=i>b<p class=y>[<p class=n>319 <p class=y>- <p class=i>length <p class=y>+ <p class=i>j<p class=y>] = <p class=i>D<p class=y>; <p class=c>//此为stosq之所在
+<li>			<p class=i>D <p class=y>= <p class=i>q<p class=y>; <p class=c>//这次的商是下次的被除数
+<li>		<p class=y>}
+<li>		<p class=r>while <p class=y>(<p class=i>D<p class=y>) <p class=c>//开辟新空间，直到商为0
+<li>		<p class=y>{
+<li>			<p class=c>//b[319 - length + j]被当作0来对待
+<li>			<p class=i>q <p class=y>= <p class=i>D <p class=y>/ <p class=n>10<p class=y>;
+<li>			<p class=i>D <p class=y>-= <p class=i>q <p class=y>* <p class=n>10<p class=y>;
+<li>			<p class=i>b<p class=y>[<p class=n>319 <p class=y>- <p class=i>length<p class=y>++] = <p class=i>D<p class=y>;
+<li>			<p class=i>D <p class=y>= <p class=i>q<p class=y>;
+<li>		<p class=y>}
+<li>	<p class=y>}
+<li><p class=c>//所有数位都已被适当对齐
+<li><p class=c>//开始聚集数位
+<li>	<p class=r>char<p class=y>* <p class=i>d <p class=y>= (<p class=r>char<p class=y>*) <p class=i>b<p class=y>; <p class=c>//d &lt;-- rdi
+<li>	<p class=r>for <p class=y>(<p class=r>int <p class=i>i <p class=y>= <p class=n>1<p class=y>; <p class=i>i <p class=y>&lt;= <p class=i>length<p class=y>; <p class=i>i<p class=y>++)
+<li>		<p class=i>d<p class=y>[<p class=i>i <p class=y>- <p class=n>1<p class=y>] = <p class=i>b<p class=y>[<p class=n>319 <p class=y>- <p class=i>length <p class=y>+ <p class=i>i<p class=y>] + <p class=i>'0'<p class=y>; <p class=c>// b[319 - length + i] &lt;-- (rsi)
+<li>	<p class=i>d<p class=y>[<p class=i>length<p class=y>] = <p class=i>'\0'<p class=y>;
+<li>	<p class=r>return <p class=i>d<p class=y>;
+<li><p class=y>}
+</ol></pre>
+	<div>“A &lt;-- B”指B代表A，B与A相对应，A是B的替代品。也就是说，他们存储着一样的数据，他们是等价的。</div>
+
+	<h2>七，乘法<img style="float:right" src=multiplication.jpg alt=multiplication width=204></h2>
+
+	<h2>八，除法</h2>
+	<div>人生苦短。我不要除法。</div>
+	<img src=building.png width=68 height=88 alt=building>
+	Building...
+
+	<h2>九，参考书籍</h2>
+	<ol>
+		<li>《<a href="化学%20八年级.pdf">义务教育教科书 化学 八年级</a>》（五四学制）
+		<li>《<a href="义务教育教科书%20英语%20八年级上册%2014596583.pdf">义务教育教科书 英语 八年级上册</a>》P<sub>61</sub> (Making a turkey dinner)
+		<li><em><a href="Professional%20Assembly%20Language.pdf">Professional Assembly Language</a>, Chapter 13</em>
+		<li><a href="IA32%20Manual%20Volume%202A,%20Instruction%20Set%20Reference1.pdf"><em>IA-32 Intel<sup>&reg;</sup> Architecture Software Developer's Manual, Volume 2A: Instruction Set Reference, A-M</em></a>
+		<li><a href="IA32%20Manual%20Volume%202B,%20Instruction%20Set%20Reference2.pdf"><em>IA-32 Intel<sup>&reg;</sup> Architecture Software Developer's Manual, Volume 2B: Instruction Set Reference, N-Z</em></a>
+	</ol>
+
+	<div>Bye-bye<a href=b00cfjk0xg.01.s005.jumboxxx.jpg style=text-decoration:none>~</a></div>
+
+</body>
