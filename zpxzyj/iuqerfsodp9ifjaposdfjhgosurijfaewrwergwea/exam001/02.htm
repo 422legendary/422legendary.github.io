@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head><title>第二题</title>
+	<meta http-equiv=content-type content="charset=utf-8">
+	<link href="/theme.css" rel=stylesheet>
+	<script type="text/javascript">
+	function solve(){
+		if(problem.answer.value=="49"){
+			alert("答对了！");
+			window.location.href="03.htm";
+		}else{
+			alert("不对哟");
+		}
+	}
+	</script>
+</head><body>
+	<!-- Date:2023/04/15 Revised:0. Upload to Computer:2023/04/15 -->
+	<h1 align=center>第二题</h1>
+	<center style=font-size:35px>
+	<img alt=02 src=02.png width=800 align=absmiddle><br>
+	第一排有1个正方形，最后一排有13个正方形，一共有7排，所以一共有
+	<form name=problem method=get action="iNoKnow" style="margin:20px;display:inline">
+		<input name=answer size=10 maxlength=7 type=text style=height:30px>
+		个正方形。
+		<input type=button value=提交 onclick="solve()">
+	</form>
+	</center>
+</body>
