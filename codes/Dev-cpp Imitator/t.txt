@@ -1,0 +1,6 @@
+dev imitator
+
+
+
+
+（当然在C++11里关键字还新增了一些，它们是xxxxx，xxxxx，xxxxx。但是我们这里只需要Dev-C++里的关键字。
