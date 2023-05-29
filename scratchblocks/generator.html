@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<meta charset="utf8">
+<title>generator :: scratchblocks</title>
+	<link rel="canonical" href="http://scratchblocks.github.io/generator/" />
+<meta name="description" content="Make scratchblocks code from your projects. Paste it into forum posts or wiki articles.">
+<!--
+http://scratchblocks.github.io/generator/
+Copyright 2013-2016, Tim Radvan
+@license MIT
+http://opensource.org/licenses/MIT
+-->
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+<link rel="stylesheet" href="../style.css">
+<!---------------------------------------------------------------------------->
+<div id="header">
+  <h1>
+    <a href="/">scratchblocks</a> generator
+  </h1>
+  <div id="url-form">
+    <input id="project-url" type="url" size="50" value="http://scratch.mit.edu/projects/">
+    <br>
+    <select id="choose-lang">
+      <option value="en">English
+      <option value="de"> Deutsch (German)
+      <option value="es"> Español (Spanish)
+      <option value="fr"> Français (French)
+      <option value="zh_CN"> 中文 (Simplified Chinese)
+      <option value="pl"> Polski (Polish)
+      <option value="ja"> 日本語 (Japanese)
+      <option value="nl"> Nederlands (Dutch)
+      <option value="pt"> Português (Portugese)
+      <option value="it"> Italiano (Italian)
+      <option value="he"> עברית (Hebrew)
+      <option value="ko"> 한국어 (Korean)
+      <option value="nb">Norsk (Norwegian Bokmål) †
+      <option value="tr">Türkçe (Turkish)
+      <option value="el"> Ελληνικά (Greek)
+      <option value="ru"> Pусский (Russian)
+      <option value="ca"> Català (Catalan)
+      <option value="id">Indonesia (Indonesian)
+      <option>———
+      <option value="an"> Aragonés (Aragonese)
+      <option value="ar"> العربية (Arabic)
+      <option value="ast"> Asturianu (Asturian) †
+      <option value="bg"> Български (Bulgarian)
+      <option value="bn_IN"> বাংলা (Bengali) †
+      <option value="cs"> Čeština (Czech)
+      <option value="cy"> Cymraeg (Welsh)
+      <option value="da"> Dansk (Danish)
+      <option value="eo"> Esperanto (Esperanto)
+      <option value="et"> Eesti (Estonian)
+      <option value="eu"> Euskara (Basque)
+      <option value="fa"> فارسی (Persian) *
+      <option value="fi"> Suomi (Finnish)
+      <option value="fil"> Filipino (Filipino) *
+      <option value="fo"> Føroyskt (Faroese) *
+      <option value="fr_CA"> Français Canadien (Canadian French) *
+      <option value="ga"> Gaeilge (Irish) †
+      <option value="gl"> Galego (Galician)
+      <option value="hch"> Wixárika (Huichol) *
+      <option value="hi"> हिन्दी (Hindi)
+      <option value="hr"> Hrvatski (Croatian)
+      <option value="ht"> Kreyòl ayisyen (Haitian) *
+      <option value="hu"> Magyar (Hungarian)
+      <option value="hy"> Հայերեն (Armenian)
+      <option value="is"> Íslenska (Icelandic)
+      <option value="ja_HIRA"> にほんご (Japanese Hiragana)
+      <option value="kk"> Қазақша (Kazakh) *
+      <option value="km"> ភាសាខ្មែរ (Khmer) *
+      <option value="kn"> ಕನ್ನಡ (Kannada)
+      <option value="ku"> Kurdî / كوردی (Kurdish) *
+      <option value="ky"> Кыргызча (Kyrgyz) †
+      <option value="la"> Latina (Latin) *
+      <option value="lt"> Lietuvių (Lithuanian)
+      <option value="lv"> Latviešu (Latvian) †
+      <option value="maz"> Jñatjo (Mazahua) *
+      <option value="mk"> Македонски (Macedonian)
+      <option value="ml"> മലയാളം (Malayalam) *
+      <option value="mn"> Монгол (Mongolian) *
+      <option value="mr"> मराठी (Marathi) *
+      <option value="ms"> Bahasa Melayu (Malay) *
+      <option value="my"> ဗမာစာ (Burmese)
+      <option value="nah"> Nāhuatl (Nahuatl) *
+      <option value="ne"> नेपाली (Nepali) *
+      <option value="nn"> Nynorsk (Norwegian Nynorsk) †
+      <option value="no"> Norsk (Norwegian)
+      <option value="os"> Иронау (Ossetian) †
+      <option value="ote"> Hñähñu (Mezquital Otomi) *
+      <option value="oto"> Hñähñu (Otomi) *
+      <option value="pap"> Idoma-Nòmber (Idoma) *
+      <option value="pt_BR"> Português brasileiro (Brazilian Portuguese)
+      <option value="ro"> Română (Romanian)
+      <option value="rw"> Ikinyarwanda (Kinyarwanda) *
+      <option value="sk"> Slovenčina (Slovak)
+      <option value="sl"> Slovenščina (Slovene)
+      <option value="sr"> Српски / Srpski (Serbian)
+      <option value="sv"> Svenska (Swedish)
+      <option value="sw"> Kiswahili (Swahili) *
+      <option value="ta"> தமிழ் (Tamil) †
+      <option value="th"> ไทย (Thai) *
+      <option value="tzm"> Tamaziġt (Tamazight) †
+      <option value="ug"> ئۇيغۇر تىلى (Uyghur) *
+      <option value="uk"> Українська (Ukrainian)
+      <option value="vi"> Tiếng Việt (Vietnamese)
+      <option value="zh_TW"> 正體中文 (Traditional Chinese)
+    </select>
+    <b id="status"></b>
+  </div>
+</div>
+<div id="wrap">
+  <div id="left-pane">
+    <p><b><span id="num-chosen-scripts">0</span> scripts selected</b>
+    <p><a class="button" id="export">Get Code</a>
+    </p>
+    <div id="sprites-list-wrap"><ul id="sprites-list"></ul></div>
+  </div>
+  <div id="intro">
+    <p>Makes scratchblocks code from your projects. Paste it into
+    <a href="http://scratch.mit.edu/forums/viewtopic.php?id=90403">Scratch
+    Forum</a> posts or <a href="http://wiki.scratch.mit.edu/wiki/Block_Plugin">
+    Scratch Wiki</a> articles.
+    </p>
+  </div>
+  <div id="sprite-detail">
+    <div id="sprite-info">
+      <div id="costume-preview"><img></div>
+      <h2 id="sprite-name"></h2>
+    </div>
+    <div id="scripts-list"></div>
+  </div>
+</div>
+<!---------------------------------------------------------------------------->
+<script src="../ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script src="../js/scratchblocks-v3.1-min.js"></script>
+<script src="../js/translations-all-v3.1-min.js"></script>
+<script>
+var current_id,
+  selected_sprite,
+  sprites,
+  fetching = false,
+  scripts_by_id,
+  chosen_scripts,
+  lang;
+function asset_url (md5) {
+  return "http://cdn.scratch.mit.edu/internalapi/asset/" + md5 + "/get/";
+}
+function id_from_url (url) {
+  url = url.replace(/-[0-9]+/g, ''); // Remove numbers in comment anchors
+  var id = url.match(/[0-9]+(?![\s\S]*[0-9]+)/); // Find the last number in the url
+  return id;
+}
+function fetch (id) {
+  $("#project-url").attr("value", "http://scratch.mit.edu/projects/"+id);
+  current_id = id;
+  var fetch_url = "http://projects.scratch.mit.edu/internalapi/project/" + id + "/get/";
+  clear_project();
+  fetching = true;
+  $("#status").text("Fetching...");
+  $.getJSON(fetch_url, function (response) {
+    $("#status").text("Loading...");
+    load_project(response);
+    $("#status").text("Done!");
+    fetching = false;
+    window.project = response; // DEBUG
+    $("#project-url").blur();
+  }).error(function (e) {
+    $("#status").text("Error: "+e.statusText);
+    fetching = false;
+    check_hash();
+    $("#project-url").focus();
+  });
+}
+function clear_project () {
+  $("#sprites-list").empty();
+  $("#sprite-name").empty();
+  $("#costume-preview img").attr("src", "");
+  $("#scripts-list").empty();
+  $("#export").addClass("disabled");
+  $("#export").attr("href", "");
+}
+function load_project (project) {
+  var sprites_list = [project] // stage
+    .concat(project.children);
+  sprites_list = $.grep(sprites_list, function (sprite, i) {
+    return sprite.hasOwnProperty("objName");
+  });
+  // clear stuff
+  sprites = {};
+  scripts_by_id = {};
+  chosen_scripts = [];
+  chosen_scripts_updated();
+  $.each(sprites_list, function (i, sprite) {
+    var name = sprite.objName;
+    $("#sprites-list").append(
+      $("<li>")
+        .text(name)
+        .attr("id", "sprite-"+i)
+        .click(function () {
+          show_sprite(i);
+        })
+    );
+    sprites[i] = sprite;
+  });
+  selected_sprite = 0;
+  var hash = decodeURIComponent((location.href.split("#")[1] || ""));
+  var result = /sprite=([0-9]+)/.exec(hash);
+  if (result) {
+    var selected_sprite = result[1];
+  }
+  $("#intro").addClass("hidden");
+  show_sprite(selected_sprite);
+  update_edit_link();
+  check_hash();
+}
+function show_sprite (i) {
+  if (!sprites || !i in sprites) {
+    return;
+  }
+  var sprite = sprites[i];
+  if (!sprite) {
+    return;
+  }
+  var name = sprite.objName;
+  selected_sprite = i;
+  location.hash = "#project="+current_id; //+"&sprite="+i
+  // select list item
+  $("#sprites-list .selected").removeClass("selected");
+  $("#sprite-"+i).addClass("selected");
+  // title
+  $("#sprite-name").text(name);
+  // preview image
+  var costume = sprite.costumes[sprite.currentCostumeIndex];
+  if (costume && costume.baseLayerMD5) {
+    $("#costume-preview img").attr("src", asset_url(costume.baseLayerMD5));
+  }
+  // scripts
+  $("#scripts-list").empty();
+  if (!sprite.scripts) {
+    $("#scripts-list").append("<p>No scripts.</p>")
+  } else {
+    var highest_script_id = 1;
+    /* sort by y position */
+    sprite.scripts = sprite.scripts.sort(function (a, b) {
+      return a[1] - b[1];
+    });
+    var doc = scratchblocks.fromJSON(sprite, scratchblocks.allLanguages[lang]);
+    doc.scripts.forEach(function(script) {
+      var code = script.stringify();
+      console.log(code);
+      var $script_wrap = $("<div class=script-wrap>");
+      $("#scripts-list").append($script_wrap);
+      var scriptDoc = new scratchblocks.Document([script]);
+      scriptDoc.render(function(svg) {
+        $script_wrap[0].style.height = scriptDoc.height + 'px';
+        $script_wrap.append(svg);
+      });
+      var id = "script-"+ highest_script_id;
+      var checkbox = $("<input type=checkbox id="+id+">");
+      checkbox.change(function (e) {
+        var script_id = selected_sprite + "-" +
+            $(this).attr("id").substr(7);
+        if ($(this).is(":checked")) {
+          chosen_scripts.push(script_id);
+        } else {
+          var index = chosen_scripts.indexOf(script_id);
+          if (index > -1) {
+            chosen_scripts.splice(index, 1);
+          }
+        }
+        chosen_scripts_updated();
+      });
+      $script_wrap.append($("<label for="+id+">").append(checkbox));
+      var key = selected_sprite + "-" + highest_script_id;
+      scripts_by_id[key] = code;
+      if (chosen_scripts.indexOf(key) > -1) {
+        checkbox.prop('checked', true);
+      }
+      highest_script_id += 1;
+    });
+  }
+  // DEBUG
+  window.sprite = sprite;
+}
+function chosen_scripts_updated () {
+  $("#num-chosen-scripts").text(chosen_scripts.length);
+  if (chosen_scripts.length) {
+    var code = export_code();
+    var url = "http://scratchblocks.github.io/#";
+    if (lang && lang !== "en") url += "?lang=" + lang + "&script=";
+    url += encodeURIComponent(code);
+    $("#export").attr("href", url);
+    $("#export").removeClass("disabled");
+  } else {
+    $("#export").attr("href", null);
+    $("#export").addClass("disabled");
+  }
+}
+function export_code () {
+  out = "";
+  $.each(chosen_scripts, function (i, id) {
+    out += scripts_by_id[id];
+    out += "\n\n";
+  });
+  return out.trim();
+}
+function init_fetch () {
+  $("#project-url").blur();
+  lang = $("#choose-lang").attr("value") || "en";
+  var id = id_from_url($("#project-url").attr("value"));
+  if (id) {
+    location.hash = "#project="+id;
+    fetch(id);
+  } else {
+    $("#status").text("Invalid URL");
+  }
+  update_edit_link();
+}
+function check_hash() {
+  if (fetching) return;
+  var hash = decodeURIComponent((location.href.split("#")[1] || ""));
+  var result = /url=([^&]*)/.exec(hash);
+  if (result) {
+    $("#project-url").attr("value", decodeURIComponent(result[1]));
+    init_fetch();
+    return;
+  }
+  var result = /project=([0-9]+)/.exec(hash);
+  if (result) {
+    if (result[1] != current_id) {
+      fetch(result[1]);
+    } else {
+      // todo: clear?
+    }
+  }
+  var result = /sprite=([0-9]+)/.exec(hash);
+  if (result) {
+    if (result[1] != selected_sprite) {
+      show_sprite(result[1]);
+    }
+  }
+  window.setTimeout(check_hash, 500);
+}
+var default_edit_link;
+function update_edit_link() {
+  if (!default_edit_link) {
+    default_edit_link = $("#edit-link").attr("href");
+  }
+  var url = $("#project-url").attr("value");
+  if (url) {
+    $("#edit-link").attr("href", url);
+  } else {
+    $("#edit-link").attr("href", default_edit_link);
+  }
+}
+$(document).ready(function () {
+  $("#fetch").click(function (e) {
+    init_fetch();
+  });
+  var input = document.getElementById('project-url');
+  input.addEventListener('input', function(e) {
+    console.log(input.value);
+    var id = id_from_url(input.value);
+    input.value = "http://scratch.mit.edu/projects/" + (id || '');
+    console.log(id);
+  });
+  $("#project-url").keypress(function (e) {
+    if (e.which == 13) {
+      init_fetch();
+    }
+    update_edit_link();
+  });
+  $("#choose-lang").change(function (e) {
+    init_fetch();
+  });
+  $(document).bind("keydown", function (e) {
+    if (e.ctrlKey) {
+      console.log(e.which);
+      switch (e.which) {
+        case 38:
+          show_sprite(selected_sprite - 1);
+          e.preventDefault();
+          return false;
+        case 40:
+          show_sprite(selected_sprite + 1);
+          e.preventDefault();
+          return false;
+      }
+    }
+  });
+  $("#clear").click(function (e) {
+    $("#project-url").attr("value", "");
+    update_edit_link();
+    clear_project();
+    $("#intro").removeClass("hidden");
+  });
+  $("#project-url").focus().val($("#project-url").val()); // set cursor to end
+  clear_project(); // make sure we start fresh
+  check_hash();
+});
+</script>
+<script>
+  !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+  arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+  d.src='http://d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+  insertBefore(d,q)}(window,document,'script','_gs');
+  _gs('GSN-349113-Y');
+</script>
