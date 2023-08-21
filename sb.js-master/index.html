@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="text/javascript" src="js/sb.js"></script>
+    <script type="text/javascript" src="js/jszip/jszip.js"></script>
+    <script type="text/javascript" src="js/jszip/jszip-load.js"></script>
+    <script type="text/javascript" src="js/jszip/jszip-deflate.js"></script>
+    <script type="text/javascript" src="js/jszip/jszip-inflate.js"></script>
+  </head>
+  <body>
+    <input id="path" type="text">
+  	<button id="read">read</button>
+    <script type="text/javascript">
+    	document.getElementById('read').addEventListener('click', function () {
+			window.project1 = new sb.Project('Summer.sb');
+			alert("here");
+			project1.open(function (success) {
+				console.log('Project1:', project1);
+			});
+			alert("yes");
+			
+			/*window.project2 = new sb.Project('MarioBros.sb2');
+			project2.open(function (success) {
+				console.log('Project2:', project2);
+			});*/
+			var path = document.getElementById('path').value;
+			if (path !== '') {
+				window.project = new sb.Project(path);
+				alert("no");
+				project.open(function (success) {
+					console.log('Project:', project);
+				});
+			}
+		});
+    </script>
+  </body>
+</html>
