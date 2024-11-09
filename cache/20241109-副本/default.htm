@@ -1,0 +1,57 @@
+<head>
+<title>张旆翧是老六</title>
+</head>
+<body>
+<script>
+var a="";
+var i;
+var c=0;
+function generate(value){
+//	c+=0x101010;
+//	c+=0x102030;
+	c+=0x123456;
+	c%=0x1000000;
+
+//	return
+//	"<font color=#"+
+//	c.toString(16)+
+//	">"+value+"</font>";
+
+//我发现这里return跟字符串返回值的第一行（中间）不能有换行，否则返回值就会变成了总是为undefined。
+//这原来是因为JavaScript的自动补全分号的机制了。
+//https://blog.csdn.net/aitangyong/article/details/44066295
+
+	return "<font color=#"+
+	c.toString(16)+
+	">"+value+"</font>";
+}
+//alert(generate("!!!"));
+
+//var temp=
+//"<font color=#"+
+//c.toString(16)+
+//">"+"张旆翧是老六"+"</font>"
+//alert(temp);
+//在声明变量的时候这个样子写，有一个换行倒还是可以的。
+
+//alert(generate);
+
+for (i=0; i<200; i++){
+	a+=generate("张旆翧是老六");
+//	alert("a=");
+//	alert(a);
+	a+=generate("张旆翧是个老六");
+	a+=generate("张旆翧就是个老六");
+	a+=generate("张旆翧是大老六");
+	a+=generate("张旆翧是小老六");
+
+	
+}
+document.write(a);
+</script>
+
+<!--
+<font color="red">asdf</font>
+-->
+
+</body>
