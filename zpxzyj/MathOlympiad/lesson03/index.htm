@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=author content="Shurui Zhang">
+<meta name=contact content="mailto:zsr142857xyz@qq.com">
+<meta name=created content="Sat, 30 Nov 2024 00:57:59 GMT">
+<meta name=revised content=0>
+<title>第三课　分数初步</title>
+<body style=background-color:whitesmoke>
+<p style="font-size:10pt;float:left">Date:2024/11/30.<br>Ordinal: 3.
+<blockquote style="float:right;font-style:italic;text-align:right"><div>当你建造一个简单的房子时，你以基础和框架开始。——《C++ Primer Plus》<br>看在上帝的份上，从小事做起，循序渐进。——爱比克泰德</div></blockquote>
+<div style="clear: both; background-color:white; margin:0 auto; width:800px; padding: 0 20px 24px 20px; border:dashed 1px; font-size:10pt">
+<h1 style="text-align:center;font-size:20pt;font-weight:bold">分数初步</h1>
+<p style=text-indent:2em>分数不仅仅是分数。学了分数以后，就有比例、利润率、打折问题、百分数、工程问题、分数裂项（即分数的巧算）、面积计算（特别是圆、圆柱与圆锥），还有概率等一大堆题可以做了，而且从此以后，就算是普通题目中的数据也有可能会出现分数。例如在行程问题当中，计算出来的速度可不可以是分数呢？三角形的面积也来一个，倍数当中也考一个，买卖东西打了折过后肯定不再是整数的几元钱了，统计图当中的部分占全部的比的那种题目，则也是不可避免地要来一个了……
+<p style=text-indent:2em>所以分数的运算绝对是关键，用英语来说的话就是“vital”的一个环节。能不能够学会、“吃透”分数的基本性质与运算，也就决定了你在学其他那些部分内容的时候，能不能够真正理解其中的含义以及不要浪费时间在基本的运算上。直白一点地说那也就是，如果你连１＋１＝２的算数都不会，那你能做题吗？分数的重要性已经不言而喻了吧。
+<p style=text-indent:2em>另外，其实小数的本质也就是分数。在英语当中，小数的英文是decimal，而dec-这个前缀意为十，即十进制的。由此可见，小数也只不过是分数的十进制形式展开罢了。例如３．１４也就等于<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center">３１４<br><span style=text-decoration:overline>１００</span></span>，０．７也就等于<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center">７<br><span style=text-decoration:overline>１０</span></span>，等等。另一类的无限循环小数，很明显也是因为要解释分数的原因的而被引入的：例如用３去除１，<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center"><!--;margin-bottom:12pt-->１<br><span style=text-decoration:overline>３</span></span>这一个分数用小数形式来展开那也就是０．３３３３３３……怎么无穷无尽了耶？表示的方法，那也就是在３的上面点上一个点，表示无限循环——０．<span style="text-emphasis:dot">３</span>。由此可见，小数跟分数其实就是一个东西，硬币的正面跟反面罢了。
+<p style=text-indent:2em>在这里有一个很容易引起误解的知识点是，当判断一个数是整数还是分数（或者小数）的时候，并不是看它是否具有小数点的存在，或者分子、分母与分数线的那种形式。在有理数的范畴当中，只要不是整数的，那就都是小数。例如<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center">４<br><span style=text-decoration:overline>１</span></span>是整数，<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center"><span style="border-bottom:solid 1px">９１</span><br>７</span>是整数，７２．０００也是整数，因为它们都可以化简为整数的形式嘛！
+<p style=text-indent:2em>还有一类小数是我们没有讨论到的，那就是无限不循环小数。它也就是无理数了，在小学当中就只有一个特例，那就是π！它既不是整数也不是分数，而是<b>无理数</b>。只要记住这一点就好了，其他的部分我们就不涉及了。
+<p style=text-indent:2em>严格地来讲的话，分子和分母本来都必须得要是整数的。但是后来又有了“分子和分母可以同乘或同除以上一个数，分数的值保持不变”的这一个性质，于是分子和分母都是小数或分数又何尝不可呢？
+<p style=text-indent:2em>总之，我的理解也就是用一个数去除以另外的一个数，如果不能够除成整数的话，那么就专门用一个分数的形式来表示好了。例如７÷３也就等于<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center">７<br><span style=text-decoration:overline>３</span></span>，６÷５＝<span style="display:inline-block;text-indent:0;position:relative;top:5pt;vertical-align:center;text-align:center">６<br><span style=text-decoration:overline>５</span></span>等。
+<p style=text-indent:2em>分数本来都是在五年级下册才会开始学到的（人教版跟西师大版的都一样），但是我觉得稍微提前学一下子也并没有什么问题。
+<p style=text-indent:2em>此外，想要学分数，也是有前置条件的，那就是<a href="../lesson07">因数和倍数</a>。互质等概念也是不可或缺的。请你确保在你学这一堂课之前已经掌握了那一部分。既然已经准备好了的话，那就让我们开始吧！
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒈</b>　计算。
+<table>
+<tr>
+<td style=text-align:center>３<div style="border-top:solid 1px">１０</div></td>
+<td>+</td>
+<td style=text-align:center>１<div style="border-top:solid 1px">４</div></td>
+<td>＝＿</td>
+</tr>
+<tr>
+<td style=text-align:center>５<div style="border-top:solid 1px">８</div></td>
+<td>+</td>
+<td style=text-align:center>１<div style="border-top:solid 1px">３</div></td>
+<td>＝＿</td>
+</tr>
+<tr>
+<td style=text-align:center>１<div style="border-top:solid 1px">４</div></td>
+<td>+</td>
+<td style=text-align:center>３<div style="border-top:solid 1px">８</div></td>
+<td>＝＿</td>
+</tr>
+<tr>
+<td style=text-align:center>１<div style="border-top:solid 1px">２</div></td>
+<td>－</td>
+<td style=text-align:center>１<div style="border-top:solid 1px">３</div></td>
+<td>＝＿</td>
+</tr>
+<tr>
+<td style=text-align:center>７<div style="border-top:solid 1px">８</div></td>
+<td>－</td>
+<td style=text-align:center>５<div style="border-top:solid 1px">６</div></td>
+<td>＝＿</td>
+</tr>
+</table>
+<p>
+<b>计算的方法</b>　以第一道题为例，由于两个分母的最小公倍数（记为<i>ＬＣＭ</i>）为２０，因此就将它们这两个分数都给转化为分母为２０的分数后再相加，这一过程被称作“通分”。
+<table>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>３<div style="border-top:solid 1px">１０</div>
+<td>＝</td>
+<td style=text-align:center>３×２<div style="border-top:solid 1px">１０×２</div>
+<td style=text-align:center>＝
+<td style=text-align:center>６<div style="border-top:solid 1px">２０</div>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>１<div style="border-top:solid 1px">４</div>
+<td>＝</td>
+<td style=text-align:center>１×５<div style="border-top:solid 1px">４×５</div>
+<td style=text-align:center>＝
+<td style=text-align:center>５<div style="border-top:solid 1px">２０</div>
+</table>
+<table>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>３<div style="border-top:solid 1px">１０</div>
+<td>+
+<td style=text-align:center>１<div style="border-top:solid 1px">４</div>
+<td>＝
+<td style=text-align:center>６<div style="border-top:solid 1px">２０</div>
+<td>+
+<td style=text-align:center>５<div style="border-top:solid 1px">２０</div>
+<td>＝
+<td style=text-align:center>１１<div style="border-top:solid 1px">２０</div>
+</table>
+再以第四题的减法做一个例子吧，由于<i>ＬＣＭ</i>（２，３）＝６，因此就把这两个分数给通分为６：
+<table>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>１<div style="border-top:solid 1px">２</div>
+<td>＝
+<td style=text-align:center>１×３<div style="border-top:solid 1px">２×３</div>
+<td>＝
+<td style=text-align:center>３<div style="border-top:solid 1px">６</div>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>１<div style="border-top:solid 1px">３</div>
+<td>＝
+<td style=text-align:center>１×２<div style="border-top:solid 1px">３×２</div>
+<td>＝
+<td style=text-align:center>２<div style="border-top:solid 1px">６</div>
+</table>
+<table>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>１<div style="border-top:solid 1px">２</div>
+<td>－
+<td style=text-align:center>１<div style="border-top:solid 1px">３</div>
+<td>＝
+<td style=text-align:center>３<div style="border-top:solid 1px">６</div>
+<td>－
+<td style=text-align:center>２<div style="border-top:solid 1px">６</div>
+<td>＝
+<td style=text-align:center>１<div style="border-top:solid 1px">６</div>
+</table>
+<b>练习题⒈</b>　做一道你们数学书上的题吧。
+<br><img alt=c src=c.jpg height=346 width=668>
+<p>
+<b>练习题⒉</b>　可要勤勤恳恳做计算啊！
+<br><img alt=d src=d.jpg height=175 width=639>
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒉</b>　抱歉，可是现在除了计算以外也就还是计算。这个世界上就是充满了计算。
+<table>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>１<div style="border-top:solid 1px">２</div>
+<td>+
+<td style=text-align:center>３<div style="border-top:solid 1px">１０</div>
+<td>－
+<td style=text-align:center>１<div style="border-top:solid 1px">５</div>
+<td>＝
+<tr>
+<td><ul><li></ul>
+<td>１
+<td>－
+<td style=text-align:center>１１<div style="border-top:solid 1px">２０</div>
+<td style=text-align:center>－
+<td style=text-align:center>２<div style="border-top:solid 1px">５</div>
+<td>＝
+</table>
+<table>
+<tr>
+<td><ul><li></ul>
+<td style=text-align:center>５<div style="border-top:solid 1px">６</div>
+<td style=text-align:center>－（
+<td style=text-align:center>１<div style="border-top:solid 1px">２</div>
+<td>+
+<td style=text-align:center>１<div style="border-top:solid 1px">３</div>
+<td>）＝
+</table>
+
+<p>
+<b>部分解答</b>　有两种方法都可以做出来这第一道题：
+<ol>
+<li>原式
+<table><tr>
+<td>＝
+<td style=text-align:center>５<div style="border-top:solid 1px">１０</div>
+<td>+
+<td style=text-align:center>３<div style="border-top:solid 1px">１０</div>
+<td>－
+<td style=text-align:center>１<div style="border-top:solid 1px">５</div>
+</table>
+<table><tr>
+<td>＝
+<td style=text-align:center>８<div style="border-top:solid 1px">１０</div>
+<td>－
+<td style=text-align:center>１<div style="border-top:solid 1px">５</div>
+</table>
+<table><tr>
+<td>＝
+<td style=text-align:center>８÷２<div style="border-top:solid 1px">１０÷２</div>
+<td>－
+<td style=text-align:center>１<div style="border-top:solid 1px">５</div>
+</table>
+<table><tr>
+<td>＝
+<td style=text-align:center>４<div style="border-top:solid 1px">５</div>
+<td>－
+<td style=text-align:center>１<div style="border-top:solid 1px">５</div>
+<td>＝
+<td style=text-align:center>３<div style="border-top:solid 1px">５</div>
+</table>
+<li>原式
+<table><tr>
+<td>＝
+<td style=text-align:center>５<div style="border-top:solid 1px">１０</div>
+<td>+
+<td style=text-align:center>３<div style="border-top:solid 1px">１０</div>
+<td>－
+<td style=text-align:center>２<div style="border-top:solid 1px">１０</div>
+</table>
+<table><tr>
+<td>＝
+<td style=text-align:center>６<div style="border-top:solid 1px">１０</div>
+</table>
+<table><tr>
+<td>＝
+<td style=text-align:center>６÷２<div style="border-top:solid 1px">１０÷２</div>
+</table>
+<table><tr>
+<td>＝
+<td style=text-align:center>３<div style="border-top:solid 1px">５</div>
+</table>
+</ol>
+分数的加减混合运算可以先计算前面两个的，再计算最后一个，或者先全部通分过后再一起计算也都是一样可以的。
+需要注意的也就是说，最后要将分子和分母都给除以一个它们的最大公约数（记为<i>ＧＣＤ</i>），将分数的形式化为最简。
+<p>
+<b>练习题⒈</b>　你算算！在下面的圆框里填上适当的数，使每个正方形四个角上的数加起来等于１。
+<br><img alt=e src=e.jpg height=172 width=183>
+</div>
+<p>分数其实还有乘法跟除法的，不过在初步的内容还暂时不必涉及到。现在只要求你掌握加法与减法的就好了。<a href=test>前往考试</a>
+</div>
+<p style=float:right>
+<a href="https://validator.w3.org/check?uri=referer"><img alt="Valid HTML 4.01 Strict" src="https://www.w3.org/Icons/valid-html401" height=31 width=88 style=border:0></a>
+<br>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img alt="Valid CSS!" src="http://jigsaw.w3.org/css-validator/images/vcss" height=31 width=88 style=border:0></a>
+</body>
