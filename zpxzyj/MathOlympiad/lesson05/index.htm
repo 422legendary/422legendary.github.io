@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=author content="Shurui Zhang">
+<meta name=contact content="mailto:zsr142857xyz@qq.com">
+<meta name=created content="Mon, 9 Dec 2024 04:38:33 GMT">
+<meta name=revised content=0>
+<title>第五课　计数原理幼稚版</title>
+<body style="background-color:whitesmoke;font-size:10pt">
+<p style=float:left>Date:2024/12/09.<br>Ordinal: 5.
+<blockquote style="float:right;font-style:italic;text-align:right;font-size:12pt"><div>快来快来数一数　二四六七八——儿歌《数鸭子》</div></blockquote>
+<div style="clear:both;background-color:white;margin:0 auto;width:800px;padding:0 20px 24px 20px;border:dashed 1px">
+<h1 style="text-align:center;font-size:20pt;font-weight:bold">计数原理<span style=color:yellowgreen>幼稚版</span></h1><!--幼齿版-->
+<p style=text-indent:2em>计数原理的运用非常广泛（毕竟都被称作通用性的“原理”了嘛），它是排列组合知识的基础。排列组合本来在《高中数学 选择性必修 第三册》中才会正式地在学校学到，不过这实际上并没有什么艰深难懂的，小学生一样能够学得会。我自己以前也是小学的时候在学而思就学了的。我们来提前了解吧！
+<p style=text-indent:2em>计数原理，顾名思义，也就是要数一数有多少种情况？有多少种可能？的意思。它只分两类：一类叫做<b>分类加法原理</b>，也就是需要把所有的情况数都给加起来；另一类是<b>分步乘法原理</b>，需要将所有的情况数依序相乘。学会计数原理后，我们就可以探究有关<a href="../lesson20">概率</a>的概念了，其实它们很多都是相像的。
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒈</b>　在一条河的两岸分别住着一只小熊和一只小狐狸。一天，小熊想到小狐狸家做客，如果想走路去，有２座小桥可以通过；如果想乘船去，一天中有３条船可以搭乘。小熊从家到狐狸家一共有多少种不同的走法？
+<p>
+<b>解答</b>
+<ul><li>２＋３＝５</ul>
+<p>是的，题目这么长，但是不要怕，这就完了。
+<p>这也就是所谓的“分类加法原理”，就是这么的简单。分两类情况，走路<b>或</b>乘船，总的可能数只需要把这两种情况给加起来。
+<hr>
+<p>
+<b>练习题⒈</b>　夏天到了，张者去小卖部要买一瓶水喝，他发现冰箱的上层有农夫山泉矿泉水、昆仑山矿泉水、冰红茶、脉动、尖叫和冰糖雪梨饮料；中层有可口可乐、百事可乐、红牛和芬达橙味汽水；下层有小布丁、老冰棍、梦龙雪糕、可爱多小甜筒、绿色心情和东北大板。请问他有几种选择呢？
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒉</b>　张者在书架的上方摆着三本武功秘籍：《枕头学杀》《毯子功》跟《铁球无敌》。在下层有四包零食：意大利面、鸡蛋、酸奶和萝卜块。张者要分别带走一本武功秘籍和一包零食，去游乐园跟小朋友们一起玩，请问他有多少种选择的可能？＿
+<p>
+<b>答案</b>
+<ul><li>３×４＝１２（种）</ul>
+<p>应当予以应用分步乘法原理，分第一步<b>和</b>第二步来进行选择。第一步先从３本当中选择一本武林秘籍，然后第二步再拿一包零食。这３种武林秘籍的可能当中的任意一种到了第二步以后都会变成有４种选择零食的可能，并且它们都算作不同的情况。因此乘起来就行了。
+<hr>
+<p>
+<b>练习题⒈</b>　张者梦之队现在不打和平，改玩王者了。在选择英雄环节，五名队员需要各自选出不同分位的一<!--个-->名英雄。张者队伍中的对抗路选手只用吕布和孙策这两个英雄，中路会周瑜妲己安琪拉，发育路队友他只玩后羿，游走位则愿意选出庄周、朵莉亚，盾山、钟馗或者瑶，张者可以玩典韦、澜、百里玄策和盘古这四个打野。阵容的多样性与变幻莫测可以克制敌方，使得战局更有可能对我方有利。那么请问他们可以选配得出多少种不同的阵容？＿
+<p>
+<b>练习题⒉</b>　书架上有６本不同的科技书，４本不同的童话书，小华从书架上任取一本科技书和一本童话书，一共有多少种不同的取法？＿
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒊　</b>　排列（难度等级：★）
+<p>
+<b>问题⒈</b>　Ａ、Ｂ、Ｃ、Ｄ４个人站成一排合影留念，有多少种不同的站法？
+<p>
+<b>解答</b>
+<ul><li>４×３×２×１＝２４（种）</ul>
+<p>
+<b>思路</b>　我们可以用４个方格来代表４个位置，如“□□□□”，完成这次摄影任务可以分成四步：第一步，确定最左边第一个位置的人选，可以有４种选法；第二步，确定第二个位置的人选，还有３个人可以选择，所以有３种选法；然后再确定剩下两个位置，分别是２种选法跟１种选法，最后运用例２学过了的分步乘法原理<!--这里可以这样子说吗，它们真的是一回事儿吗？-->将它们这些步数都给乘起来。
+<p>
+<b>问题⒉</b>　一张餐桌上有５盘不同的菜，甲、乙、丙３名同学每人从中各取１盘菜，共有多少种不同的取法？
+<p>
+<b>解答</b>
+<ul><li>５×４×３＝６０（种）</ul>
+<p>
+<b>思路</b>　可以先从这５盘菜中取１盘给同学甲，然后从剩下的４盘菜中取１盘给同学乙，最后从剩下的３盘菜中取１盘给同学丙。还是按分步乘法原理进行计算。
+<p>
+<b>教程</b>　“从ｎ个人中选出ｍ个来排成一列”，他们排列的可能的种数叫做<b>排列数</b>，在数学中用一个通用符号来表示，它也就是Ａ<sub>ｎ</sub><sup style=margin-left:-8pt>ｍ</sup>了。这是由于排列的英文是<i>Arrangement</i>。计算的方法是从下方更大的那个数ｎ开始往下连乘，依次递减１，一共恰好乘ｍ个数。例如问题１的算术结果可以用Ａ<sup>４</sup><sub style=margin-left:-8pt>４</sub>来表示，它等于４×３×２×１；问题２的结果是从５个中选出３个来排列，因此答案自然也就是Ａ<sup>３</sup><sub style=margin-left:-8pt>５</sub>＝５×４×３了。对了还有读法没有讲呢，其实也很简单，Ａ<sup>３</sup><sub style=margin-left:-8pt>５</sub>也就读作“Ａ五三”或者“Ａ五取三”或者“排列数五取三”这样子的也就行了，要注意最好先读下面的数，然后再读上面的。
+<hr>
+<p>
+<b>练习题⒈</b>　从甲、乙、丙３名同学中选出２名参加一项活动，其中１名同学参加上午的活动，另１名同学参加下午的活动，有几种不同的选法？＿
+<p>
+<b>练习题⒉</b>　将下面的排列数都转化为乘法算式。并且计算出来<!--得数-->。
+<ol style=list-style-type:cjk-decimal>
+<li>Ａ<sup>３</sup><sub style=margin-left:-8pt>７</sub>
+<li>Ａ<sup>４</sup><sub style=margin-left:-8pt>７</sub>
+<li>Ａ<sup>４</sup><sub style=margin-left:-8pt>６</sub>
+<li>Ａ<sup>２</sup><sub style=margin-left:-8pt>２</sub>
+</ol>
+</div>
+
+<p style=text-indent:2em>目前我们不学有关组合数的内容，等到进阶的时候再去学。不过排列数的概念希望<!--你-->一定<!--要-->能吸收，至少先会计算。<a href=test>前往考试</a>
+</div>
+
+<p style=float:right>
+<a href="https://validator.w3.org/check?uri=referer"><img alt="Valid HTML 4.01 Strict" src="https://www.w3.org/Icons/valid-html401" height=31 width=88 style=border:0></a>
+<br>
+<a href="http://jigsaw.w3.org/css-validator/check/referer"><img alt="Valid CSS!" src="http://jigsaw.w3.org/css-validator/images/vcss" height=31 width=88 style=border:0></a>
+</body>
