@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=author content="Shurui Zhang">
+<meta name=contact content="mailto:zsr142857xyz@qq.com">
+<meta name=created content="Tue, 31 Dec 2024 04:51:06 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第七课　因数与倍数</title>
+<body style="background-color:whitesmoke;font-size:10pt">
+<p style=float:left>Date:2024/12/31.<br>Ordinal: 7.
+<blockquote style="float:right;text-align:right;font-size:12pt"><div><i>以少减多，更相减损，求其等也。——《九章算术·约分术》</i></div></blockquote>
+<div style="clear:both;background-color:white;margin:0 auto;width:800px;padding:0 20px 24px 20px;border:dashed blue 2px">
+<h1 style=text-align:center>因数与倍数</h1>
+<p style=text-indent:2em>引言当中提到的“等数”，其实也就是指的在分数约分时要用到的最大公因数。那么这到底是怎么一回事呢？今天我们就来学习吧。
+<p style=text-indent:2em>因数和倍数本来都是五年级下册的内容，可是我们为了要讲一些其他的奥数问题，导致也只能提前学一下了啊！这也确实就是无奈之举了，本来你都可以等到学校里面，再跟着老师和同学们一起去学的。让我们尽快讲完基本概念吧。
+<p style=text-indent:2em>对于两个正整数ａ和ｂ，如果ａ除以ｂ的余数是０，那么就可以说ａ是ｂ的<b>倍数</b>，ｂ是ａ的<b>因数</b>。这时ａ被ｂ整除，用数学符号记作ｂ｜ａ。特别地，如果２｜ａ，那么ａ是<b>偶数</b>；否则它是<b>奇（jī）数</b>。一般我们研究更多的是因数，因为一个数的倍数有无穷多个。
+<p style=text-indent:2em>如果一个数只有两个因数，那么它是<b>质数</b>（也叫做素数），如果一个数的因数数量大于了两个，那么它是<b>合数</b>。一个数的某些因数是质数，这些因数就叫做那个数的<b>质因数</b>。如果ｘ｜ａ并且ｘ｜ｂ，那么ｘ就是ａ和ｂ的一个公因数。在ａ和ｂ的所有公因数当中，最大的那一个叫做ａ和ｂ的<b>最大公因数</b>（也叫做最大公约数），记作ｇｃｄ（ａ，ｂ），英文即是<i>Greatest Common Divisor</i>的缩写了。ｌｃｍ（<i>Least Common Multiple</i>）也同理，它表示ａ跟ｂ的<b>最小公倍数</b>。如果ｇｃｄ（ａ，ｂ）＝１，那么就称这两个数<b>互质</b>，有时也可以记作ａ⊥ｂ，也就是用几何上的垂直符号。不过可能有些人会不承认，他们不能理解，所以不要在考试和在学校做题的时候经常用这个符号，我们自己内部在学习的时候用一下就足够了。
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒈</b>　分别写出下列各个数的所有因数。（说出来也可以。）
+<br>　　１　２　３　４　５　６　７　８　９　１０　１１　１２　１３　１４　１５　１６
+<br>　　１７　１８　１９　２０　２８　３２　４８　５５　６０　８１　１００　１４３０
+<p>
+<b>提示</b>　越大的数，分解起来是不是就越麻烦了呢。其实有一个小妙招：那就是当你分解到“临界点”了过后，后面的其他因数都可以通过前面的来进行除法，“推断”出来了。例如１００，当我们找到了１、２、５、１０这四个因数以后，我们发现当前的１０，乘上它自己（即平方）都已经达到１００了！于是后面的因数分别也就是１００÷５＝２０，１００÷２＝５０和１００÷１＝１００，再不会有其他的了。
+<hr>
+<p>
+<b>练习题⒈</b>　一个数是４２的因数，同时也是３的倍数，这个数可能是多少？
+<p>
+<b>练习题⒉</b>　下面的说法正确吗？正确的画“√”，错误的画“×”。
+<ul>
+<li>１是１、２、３…的因数。
+<li>８的倍数只有１６、２４、３２、４０、４８。
+<li>３６÷９＝４，所以３６是９的倍数。
+<li>５．７是３的倍数。
+</ul>
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒉</b>　经过<!--练习-->上一题的练习以后，想必你已经了解了２０以内的所有素数了吧。
+<br>　　　那么请问，３４９２７２这个数，它有多少个因数呢？
+<p>
+<b>方法</b>　当然不能一个一个地数了。我们将要用到一种更加“高级”的方法，那也就是<b style=color:red>分解质因数</b>，指的是把一个整数分成多个质数的乘积。
+<p>
+分解质因数的通用方法是：
+<ul>
+<li>先列出所有的质数：２、３、５、７、１１、１３、１７、１９……
+<li>第二步，从最小的质数开始试除起，一直除到不能再除了为止。之后换下一个质数……
+<li>当要被分解的那个数变成了１，就可以结束了。
+</ul>
+<p>
+就以题目当中的３４９２７２为例：
+<ul>
+<li>先用２开除：３４９２７２÷２＝１７４６３６，１７４６３６÷２＝８７３１８，８７３１８÷２＝４３６５９，然后就不能再继续往下除了！
+<li>然后是３：４３６５９÷３＝１４５５３，１４５５３÷３＝４８５１，４８５１÷３＝１６１７，１６１７÷３＝５３９。
+<li>接下来是５：不行。那么就不管它，继续往后。
+<li>再试一试７：５３９÷７＝７７，７７÷７＝１１。１１当然也就是最后的一个质数了，于是也就结束了。
+<li>最后再将我们算得的结果整理一下，统计成一个长式子：
+<ul><li>３４９２７２＝２×２×２×３×３×３×３×７×７×１１。</ul>
+<li>一般都会用乘方的形式，由于是３个２、４个３和２个７、１个１１相乘起来，所以也可以写成
+<ul><li>３４９２７２＝２<sup>３</sup>×３<sup>４</sup>×７<sup>２</sup>×１１</ul>
+</ul>
+<p>我在这里专门写了一个网页程序（用的编程语言是JavaScript），你只需要在框中输入一个整数，然后点击“分解”按钮，电脑就自动帮你算出结果。
+<form action=get style="background-color:azure;border:ridge 5px;margin:20px;padding:10px" onsubmit="event.preventDefault();getElementsByTagName('span')[0].innerHTML=decompose(getElementsByTagName('input')[0].value)">
+<p>
+<input maxlength=10>
+<input type=submit value="分解">
+<span style=background-color:aqua></span>
+<script type="text/javascript">
+function decompose(n){
+
+n=n.replace(/０/g, "0");
+n=n.replace(/１/g, "1");
+n=n.replace(/２/g, "2");
+n=n.replace(/３/g, "3");
+n=n.replace(/４/g, "4");
+n=n.replace(/５/g, "5");
+n=n.replace(/６/g, "6");
+n=n.replace(/７/g, "7");
+n=n.replace(/８/g, "8");
+n=n.replace(/９/g, "9");
+
+
+if (n!=Number(n))return "输入的不是数字";
+if (n<1 || n!=parseInt(n)) return "输入的数字必须要是一个正整数";
+n=parseInt(n);
+if (n==1) return "１既不是质数也不是合数";
+var s=n+"＝";
+var k=0;
+/*
+for (var i=2; i<=n; i++) {
+	var j = 0;
+	while (n%i ==0){
+		n/=i;
+		j++;
+	}
+	if (!j) continue;
+	if (k) s+="×";
+	s+=i;
+	if(j>1) s+="<sup>"+j+"<\/sup>";
+	k+=j;
+}
+if (k==1) return "这是一个质数";
+*/
+
+//new codes
+var originalN=n;
+for (var i=2; i*i<=n; i++) {
+	var j = 0;
+	while (n%i ==0){
+		n/=i;
+		j++;
+	}
+	if (!j) continue;
+	if (k) s+="×";
+	s+=i;
+	if(j>1) s+="<sup>"+j+"<\/sup>";
+	k=true;
+}
+//if (n!=1) return "这是一个质数";
+if (n==originalN) return "这是一个质数";
+if (n!=1)//this is important!
+	s+="×"+n;
+
+
+
+
+s=s.replace(/0/g, "０");
+s=s.replace(/1/g, "１");
+s=s.replace(/2/g, "２");
+s=s.replace(/3/g, "３");
+s=s.replace(/4/g, "４");
+s=s.replace(/5/g, "５");
+s=s.replace(/6/g, "６");
+s=s.replace(/7/g, "７");
+s=s.replace(/8/g, "８");
+s=s.replace(/9/g, "９");
+return s;
+}
+</script>
+</form>
+
+<p style=text-indent:2em>可是这跟我们要算<!--求-->的因数个数又有什么关系呢？别急，让我们以这样的方式来<!--/方法，进行-->思考：所有的因数都是由若干<!--也就是指几个-->个质因数所乘起来的，如果让我们来“构造”<!--创造？生成？-->一个的话，第一步可以想一想，要取几个２相乘呢？很明显有４种选择：０个、１个、２个或３个。然后第二步再选择要取几个３？有５种的选择，分别是取０、１、２、３、４个３。同样的，取７有３种选择；取１１有２种选择，取或者不取。最后再运用到了第五课学过的分步乘法原理，４×５×３×２＝１２０个因数。
+<p style=text-indent:2em>有没有感觉得到，数学还是很巧妙的呢？有很多<!--许多-->地方都是相通的。如果是一个一个地数的话，得要数到猴年马月去了啊。
+
+<hr>
+<p>
+<b>练习题⒈</b>　将下面的数分解质因数，并据此计算出它们各自的因数数量。
+<br>　　２０　８１００　４９　１８　３７　４２２　５６７
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 10px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒊</b>　请<!--你-->将下面的分数进行约分。
+<br>
+<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">１０</span><br>２５</span>
+　<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">８４</span><br>９６</span>
+　<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">２０</span><br>１２</span>
+　<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">７０</span><br>３２</span>
+　<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">７７</span><br>２１</span>
+　<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">１５０</span><br>６０</span>
+　<span style="display:inline-block;position:relative;top:5pt;text-align:center"><span style="border-bottom:solid 1px">１６０８</span><br>２４７９</span>
+
+<p>
+<b>思路</b>　你可能会在想，学个因数与倍数<!--方面-->的内容，怎么又扯到分数上面来了呢？其实约分，不也就是找到分子与分母的最大公因数了吗？现在我们就来学习如何求两个数的最大公因数。
+<p>
+以第一个为例，先将１０分解质因数（不许用上面的那个机器）：
+<ul><li>１０＝２×５</ul>
+<p>
+然后２５也是一样：
+<ul><li>２５＝５×５</ul>
+<p>之后就可以发现，它们的公共部分不也就只有一个５了吗？于是答案就<!--这样被我们给-->算出来了。
+<p>再以
+<span style="display:inline-block;position:relative;top:5pt;text-align:center;margin-bottom:5pt"><span style="border-bottom:solid 1px">１５０</span><br>６０</span>
+做个例子吧，也不一定非要死板地分解质因数，就像这次我直接就看出来它们有一个公因数１０，于是就将它们两个数同时除以１０，变<!--便？-->成<!--为-->了１５与６。很容易就能看出来ｇｃｄ（１５，６）＝３，因此ｇｃｄ（１５０，６０）也就等于３×１０＝３０了。
+<p>别忘了，题目中是要约分，求得了ｇｃｄ以后，将分子与分母同时除以这一个数，所得到的分数就是我们所需要的结果，最简分数了。
+<p>可是最后面的那一个，１６０８跟２４７９，可就麻烦了呀！如果分解质因数的话恐怕会有点头疼。所以现在来介绍计算最大公因数的终极方法<!--办法-->：<b>辗转相除法</b>：不停地用大的那个数除以小的那个数，然后<!--并且-->把大的那个数给设置<!--变-->为除得的余数。重复这个过程，直到某一次的余数为０，那么另一个数也就是答案了。就以１６０８跟２４７９为例（ａ除以ｂ的余数一般表示为<!--记作？-->ａ　ｍｏｄ　ｂ，读作“ａ模ｂ”）：
+<ul>
+<li>首先２４７９　ｍｏｄ　１６０８＝８７１，因此两个数就变成了８７１跟１６０８；
+<li>之后１６０８　ｍｏｄ　８７１＝７３７，两个数变成了８７１跟７３７；
+<li>８７１　ｍｏｄ　７３７＝１３４，于是就是１３４与７３７；
+<li>７３７　ｍｏｄ　１３４＝６７，然后相当于１３４和６７；
+<li>最后１３４除以６７可以整除，余数为０，所以答案也就是６７了。
+</ul>
+像这样子翻来覆去，翻过来倒过去地相除，就叫做辗转相除了嘛。这种方法最早在古希腊数学家欧几里得的《原本》当中提出，因此又叫做“欧几里得算法”。这种方法在用计算机编程序的时候用得比较多，平常的话如果不是两个很奇怪的数，一般只需要看一看，“凭感觉”就能约分得出来了（妈妈说的）。
+<p>顺便也再来学一学怎么求最小公倍数吧。其实方法很简单，知道了两个数的最大公因数过后，根据公式
+<ul><li>ｌｃｍ（ａ，ｂ）＝<span style="display:inline-block;position:relative;top:5pt;text-align:center">ａｂ<br><span style="border-top:solid 1px">ｇｃｄ（ａ，ｂ）</span></span></ul>
+<p>进行计算就可以了。通分的过程，其实也就是把分母变为原先两个分母的最大公倍数。
+<hr>
+<p>
+<b>练习题</b>　无。</div>
+<p style=text-indent:2em>这节课的知识<!--（点、内容）-->非常丰富，以及重要，而且例１、２、３都是层层嵌套、一环套一环的，所以更加的需要好好消化吸收。<a href=test>前往考试</a>
+</div>
+
+<p style=float:right>
+<a href="https://validator.w3.org/check?uri=referer"><img alt="Valid HTML 4.01 Strict" src="https://www.w3.org/Icons/valid-html401" height=31 width=88 style=border:0></a>
+<br>
+<a href="https://jigsaw.w3.org/css-validator/check/referer"><img alt="Valid CSS!" src="https://jigsaw.w3.org/css-validator/images/vcss" height=31 width=88 style=border:0></a>
