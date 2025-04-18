@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="text/html; charset=utf-8">
+<meta http-equiv=content-location content="https://qowk.xyz/codes/cache/20250418/index.htm">
+<meta http-equiv=content-language content=zh>
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Fri, 18 Apr 2025 12:17:01 GMT">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel=stylesheet type="text/css" href="/theme01.css">
+<title>PUTAX函数</title>
+
+<body>
+<h1 class=center>PUTAX函数</h1>
+<p>我从三年多以前的初二下半学期了解接触到这门技术开始，就一直都热衷于研究汇编语言了（而且尤其是x86）。看周荷琴教授的《微机原理与系统》视频课程（<a href="https://www.bilibili.com/video/BV1yJ411u7qa/?p=22">链接</a>），我发现在第22集有教了一个以四位十六进制数输出通用寄存器的值的子程序。尽管不清楚到底她说的是从哪本“外国的书”上找来的（我还没有考证过），但是反正然而我还有一种更加优化的写法，在那个基础上改了一下，可以节省几个字节的机器码！
+<pre><code>	cli
+	xor ax, ax
+	mov ss, ax
+	mov es, ax
+	mov sp, 0x7c00
+	mov ax, 23456 ;随便一个什么值
+	call put_ax_hex
+	hlt
+
+put_ax_hex:
+	push cx
+	mov cx, 0x405
+	dec cx ;清零AF标志位
+put_ax_hex_loop:
+	rol ax, cl
+	push ax
+	aaa
+	jnc put_ax_hex_0_to_9
+	add al, 17 ;数位是A到F，加17“修正”（要注意不再是加7了，因为AAA指令本身就会减10修正一遍的）
+put_ax_hex_0_to_9:
+	add al, 48
+	mov ah, 14
+	int 16
+	pop ax
+	dec ch
+	jnz put_ax_hex_loop
+	pop cx
+	ret
+	times 510-($-$$) db 0
+	dw 0xaa55
+</code></pre>
+<p>不信就把这个扇区作为MBR启动，你就会发现正确地输出了23456的十六进制：5BA0。注意由于我在前面cli了，所以这里hlt指令过后CPU就是真的停下来了的。
+<p>不会有人连编译方法都不会吧，那应该是完全没学过这个汇编语言。直接<code>nasm a.nas -o a.hex</code>什么的就好了啊。或者就用《30天》那本书里面的nask也是一样兼容的：<code>nask a.nas a.hex</code>。
