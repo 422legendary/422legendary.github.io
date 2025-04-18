@@ -1,0 +1,44 @@
+/* 20250418 */
+
+body {
+	font: 16px sans-serif;
+	margin: 8px;
+}
+
+p, ul {
+	margin: 1em 0;
+}
+
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+
+a:visited {
+	color: purple;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	color: yellow;
+}
+
+i {
+	font-style: italic;
+}
+
+ul {
+	padding-left: 4em;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.center {
+	text-align: center;
+}
