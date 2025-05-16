@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=author content="张书睿">
+<meta name=contact content="mailto:zsr142857xyz@qq.com">
+<meta name=created content="Fri, 16 May 2025 00:34:45 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+.frac{text-indent:0;display:inline-block;position:relative;top:7pt;text-align:center;margin:-5pt auto 10pt;padding:0pt 3pt}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+table.ta{text-align:center}
+table.ta td{height:30px;width:30px;margin:0;padding:0}
+table.ta p{height:22px;width:22px;border:solid 1px;margin:auto}
+span.square{display:inline-block;height:10pt;width:10pt;border:solid 1px;margin:0px 4px 0px 4px;vertical-align:middle}
+span.square2{display:inline-block;height:12pt;width:12pt;border:solid 1px;margin:0px 4px 0px 4px;vertical-align:middle}
+tr.underline td{border-bottom:1px solid}
+.bigger1{font-size:12pt}
+.bigger2{font-size:14pt}
+.lrspace{margin:0 10px}
+</style>
+
+<title>第十二课　巧填横式与竖式（困难版）</title>
+<body style="background-color:whitesmoke;font-size:10pt">
+<p style=float:left>Date:2025/05/16.<br>Ordinal: 12.
+<blockquote style="float:right;text-align:right;font-size:12pt"><div><i><!--。。。-->我们将讨论一些最有趣的浪费时间的问题……——《计算机程序设计艺术 卷4C》7.2.2.8</i></div></blockquote>
+<div style="clear:both;background-color:white;margin:0 auto;width:800px;padding:0 20px 20px 20px;border:dashed maroon 2px">
+<h1 style=text-align:center>巧填横式与竖式（<span style=color:red>困难版</span>）</h1>
+<p style=text-indent:2em>今天我们来结束这个主题。五个月前在<a href="../lesson04/">第四课</a>学过加减法算式谜，这次就学乘除法的。
+<p style=text-indent:2em>对了，如你所见，我的样式表<!--研究-->开发出来更好的框框竖式了，另外测试的题目改到了直接放在正文之后。
+
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒈</b>　在下面算式中的<span class=square></span>中填入适当的数，使算式成立。
+<table class=ta cellspacing=0>
+<tr><td><td><p><td><p><td>８
+<tr class=underline><td>×<td><td><td><p>
+<tr><td>３<td>１<td><p><td>２
+</table><p>
+<b>解答</b>　根据尾数８和２，首先确定乘数只能是４或９。
+<ul>
+<li>当是４的时候，由于被乘数一定是２的倍数，则积是８的倍数，只用看低三位。（有关更系统的整除特征，在后面的<a href="../lesson22/">第二十二课</a>会讲到。）因此积只能是３１１２、３１５２与３１９２了。然后再验算，对应的被乘数分别是７７８、７８８与７９８，检查无误。
+<li>当是９的时候，则<span class=overline>３１<span class=square></span>２</span>是９的倍数，那么３＋１＋<span class=square></span>＋２是９的倍数，则<span class=square></span>内只能填３。对应的被乘数是３１３２÷９＝３４８。
+</ul>
+<p>是的，分类讨论可以看得出来一共有４个答案。
+<hr>
+<p>
+<b>练习题</b>（难度等级：★★★）　在下面的<span class=square></span>中填入适当的数，使算式成立。（哎呀呀，差点忘说了，这道题一共有１３个不同的答案哦。）
+<table class=ta cellspacing=0 id=k1>
+<tr><td><p><td><p><td><p><td><p>
+<tr class=underline><td>×<td><td><td>６
+<tr><td><p><td>４<td><p><td>４
+</table>
+你知道能够快速找出所有答案的方法吗？<input type=button value="是" onclick="document.getElementById('k').innerHTML='';document.getElementById('k1').innerHTML='<tr><td><p><td><p><td><p><td><p><tr class=underline><td>×<td><td><td>６<tr><td><p><td>４<td><p><td>４';alert('既然知道了那就搞快点自己做呀！！！')"><input type=button value="否" onclick="document.getElementById('k1').innerHTML='<tr><td><p>？<td><p>？<td><p>？<td><p>？<tr class=underline><td>×<td><td><td>６<tr><td><p>ｘ<td>４<td><p>ｙ<td>４';document.getElementById('k').innerHTML='应该撕去它伪装的面纱，将此题转化为横式：已知<span class=overline>ｘ４ｙ４</span>这个四位数大于六千，并且是６的倍数。那么请问有哪些可能？然后按顺序枚举ｘ和ｙ。注意只要ｘ＋ｙ除以３的余数是１即可。';">
+<p>
+<span id=k style=background-color:aqua></span>
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒉</b>　在下面的算式中，相同的字母代表相同的数字，不同的字母代表不同的数字。当算式中的各字母分别代表什么数字时，算式成立？
+<table class=ta cellspacing=0 style="font-style:italic">
+<tr><td><td>Ａ<td>Ｂ<td>Ｃ<td>Ｄ
+<tr class=underline><td style="font-style:normal">×<td><td><td><td style="font-style:normal">９
+<tr><td><td>Ｄ<td>Ｃ<td>Ｂ<td>Ａ
+</table>
+<p>
+<b>解答</b>　因为Ａ在千位而乘数是９，所以Ａ只能是１。同理可得Ｄ只能是９。然后Ｂ很明显是０，Ｃ已经不用说了吧。
+<p>这类题目的突破口一般都在最高位（千位、万位等）或者最低位，即个位。有时也可使用整体法。实在不行就设未知数，列方程来解吧！
+<hr>
+<p>
+<b>练习题⒈</b>　题面已经无须多言。
+<table class=ta cellspacing=0 style="font-style:italic">
+<tr><td><td>Ａ<td>Ｂ<td>Ｃ
+<tr class=underline><td style="font-style:normal">×<td><td><td style="font-style:normal">４
+<tr><td><td>Ｃ<td>Ｄ<td>Ａ
+</table>
+<p>
+<b>练习题⒉</b>（难度等级：★★）　一个六位数<span class=overline>ＡＢＣＤＥＦ</span>，它乘３、乘５分别为：
+<table><tr>
+<td>
+	<table class=ta cellspacing=0>
+	<tr><td><td>Ａ<td>Ｂ<td>Ｃ<td>Ｄ<td>Ｅ<td>Ｆ
+	<tr class=underline><td>×<td><td><td><td><td><td>３
+	<tr><td><td>Ｂ<td>Ｃ<td>Ｄ<td>Ｅ<td>Ｆ<td>Ａ
+	</table>
+<td style=padding-left:30pt>
+	<table class=ta cellspacing=0>
+	<tr><td><td>Ａ<td>Ｂ<td>Ｃ<td>Ｄ<td>Ｅ<td>Ｆ
+	<tr class=underline><td>×<td><td><td><td><td><td>５
+	<tr><td><td>Ｆ<td>Ａ<td>Ｂ<td>Ｃ<td>Ｄ<td>Ｅ
+	</table>
+</table>
+<p>
+求Ａ、Ｂ、Ｃ、Ｄ、Ｅ、Ｆ表示的数字。
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒊</b>　在下面除法竖式空格中，各填入一个合适的数字，使竖式成立。
+<div id=kk2></div>
+<p>
+<b>解答</b>　<input type=button value="上一步" onclick="prevpage()"><input type=button value="下一步" onclick="nextpage()">
+<p><span id=kkk></span>
+<script type="text/javascript">
+var currentPageNumber=0;
+var arr=new Array();
+var arr2=new Array();
+arr[0]='<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><p><td><p><tr><td>２<div style="position:relative;left:-30pt;top:-15pt;width:0;height:0"><p></p></div><div style="position:relative;left:-6pt;top:-4pt;width:0;height:0"> ⎠</div><td><p><td><p><tr class=underline><td><p><td><p><td><tr><td><td><p><td><p><tr class=underline><td><td><p><td>７<tr><td><td><td>７</table>';
+arr[1]='<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><p><td><p>ｘ<tr><td>２<div style="position:relative;left:-30pt;top:-15pt;width:0;height:0"><p>ｙ</p></div><div style="position:relative;left:-6pt;top:-4pt;width:0;height:0"> ⎠</div><td><p><td><p><tr class=underline><td><p><td><p><td><tr><td><td><p><td><p><tr class=underline><td><td><p><td>７<div style="position:relative;left:30pt;top:-13pt;width:0;height:0;white-space:nowrap">＝ｘ·ｙ</div><tr><td><td><td>７</table>';
+arr[2]='<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><p><td><p>３<tr><td>２<div style="position:relative;left:-30pt;top:-15pt;width:0;height:0"><p>９</p></div><div style="position:relative;left:-6pt;top:-4pt;width:0;height:0"> ⎠</div><td><p><td><p><tr class=underline><td><p><td><p><td><tr><td><td><p><td><p><tr class=underline><td><td><p>２<td>７<div style="position:relative;left:30pt;top:-13pt;width:0;height:0"></div><tr><td><td><td>７</table>';
+arr[3]='<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><p><td><p>３<tr><td>２<div style="position:relative;left:-30pt;top:-15pt;width:0;height:0"><p>９</p></div><div style="position:relative;left:-6pt;top:-4pt;width:0;height:0"> ⎠</div><td><p><td><p>４<tr class=underline><td><p><td><p><td><tr><td><td><p>３<td><p>４<tr class=underline><td><td><p>２<td>７<div style="position:relative;left:30pt;top:-13pt;width:0;height:0"></div><tr><td><td><td>７</table>';
+arr[4]='<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><p>２<td><p>３<tr><td>２<div style="position:relative;left:-30pt;top:-15pt;width:0;height:0"><p>９</p></div><div style="position:relative;left:-6pt;top:-4pt;width:0;height:0"> ⎠</div><td><p>１<td><p>４<tr class=underline><td><p>１<td><p>８<td><tr><td><td><p>３<td><p>４<tr class=underline><td><td><p>２<td>７<div style="position:relative;left:30pt;top:-13pt;width:0;height:0"></div><tr><td><td><td>７</table>';
+
+arr2[0]='第一步　首先由于余数是７，可以确定除数只能是８或９。';
+arr2[1]='第二步　根据除法竖式的基本原理，又可以知道除数乘上商的个位等于<span class=overline><span class=square></span>７</span>，那么除数就只能是９而不能是８了（因为必须是单数）。';
+arr2[2]='第三步　只有三九二十七的这一种可能。';
+arr2[3]='第四步　继续往上填。';
+arr2[4]='第五步　１３×９＋７＝１２４，３３×９＋７＝３０４。要想得到<span class=overline>２<span class=square></span>４</span>，商的答案只有一种可选。';
+updatePage();
+function updatePage()
+{
+document.getElementById('kk2').innerHTML=arr[currentPageNumber];
+document.getElementById('kkk').innerHTML=arr2[currentPageNumber];
+}
+function prevpage(){if (currentPageNumber>0){currentPageNumber--;updatePage();}}
+function nextpage(){if (currentPageNumber+1<arr.length){currentPageNumber++;updatePage();}}
+</script>
+
+<hr>
+<p>
+<b>练习题</b>　在下面除法竖式空格中，各填入一个合适的数字，使竖式成立。
+<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><p><td>５<td><p><tr><td><p><div style="position:relative;left:-30pt;top:-15pt;width:0;height:0"><p></p></div><div style="position:relative;left:-6pt;top:-7pt;width:0;height:0"> ⎠</div><td><p><td><p><td><p><tr class=underline><td><p><td>１<td><td><tr><td><td><p><td><p><td><tr class=underline><td><td>３<td><p><td><tr><td><td><td><p><td>２<tr class=underline><td><td><td><p><td><p><tr><td><td><td><td>０</table>
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒋</b>（难度等级：★★★）　<span id=uuu2></span>
+
+<script type="text/javascript">
+var currentPageNumber2=0;
+var spanArr=new Array();
+var PuzzleArr=new Array();
+PuzzleArr[0] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>，<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[1] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2>０</span>，<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[2] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2></span><span class=square2>ａ</span>×<span class=square2>ｂ</span>＝<span class=square2></span><span class=square2>０</span>，<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[3] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2>１</span><span class=square2>２</span>×<span class=square2>５</span>＝<span class=square2>６</span><span class=square2>０</span>，<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[4]= '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2>？</span><span class=square2>５</span>×<span class=square2>２</span>＝<span class=square2>？</span><span class=square2>０</span>，<span class=square2></span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[5] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2>？</span><span class=square2>５</span>×<span class=square2>２</span>＝<span class=square2>？</span><span class=square2>０</span>，<span class=square2>１</span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[6] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2>？</span><span class=square2>５</span>×<span class=square2>２</span>＝<span class=square2>？</span><span class=square2>０</span>，<span class=square2>１</span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[7] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2>３</span><span class=square2>５</span>×<span class=square2>２</span>＝<span class=square2>７</span><span class=square2>０</span>，<span class=square2>１</span><span class=square2></span>×<span class=square2></span>＝<span class=square2></span><span class=square2></span>。';
+PuzzleArr[8] = '将０~９这十个数字分别填在右面的<span class=square2></span>里：<span class=square2>４</span><span class=square2>５</span>×<span class=square2>２</span>＝<span class=square2>９</span><span class=square2>０</span>，<span class=square2>１</span><span class=square2>３</span>×<span class=square2>６</span>＝<span class=square2>７</span><span class=square2>８</span>。';
+PuzzleArr[9] = PuzzleArr[2];
+
+
+spanArr[0] = '';
+spanArr[1] = '首先确定０，这个突破口。（很简单的，自己好好想想为什么！）';
+spanArr[2] = '然后可以知道ａ和ｂ这两个个位上的框，就只能在２和５或者４和５里面选了。先假设一下是２和５，可是到底哪个是２，哪个是５，还不清楚。';
+spanArr[3] = '假设ａ是２，那么右边的空没法填了。';
+spanArr[4] = '因此ａ只能是５，ｂ是２。现在还剩下：１、３、４、６、７、８、９这几个数字。';
+spanArr[5] = '考虑这个空，必须得是１呀！否则最小是３０多×４，也已经是个三位数了！';
+spanArr[6] = '现在左边的算式有两种可能：①３５×２＝７０或者②４５×２＝９０。';
+spanArr[7] = '选择①的话，经检验，４、６、８、９这四个数位无论怎么调整位置，也都不能满足右边的算式。';
+spanArr[8] = '只好选择方案②了，最终试出来了，将３、６、７、８这四个数恰好按从小到大的顺序排列就可以满足条件。这就成功地做出来了一个答案。';
+spanArr[9] = '回到最开头的“选择分岔路”，还有一种可能是当ａ和ｂ是４和５的时候，也可以做出一种另外的答案，请你自行尝试。';
+
+updatePage2();
+function updatePage2()
+{
+document.getElementById('uuu2').innerHTML=PuzzleArr[currentPageNumber2];
+document.getElementById('uuu').innerHTML=spanArr[currentPageNumber2];
+}
+function prevpage2(){if (currentPageNumber2>0){currentPageNumber2--;updatePage2();}}
+function nextpage2(){if (currentPageNumber2+1<spanArr.length){currentPageNumber2++;updatePage2();}}
+</script>
+<p>
+<b>解答</b>　<input type=button value="上一步" onclick="prevpage2()"><input type=button value="下一步" onclick="nextpage2()">　<span id=uuu></span>
+
+<p>这种题其实只需要一直按照顺序枚举就完了，其实挺麻烦的，考验你“搜索”的能力。所谓的“不重不漏”嘛。
+<p>如果用计算机编好程序来解决的话，一秒钟不到就出来了。（我看恐怕是０．００１秒都不要……）
+<hr>
+<p>
+<b>练习题⒈</b>　从１~６中选出５个数字填入：<span class=square></span>×（<span class=square></span>－<span class=square></span>）×（<span class=square></span>－<span class=square></span>）中，使其乘积最大，这个最大乘积是____。
+（提示：当两个乘数的和一定时，它们之间的差距越小，乘积就会越大。）
+<p>
+<b>练习题⒉</b>（难度等级：★★）　把数字１~９填在方格里，使等式成立。每个数字只能用一次。<span class=square></span>÷<span class=square></span>＝<span class=square></span>÷<span class=square></span>＝<span class=square></span><span class=square></span><span class=square></span>÷<span class=square></span><span class=square></span>（提示：有两种答案。）
+
+</div>
+
+</div>
+
+
+<div style="clear:both;background-color:white;margin:0 auto;margin-top:30pt;width:800px;padding:0 20px 20px 20px;border:dashed blue 2px">
+<h1 style=text-align:center>测试</h1>
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>题目⒈</b>　下式中，每个汉字分别代表一个数字。它们分别代表哪一个数字？
+<table class=ta cellspacing=0>
+<tr><td><td>上<td>海<td>自<td>来<td>水
+<tr class=underline><td>×<td><td><td><td><td>４
+<tr><td><td>水<td>来<td>自<td>海<td>上
+</table>
+<p>
+<b>题目⒉</b>（难度等级：★★★）　这种题型最早出自古代日本的《竿头算法》中（当时那里的数学家还是用汉语写文章）：
+<p>有客问，偶得陈纸于笥中。披览之，有使银等分与于三十七人之算题。视其总银蠹蚀上下不详，只存二十三匁（这个字是日本字）。又每人所分银亦蠹蚀，仅存其末二分三厘耳。总银及每人银各几何？
+<p>
+译文：有客人问，偶然在方形竹箱子中得到一张陈旧的纸，翻开阅览它，有将银两平分给３７个人的算式。看到银两的总量上下都被虫子给蛀蚀了看不详细（古代的数字是竖着写的嘛），只留下了<span class=square></span><span class=square></span>２３．<span class=square></span><span class=square></span>。而且每个人所分到的银两数也被蛀蚀掉了，只留下了最后的<span class=square></span><span class=square></span>．２３。请问总的银两数以及每个人分到的银两数各是多少？
+<br>（<span class=square></span><span class=square></span>．２３×３７＝<span class=square></span><span class=square></span>２３．<span class=square></span><span class=square></span>）
+<p>
+<b>题目⒊</b>　夜晚，小哥观测到闪电划过天空，却在８秒钟以后才听到了“隆隆”的雷声。已知声音在空气中的传播速度大约是３４０米/秒，那么请问闪电离小哥的距离是多少？（有视频为证。）
+<br>
+<div style=text-align:center><object data=VID_20250509_214206.mp4 width=432 height=768><param name=allowFullScreen value=true></object></div>
+<p>
+<b>题目⒋</b>　妈妈有１万元钱，有两种理财方式：一种是买３年期国债，年利率４．５％；另一种是买银行１年期理财产品，年收益率４．３％，每年到期后连本带息继续购买下一年的理财产品。３年后，哪种理财方式收益更大？（建议使用计算器。）
+<p>
+<b>题目⒌</b>　在下式的“<span class=square></span>”中填入合适的数字。（注意，一共有两种填法。）
+<table class=ta cellspacing=0 style="position:relative;left:100pt"><tr class=underline><td><td><td><p><td><p><tr><td>１<div style="position:relative;left:-50pt;top:-20pt;width:0;height:0"><table><tr><td><p></p><td style="padding:5pt">６</table></div><div style="position:relative;left:-6pt;top:-4pt;width:0;height:0"> ⎠</div><td>１<td><p><td><p><tr class=underline><td><p><td><p><td>８<td><tr><td><td><td><p><td><p><tr class=underline><td><td><td><p><td><p><tr><td><td><td><td>０</table>
+
+</div>
+</div>
