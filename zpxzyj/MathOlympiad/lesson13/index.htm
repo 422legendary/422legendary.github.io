@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=content-location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson13/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Sun, 22 Jun 2025 00:52:16 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+.frac{text-indent:0;display:inline-block;position:relative;top:7pt;text-align:center;margin:-5pt auto 10pt;padding:0pt 3pt}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+</style>
+
+<title>第十三课　几何（二）</title>
+<body style="background-color:whitesmoke;font-size:10pt">
+<p style=float:left>Date:2025/06/22.<br>Ordinal: 13.
+<blockquote style="float:right;text-align:right;font-size:12pt"><div><i>今天没想出什么引言。——名言作者</i></div></blockquote>
+<div style="clear:both;background-color:white;margin:0 auto;width:800px;padding:0 20px 20px 20px;border:dashed pink 2px">
+<h1 style=text-align:center>几何（二）——立体几何，长方体与正方体</h1>
+<p style=text-indent:2em>既然你自己这么想学，那就来一节课吧！
+<p style=text-indent:2em>这本来是《五年级下册》的内容，我们又来提前学习了。小学学这节课的前置课程有：从各个方向观察小正方体摆成的图形，以及物体的三视图，还有数木块个数的题型等。但我觉得那些也太简单了吧！所以直接跳过。
+<p style=text-indent:2em>学习立体几何需要靠你的空间想象能力。我还没有３Ｄ的编程技术，所以先拿一个长方体的盒子看看吧！长方体是这样子画的，虚线表示人眼看不到，但我们可以在脑内想象存在的地方，就像透视了一样：
+<p style=text-align:center><img alt=P1 src=P1.png width=590 height=350>
+<p style=text-indent:2em>其中六个平平的是它的六个<b>面</b>，面与面相交硌手的地方叫做<b>棱</b>（一个长方体一共会有１２条棱），八个最尖的突起叫做<b>顶点</b>。
+<p style=text-indent:2em>根据生活常识，一个长方体安稳地<!--固定/放-->摆在平地上，这时<!-候-它的高度，即-->竖着四条相同的棱的长度，就是它的高。它的底面是一个长方形，这个长方形的长和宽也就是这个长方体的长和宽。我们可以发现，一个长方体的底面跟它的上面是全等的，或者说可以重合。每个长方形都有两条长和两条宽，因此一个长方体就共有四条长和四条宽了啊，跟高的数量是一样的。４＋４＋４＝１２，正好就是那１２条棱。
+<p style=text-indent:2em>由此我们可以知道：
+<ol>
+<li>只要知道了一个长方体的长、宽、高三个参数，就可以确定它的形状和大小。
+<li>长方体相对的面是全等的。
+</ol>
+<p style=text-indent:2em>正方体又叫立方体，定义更为简单：如果一个长方体的长、宽、高都相等，那么这个特殊的长方体就是一个正方体。
+<p style=text-align:center><img alt=P2 src=P2.png width=470 height=470>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒈</b>　一个长、宽、高分别为４０ｃｍ、３０ｃｍ、２０ｃｍ的小纸箱，在所有的棱上粘上一圈胶带，至少需要多长的胶带？
+<p>
+<b>分析</b>　看上面的那张长方体的图片，可以明白这个小纸箱横着有四条４０ｃｍ的“长棱”，在从前到后、由远往近的方向，有四条３０ｃｍ的称作“宽”的棱，还有竖着的四条２０ｃｍ的高。
+<ul><li>４０×４＋３０×４＋２０×４＝３６０（ｃｍ）</ul>
+<p>本质的所要求的棱的总长度，同时也是所需胶带的长度，就是３６０ｃｍ。
+<hr>
+<p>
+<b>练习题</b>　为迎接“五一”国际劳动节，工人叔叔要在工人俱乐部的四周装上彩灯（地面的四边不装）。已知工人俱乐部长９０ｍ，宽５５ｍ，高２２ｍ，工人叔叔至少需要多长的彩灯线？
+<p style=text-align:center><img alt=P5 src=P5.png width=420 height=220>
+</div>
+
+<p style=text-indent:2em>长方体的体积等于底面的面积乘上高，也就是长×宽×高。注意单位以“立方”开头：如立方米，立方厘米等。字母的形式是ｍ<sup>３</sup>。
+<p style=text-indent:2em>长方体的表面积：表面的总面积，就是它那六个面的面积之和。根据观察可以得知，底面和顶面的面积都是长×宽，正面和反面的面积都是长×高，左右两个侧面的的面积都是宽×高。因此总面积就可以算<!--求-->：公式是长×宽×２＋长×高×２＋宽×高×２。
+<p style=text-indent:2em>或者将一个长方体的纸盒沿着棱剪开，然后再展开，就变成这样，更直观了：
+<p style=text-align:center><img alt=P3 src=P3.png width=510 height=290>
+<p style=text-indent:2em>有关立方体的展开图与正方体每个面相对的面的这种专题，我们将会在<a href="../lesson27/">逻辑推理（二）</a>学到。
+<p style=text-indent:2em>正方体的体积与表面积的求法更为简单：把长、宽、高看为相等的数就行了。
+<p style=text-indent:2em>一些体积单位的换算：１ｍ<sup>３</sup>＝１０００ｄｍ<sup>３</sup>＝１００００００ｃｍ<sup>３</sup>。
+<p style=text-indent:2em>一个容器，它内部能装水或物品的体积称为它的容积。１升就是１立方分米，１毫升就是１立方厘米。升与毫升的单位分别可以用字母Ｌ和ｍＬ来表示（字母ｍ必须小写，Ｌ必须大写）。升和毫升特指饮料、水等液体，形容固体的体积时是不能用的。
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒉</b>　如图，这是一般乘飞机的行李托运尺寸规定。那么理论上能满足规定的最大行李包，容积是多少立方分米？
+<p style=text-align:center><img alt=P7 src=P7.png width=280 height=230>
+<p>
+<b>解答</b>　依据公式计算即可。
+<ul><li>９０×５０×６５＝２９２５００ｃｍ<sup>３</sup>＝２９２．５（ｄｍ<sup>３</sup>）</ul>
+<hr>
+<p>
+<b>练习题⒈</b>　在工程上，１ｍ<sup>３</sup>的土、沙、石等均简称“１方”。建筑工地要挖一个长５０ｍ、宽３０ｍ、深５０ｃｍ的长方体土坑，一共要挖出多少方的土？（可别一个不小心给我算出来要挖几万立方米哈……）
+<p>
+<b>练习题⒉（难度等级：★）</b>　家具厂订购５００根方木，每根方木横截面的面积是２．４ｄｍ<sup>２</sup>，长是３ｍ。这些木料一共是多少方？、
+<p style=text-align:center><img alt=P8 src=P8.png width=340 height=140>
+<p>
+<b>练习题⒊（难度等级：★☆）</b>　一个长方体水箱底面长１６分米，宽４分米，高８分米，里面水深６分米。如果将这个长方体最小的面作底面，里面的水深是多少分米？（提示：可以逆用体积计算公式，反过来利用底面积求高。）
+<p style=text-align:center><img alt=P9 src=P9.png width=480 height=300>
+</div>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>例⒊</b>　做一个微波炉的包装箱，至少要用多少平方米的硬纸板？
+<p style=text-align:center><img alt=P10 src=P10.png width=530 height=440>
+<p>
+<b>提示</b>　六个面的纸板，将他们的面积全部加起来就完了。其实就是表面积。太简单了，我都懒得说了，你自己算吧。
+<hr>
+<p>
+<b>做一做⒈</b>　亮亮家要给一个长０．７５ｍ、宽０．５ｍ、高１．６ｍ的简易衣柜换布罩（如图，没有底面）。至少需要用布多少平方米？
+<p style=text-align:center><img alt=P11 src=P11.png width=160 height=160>
+<p>
+<b>做一做⒉</b>　在《我的世界》游戏设定当中，一格恰好就是一米。这块白桦木台阶，它的表面积和体积分别是多少？表面积，底面也要算哦。（提示：可以进游戏自己摆一个，移动视角观察。）
+<p style=text-align:center><img alt=P4 src=P4.png width=654 height=478>
+</div>
+
+</div>
+
+
+<div style="clear:both;background-color:white;margin:0 auto;margin-top:30pt;width:800px;padding:0 20px 20px 20px;border:dashed pink 2px">
+<h1 style=text-align:center>测试</h1>
+
+<div style="background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px">
+<p>
+<b>题目⒈</b>　小卖部要做一个长２．２ｍ、宽４０ｃｍ、高８０ｃｍ的玻璃柜台。现在要在柜台各边都安上角铁，至少需要多少米的角铁？
+<p style=text-align:center><img alt=P6 src=P6.png width=390 height=260>
+<p>
+<b>题目⒉</b>（难度等级：★★）　在<span class=frac>成都<br><span class=overline>七中</span></span>＋<span class=frac>育才<br><span class=overline>衔接班</span></span>＝７这个算式中，“成、都、七、中、育、才、衔、接、班”这九个字，代表１、２、３、４、５、６、７、８、９；不同的汉字表示不同的数字，已知成＝８，都＝６。<span class=frac>育才<br><span class=overline>衔接班</span></span>表示的分数是____。（提示：答案是个真分数。）<input type=button value="提示" onclick="alert('成都/七中是六点几，因此七中只能是１３或１４。再去试一试不就直接出来了嘛。')">
+<p>
+<b>题目⒊</b>　甲、乙、丙、丁约定上午１０时在公园门口集合。见面后，甲说：“我提前了６分钟，乙是正点到的。”乙说：“我提前了４分钟，丙比我晚到２分钟。”丙说：“我提前了３分钟，丁提前了２分钟。”丁说：“我还以为我迟到了１分钟呢，其实我到后１分钟才听到收音机报北京时间１０时整。”根据以上谈话进行分析，这４个人中，谁的表最快，快多少分钟？
+<p>
+<b>题目⒋</b>　一个长方体形状的鱼缸，从里面量得鱼缸的长、宽、高分别为４０厘米、２５厘米和３５厘米，如果向鱼缸里倒入了２０．８升水，水面离鱼缸口有多少厘米？
+<p>
+<b>题目⒌</b>　这个颁奖台是由３个长方体合并而成的。它的前后两面涂上黄色油漆，其他露出来的面涂红色油漆。涂黄色油漆和红色油漆的面积各是多少？（注：图画得可能会有误解，那个６５ｃｍ指的是冠军颁奖台的高度。）
+<p style=text-align:center><img alt=P12 src=P12.png width=600 height=360>
+</div>
+
+</div>
