@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="text/html; charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=content-location content="https://qowk.xyz/codes/cache/20250625/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Wed, 25 Jun 2025 04:43:24 GMT">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel=stylesheet type="text/css" href="/theme01.css">
+<title>分数显示</title>
+
+<style type="text/css">
+.frac{vertical-align:middle}
+.frac-inside{text-indent:0;display:inline-block;text-align:center}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+</style>
+
+<body>
+<h1 class=center>网页数学中的分数显示</h1>
+<p style=text-indent:2em>我琢磨出来了这种方法：
+<p style=text-indent:2em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <span class=frac><span class=frac-inside><span class=underline>1234567</span><br>2345</span></span>+1234=43
+<p style=text-indent:2em>9876<span class=frac><span class=frac-inside>1234<br><span class=overline>2345123</span></span></span>+1234=43 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<p style=text-indent:2em>即使在文本内也会挺不错的。
+<p style=text-indent:2em>是这样：
+<pre><code>&lt;style type="text/css"&gt;
+.frac{vertical-align:middle}
+.frac-inside{text-indent:0;display:inline-block;text-align:center}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+&lt;/style&gt;
+
+&lt;span class=frac&gt;&lt;span class=frac-inside&gt;&lt;span class=underline&gt;1234567&lt;/span&gt;&lt;br&gt;2345&lt;/span&gt;&lt;/span&gt;+1234=43</code></pre>
+<p style=text-indent:2em>如果分母比分子宽，那么就改为分母用overline。很简单吧！支持IE6浏览器。就是<!--得要-->三级嵌套，<!--可能会稍微-->有点麻烦。
