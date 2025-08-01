@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson14/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Fri, 1 Aug 2025 00:55:23 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+
+.inside-div/*inner-div?*/{background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px}
+.div-outside{clear:both;background-color:white;margin:0 auto;width:800px;padding:0 20px 20px 20px;border:dashed yellow 2px}
+</style>
+
+<title>第十四课　组合数与染色问题</title>
+<body style="background-color:whitesmoke;font-size:10pt">
+<p style=float:left>Date:2025/08/01.<br>Ordinal: 14.
+<blockquote style="float:right;text-align:right;font-size:12pt"><div><cite>左袤（mào）乃积数，右袤乃偶算，中藏者皆廉。——杨辉《详解九章算法》</cite></div></blockquote>
+<div class=div-outside>
+<h1 style=text-align:center>计数原理<span style=color:red>进阶</span>——组合数与染色问题</h1>
+<p style=text-indent:2em>前置知识：如果ｎ是正整数，那么ｎ的<dfn>阶乘</dfn>就等于从１一直乘到ｎ，记作<span style="background-color:aqua">ｎ！</span>。规定０的阶乘等于１。例如５的阶乘就是５×４×３×２×１＝１２０。可以发现，这是我们在<a href="../lesson05/">第五课</a>学过的排列数的一种特殊情况，ｎ的阶乘就相当于Ａ<sup></sup><sup style="text-indent:0;position:absolute">ｎ</sup><sub>ｎ</sub>嘛。其实，这种<!--类-->将所有元素都用上的排列叫做它们的<dfn>全排列</dfn>。
+
+<div class=inside-div>
+<p>
+<b>例⒈组合数</b>　从３０名同学中抽４人上台表演，有多少种选法？
+<p>
+<b>思路</b>　如果使用计算排列数的方法，那么依据乘法原理，分成四步，有Ａ<sup></sup><sup style="text-indent:0;position:absolute">４</sup><sub>３０</sub>＝３０×２９×２８×２７种选法。可这里是不需要考虑顺序的。例如选出了①到④号的这四名同学，那么①②③④、①②④③、①③②④、①③④②、①④②③、①④③②、②①③④……等等，实际上都是同一种组合。可以发现，每一种组合都恰好有Ａ<sup></sup><sup style="text-indent:0;position:absolute">４</sup><sub>４</sub>＝２４种这些元素的全排列与之对应，因此答案要再除以一个４的阶乘，就将排列数变成组合数了。
+<p>
+<b>教程</b>　从ｎ个不同元素中取出ｍ个元素，所有不同组合的个数叫做<dfn>组合数</dfn>。英文是<i>Combination</i>，于是写作Ｃ<sup></sup><sup style="text-indent:0;position:absolute">ｍ</sup><sub>ｎ</sub>，读作“Ｃｎｍ”或者“ｎ选ｍ”。又称二项式系数，在数论中的应用领域比排列数相对来说更加广泛，<!--。也可-->记为（<span class=frac>ｎ<br>ｍ</span>）。记法不同，实际上是一个东西。（注意上下顺序是相反的。）
+<p>最后再给出第一题的解答算式：
+<ul><li>（<span class=frac>３０<br>４</span>）＝<span class=frac><span class=underline>３０×２９×２８×２７</span><br>４×３×２×１</span>＝２７４０５（种）。</ul>
+<hr>
+<p>
+<b>练习题⒈</b>　有１５支足球队参加足球比赛。如果每两队比一场（即进行单循环赛），需要比赛多少场？
+<p>
+<b>练习题⒉</b>　列出算式并且计算：⑴Ｃ<sup></sup><sup style="text-indent:0;position:absolute">３</sup><sub>１０</sub>　⑵（<span class=frac>１０<br>７</span>）　⑶Ｃ<sup style="text-indent:0;position:absolute">１０</sup><sub>１０</sub>　⑷（<span class=frac>１０<br>０</span>）
+</div>
+
+<div class=inside-div>
+<p>
+<b>例⒉染色问题</b>　某沿海城市管辖７个县，这７个县的位置如图。现在用红、黑、绿、蓝、紫五种颜色给下图染色，要求任意相邻的两个县染不同颜色，共有多少种不同的染色方法？
+<p style=text-align:center><img alt=P1 src=P1.png width=270 height=280>
+<p>
+<b>思路</b>　可先从Ａ区域想起，有５种；第二步考虑Ｂ，除了Ａ用过的一种颜色以外，还有４种；第三步考虑Ｃ区域，除了Ａ、Ｂ区域用过的两种颜色外，还有３种不同的染色方法；第四步考虑Ｄ区域，Ｂ区域用过的颜色也可以使用，除了相邻的Ａ、Ｃ区域使用过的颜色外，也有３种，同理Ｅ、Ｆ、Ｇ这三个区域也有３种。根据乘法原理，共有５×４×３×３×３×３×３种不同的染色方法。
+<p>
+<b>提示</b>　做题时可以在各个区域中标数，方便记录。
+<p>
+<b>注意</b>　这种方法只适用于一类特殊的图形（如果围成一个环形<!--圆、圈-->的就不行了，那种的我们暂且还不涉及）。<!--讨论的顺序很关键，-->分步一定得按照顺序来才简单，否则就会出现是否同色的分类讨论。比如我们先定下来Ａ有５种，然后Ｂ４种，接着Ｄ４种，那么Ｃ就不能确定了，因为如果Ｂ和Ｄ同色的话就是４种，否则是３种。
+<hr>
+<p>
+<b>练习题⒈</b>　Ａ、Ｂ、Ｃ、Ｄ四个区域分别用红、黄、蓝、白四种颜色中的某一种染色，若要使相邻的区域染不同的颜色，共有多少种不同的染色方法？
+<p style=text-align:center><img alt=P2 src=P2.png width=170 height=110>
+<p>
+<b>练习题⒉</b>　给安徽及其周围的省份染色，相邻的区域不能染相同的颜色，有８种颜色可选，共多少种可能？
+<p style=text-align:center><img alt=P3 src=P3.png width=640 height=730>
+</div>
+
+<p style=text-indent:2em>组合数的性质：
+<ol>
+<li>从１０人中选７人，不就相当于淘汰３个人不选吗？因此它们的组合个数应当是一样的，（<span class=frac>１０<br>７</span>）＝（<span class=frac>１０<br>３</span>）。<br>相似地，（<span class=frac>１０<br>６</span>）＝（<span class=frac>１０<br>４</span>），（<span class=frac>１０<br>０</span>）＝（<span class=frac>１０<br>１０</span>）等等。
+<li>还是从１０人中选７人出来的例子，假如其中有一个就是你，那么分两种情况，一种是这个７个人的组合当中有你，那么从剩下的９人中选出６人与你组队，有（<span class=frac>９<br>６</span>）种选法；另外的一种情况则是不选你，剩下的９人中自己选出７个人来组合，那么就是（<span class=frac>９<br>７</span>）种可能。很明显，这两种情况相加起来就正好是从１０个人中选７个人的可能数了，即：（<span class=frac>１０<br>７</span>）＝（<span class=frac>９<br>６</span>）＋（<span class=frac>９<br>７</span>）。相似地，其他的也都同理：（<span class=frac>１０<br>６</span>）＝（<span class=frac>９<br>５</span>）＋（<span class=frac>９<br>６</span>），（<span class=frac>８<br>５</span>）＝（<span class=frac>７<br>４</span>）＋（<span class=frac>７<br>５</span>），等。你应该已经可以找出规律了吧？
+<p style=text-align:center><img alt=P4 src=P4.png width=450 height=580><br>图为：杨辉三角。
+</ol>
+<p style=text-indent:2em>在上面的三角中，每个数都是可以跟组合数一一对应的。还不太熟悉也没关系，刚刚学到的知识，在接下来的题目中一点都派不上用场<!--不会用到-->。
+
+<div class=inside-div>
+<p>
+<b>例⒊排列组合<!--组合数--><!--的性质与-->混合难题</b>　（难度等级：★★）　有五名志愿者参加社区服务，共服务星期六、星期天两天，每天从中任选两人参加服务，则恰有１人连续参加两天服务的选择种数为（　）。
+<p>
+<b>解答</b>　分两步，先选出那个要连续参加两天服务的人，有５种可能；再从剩下的４人里选２人分别服务星期六和星期天，需要考虑顺序并且不能重复（否则连续参加两天服务的就有２人了），那不就是排列数４选２吗。
+<ul><li>５×Ａ<sup></sup><sup style="text-indent:0;position:absolute">２</sup><sub>４</sub>＝６０</ul>
+<p>
+其实这道题也还有先选第一天再选第二天的方法，用全部的可能数减去０人或２人连续参加的选择种数等，思路都是相通的，我就不赘述了。
+<hr>
+<p>
+<b>练习题⒈</b>　（难度等级：★★）甲组有５名男同学，３名女同学；乙组有６名男同学，２名女同学。若从甲，乙两组中各选出２名同学，则选出的４人中恰有１名女同学的不同选法有（　）种。
+<p>
+<b>练习题⒉</b>　（难度等级：★★）将５名北京冬奥会志愿者分配到花样滑冰、短道速滑、冰球和冰壶４个项目进行培训，每名志愿者只分配到１个项目，每个项目至少分配１名志愿者，则不同的分配方案共有（　）种。
+</div>
+<p style=text-indent:2em>染色问题还有分类讨论同色等更加麻烦的题目，组合问题也还有捆绑法、插空法、隔板法、分堆法等技巧，题型太多，我们就先略过了，或许以后再说。先学好关键思想，主要是为了以后（<a href="../lesson20/">第二十课</a>）要学的概率做铺垫。
+<p style=text-indent:2em>请看视频讲的吧：<a href="https://www.bilibili.com/video/BV1Nb411J7tT/?p=17">乐乐课堂高中选修2-3</a>。
+</div>
+
+<div class=div-outside style=margin-top:30pt>
+<h1 style=text-align:center>测验</h1>
+<div class=inside-div>
+<p>
+<b>题目⒈</b>　一次篮球比赛，有８个队报名参加，每个队都要与其他各队比赛一场，这些比赛分到４所学校的球场上进行，平均每所学校要进行几场比赛？
+<p>
+<b>题目⒉</b>　用４种不同的颜色给下面的图染色，使相邻的两块颜色不相同，共有多少种不同的染色方法？
+<p style=text-align:center><img alt=P5 src=P5.png width=210 height=210>
+<p>
+<b>题目⒊</b>　在一个长１５分米、宽１２分米的长方体水箱中，有１０分米深的水。如果在水中沉入一个棱长为３分米的正方体铁块，这时水箱中的水深多少分米？
+<p>
+<b>题目⒋</b>　有１１名医生，其中男医生６名，女医生５名，从中选出２名男医生和１名女医生，组成一个医疗小组，共有多少种选法？
+<p>
+<b>题目⒌</b>　自然界中存在的硅原子，９２．２３％是硅－２８（原子核有１４个质子、１４个中子），４．６７％是硅－２９（原子核有１４个质子、１５个中子），还有３．１０％是硅－３０（原子核有１４个质子、１６个中子）。规定一个碳－１２原子的相对原子质量刚好是１２，已知硅－２８的相对原子质量是２７．９７６９３２，硅－２９是２８．９７６４９５，硅－３０是２９．９７３７７０。那么硅元素的相对原子质量是多少？（只能使用计算器了吧。）
+</div>
+</div>
