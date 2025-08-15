@@ -1,0 +1,42 @@
+/* 20250815 */
+
+ol.devcppimitator {
+	width: 800px;
+	margin: 0 auto;
+	padding-left: 60px;
+	border: solid 1px;
+	font: 16px Consolas, 'Courier New', monospace;
+}
+
+ol.devcppimitator li {
+	white-space: pre;
+}
+
+ol.devcppimitator a {
+	color: purple;
+}
+
+ol.devcppimitator em {
+	color: black;
+	font-weight: bold;
+	font-style: normal;
+}
+
+ol.devcppimitator q {
+	color: blue;
+	font-weight: bold;
+	quotes: none;
+}
+
+ol.devcppimitator b {
+	color: red;
+}
+
+ol.devcppimitator i {
+	color: #0078d7;
+}
+
+ol.devcppimitator p {
+	display: inline;
+	color: green;
+}

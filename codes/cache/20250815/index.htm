@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="text/html; charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=content-location content="https://qowk.xyz/codes/cache/20250815/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Fri, 15 Aug 2025 07:29:50 GMT">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel=stylesheet type="text/css" href="/theme01.css">
+<link rel=stylesheet type="text/css" href="/theme02.css">
+<title>Dev-cpp模仿者</title>
+
+<body>
+<h1 class=center>Dev-cpp模仿者</h1>
+<p style=text-indent:2em>在网页上展示C/C++代码时，如果没有语法高亮，就会显得很平淡。我们需要分别为每一个保留字、符号、注释添加粗体、高亮等。但每一份代码都手动添加的话，费时又费力，因此必须使用程序来自动生成。Dev-C++自带了这个功能，只需在文件＞导出菜单中选择“到HTML”，就会提供一份当前源码的HTML<!--显示版本-->副本。然而：
+<ol>
+<li>我当时竟然还没发现有这个工具（太惨了）
+<li>它不支持自动显示行号
+<li>它以<code>span class=xxx</code>的形式输出每一个标记，这样会使HTML文件占用的空间变得很大。现在已经没有浏览器还不支持CSS1的后代选择器了，我更愿意以自己的方式处理，如将i标签用作注释，em标签用于保留字，b标签用于标点符号，等等。这样子不是更加简洁吗？
+</ol>
+<p style=text-indent:2em>另一个解决方案是，使用例如highlight.js之类的库。我不想那样做，因为
+<ol>
+<li>我还看不懂js代码，尤其是有些地方的判断用到了正则表达式，简直搞得我头晕脑胀的。对我来说，代码完全看不懂，开源了就跟没开似的。
+<li>个性化比较差，感觉网上到处都是这种类型的代码高亮，千篇一律。（虽然我也知道，改个CSS文件就行了吧。）
+<li>可能用到了一些高级特性，对旧浏览器的支持不好。
+<li>他们搞得太复杂啦！比如同时支持多语言。我暂时不需要那么多的功能，只想搞好我最迫切需要的的C语言，来个极简化的代码。
+</ol>
+<p style=text-indent:2em>于是我用自己最擅长的C语言开发了一个程序，可以用HTML打印C++代码，和Dev-C++中一样丰富多彩。其实我早在四年以前就有了这个想法，今天总算是实现啦！和原版生成的HTML效果几乎一样，除了一些特殊的地方会有差别，例如在宏定义的中间穿插注释时（具体的见<!--详见--><a href=test-all.c>test-all.c</a>，第26行与第66行那里），这算是Dev-cpp模仿者目前版本一个已知的bug，以后会<!--继续、尽量、逐步-->完善的。
+
+<div style='width:1000px; margin:0 auto; padding:10px;border:solid 1px'><p><!--样例-->源码如下：
+<ol class=devcppimitator>
+<li><i>/*</i>
+<li><i> * Description: Dev-cpp Imitator</i>
+<li><i> * Version: 0.1</i>
+<li><i> * Date: 2025-08-15</i>
+<li><i> * Author: Shurui Zhang</i>
+<li><i> * Contact: https://qowk.xyz/contact/</i>
+<li><i> */</i>
+<li>
+<li><p>#include &lt;stdio.h&gt;</p>
+<li><p>#include &lt;ctype.h&gt;</p>
+<li><p>#include &lt;string.h&gt;</p>
+<li>
+<li><em>char </em>l<b>[</b><a>200</a><b>];</b>
+<li>
+<li><em>enum </em>Line_State <b>{</b>
+<li>	none<b>,</b>
+<li>	string_literal<b>,</b>
+<li>	preprocessor_directive<b>,</b>
+<li>	single_line_comment<b>,</b>
+<li>	multiple_line_comment
+<li><b>} </b>line_state<b>;</b>
+<li>
+<li><em>typedef enum </em><b>{</b>
+<li>	NUMBER<b>,</b>
+<li>	KEYWORD<b>,</b>
+<li>	STRING<b>,</b>
+<li>	SYMBOL<b>,</b>
+<li>	COMMENT<b>,</b>
+<li>	PREPROCESSOR<b>,</b>
+<li>	IDENTIFIER
+<li><b>} </b>token_types<b>;</b>
+<li>
+<li><em>const char </em><b>*</b>opening_tag<b>[] = {</b>
+<li>	<q>"&lt;a&gt;"</q><b>, </b><q>"&lt;em&gt;"</q><b>, </b><q>"&lt;q&gt;"</q><b>, </b><q>"&lt;b&gt;"</q><b>, </b><q>"&lt;i&gt;"</q><b>, </b><q>"&lt;p&gt;"</q><b>, </b><q>""</q>
+<li><b>};</b>
+<li>
+<li><em>const char </em><b>*</b>closing_tag<b>[] = {</b>
+<li>	<q>"&lt;/a&gt;"</q><b>, </b><q>"&lt;/em&gt;"</q><b>, </b><q>"&lt;/q&gt;"</q><b>, </b><q>"&lt;/b&gt;"</q><b>, </b><q>"&lt;/i&gt;"</q><b>, </b><q>"&lt;/p&gt;"</q><b>, </b><q>""</q>
+<li><b>};</b>
+<li>
+<li><i>/* range: [start, end) */</i>
+<li><em>void </em>outputHTML<b>(</b>token_types style<b>, </b><em>int </em>start<b>, </b><em>int </em>end<b>)</b>
+<li><b>{</b>
+<li>	<em>static </em>token_types last_style <b>= </b>IDENTIFIER<b>;</b>
+<li>	<em>if </em><b>(</b>style <b>!= </b>last_style<b>) {</b>
+<li>		<i>/* merge consecutive elements */</i>
+<li>		printf<b>(</b><q>"%s%s"</q><b>, </b>closing_tag<b>[</b>last_style<b>], </b>opening_tag<b>[</b>style<b>]);</b>
+<li>		last_style <b>= </b>style<b>;</b>
+<li>	<b>}</b>
+<li>	<em>for </em><b>(; </b>start <b>&lt; </b>end<b>; </b>start<b>++) {</b>
+<li>		<i>/* check for escaped characters */</i>
+<li>		<em>if </em><b>(</b>l<b>[</b>start<b>] == </b>'&lt;'<b>) </b>printf<b>(</b><q>"&amp;lt;"</q><b>);</b>
+<li>		<em>else if </em><b>(</b>l<b>[</b>start<b>] == </b>'&gt;'<b>) </b>printf<b>(</b><q>"&amp;gt;"</q><b>);</b>
+<li>		<em>else if </em><b>(</b>l<b>[</b>start<b>] == </b>'&amp;'<b>) </b>printf<b>(</b><q>"&amp;amp;"</q><b>);</b>
+<li>		<em>else </em>putchar<b>(</b>l<b>[</b>start<b>]);</b>
+<li>	<b>}</b>
+<li><b>}</b>
+<li>
+<li><em>int </em>is_keyword<b>(</b><em>int </em>start<b>, </b><em>int </em>end<b>)</b>
+<li><b>{</b>
+<li>	<em>const char </em><b>*</b>keywords<b>[] = {</b>
+<li>		<q>"alignas"</q><b>, </b><q>"alignof"</q><b>, </b><q>"and"</q><b>, </b><q>"and_eq"</q><b>, </b><q>"asm"</q><b>, </b><q>"auto"</q><b>, </b><q>"bitand"</q><b>,</b>
+<li>		<q>"bitor"</q><b>, </b><q>"bool"</q><b>, </b><q>"break"</q><b>, </b><q>"case"</q><b>, </b><q>"catch"</q><b>, </b><q>"char"</q><b>, </b><q>"char16_t"</q><b>,</b>
+<li>		<q>"char32_t"</q><b>, </b><q>"class"</q><b>, </b><q>"compl"</q><b>, </b><q>"const"</q><b>, </b><q>"const_cast"</q><b>,</b>
+<li>		<q>"constexpr"</q><b>, </b><q>"continue"</q><b>, </b><q>"decltype"</q><b>, </b><q>"default"</q><b>, </b><q>"delete"</q><b>, </b><q>"do"</q><b>,</b>
+<li>		<q>"double"</q><b>, </b><q>"dynamic_cast"</q><b>, </b><q>"else"</q><b>, </b><q>"enum"</q><b>, </b><q>"explicit"</q><b>, </b><q>"export"</q><b>,</b>
+<li>		<q>"extern"</q><b>, </b><q>"false"</q><b>, </b><q>"float"</q><b>, </b><q>"for"</q><b>, </b><q>"friend"</q><b>, </b><q>"goto"</q><b>, </b><q>"if"</q><b>,</b>
+<li>		<q>"inline"</q><b>, </b><q>"int"</q><b>, </b><q>"long"</q><b>, </b><q>"mutable"</q><b>, </b><q>"namespace"</q><b>, </b><q>"new"</q><b>,</b>
+<li>		<q>"noexcept"</q><b>, </b><q>"not"</q><b>, </b><q>"not_eq"</q><b>, </b><q>"nullptr"</q><b>, </b><q>"operator"</q><b>, </b><q>"or"</q><b>,</b>
+<li>		<q>"or_eq"</q><b>, </b><q>"private"</q><b>, </b><q>"protected"</q><b>, </b><q>"public"</q><b>, </b><q>"register"</q><b>,</b>
+<li>		<q>"reinterpret_cast"</q><b>, </b><q>"return"</q><b>, </b><q>"short"</q><b>, </b><q>"signed"</q><b>, </b><q>"sizeof"</q><b>,</b>
+<li>		<q>"static"</q><b>, </b><q>"static_assert"</q><b>, </b><q>"static_cast"</q><b>, </b><q>"struct"</q><b>, </b><q>"switch"</q><b>,</b>
+<li>		<q>"template"</q><b>, </b><q>"this"</q><b>, </b><q>"thread_local"</q><b>, </b><q>"throw"</q><b>, </b><q>"true"</q><b>, </b><q>"try"</q><b>,</b>
+<li>		<q>"typedef"</q><b>, </b><q>"typeid"</q><b>, </b><q>"typename"</q><b>, </b><q>"union"</q><b>, </b><q>"unsigned"</q><b>, </b><q>"using"</q><b>,</b>
+<li>		<q>"virtual"</q><b>, </b><q>"void"</q><b>, </b><q>"volatile"</q><b>, </b><q>"wchar_t"</q><b>, </b><q>"while"</q><b>, </b><q>"xor"</q><b>,</b>
+<li>		<q>"xor_eq"</q>
+<li>	<b>};</b>
+<li>	<em>char </em>t<b>;</b>
+<li>	<em>int </em>i<b>;</b>
+<li>	t <b>= </b>l<b>[</b>end<b>];</b>
+<li>	l<b>[</b>end<b>] = </b>'\0'<b>;</b>
+<li>	<em>for </em><b>(</b>i <b>= </b><a>0</a><b>; </b>i <b>&lt; </b><em>sizeof </em>keywords <b>/ </b><em>sizeof </em><b>*</b>keywords<b>; </b>i<b>++) {</b>
+<li>		<em>if </em><b>(!</b>strcmp<b>(&amp;</b>l<b>[</b>start<b>], </b>keywords<b>[</b>i<b>])) {</b>
+<li>			l<b>[</b>end<b>] = </b>t<b>;</b>
+<li>			<em>return </em><a>1</a><b>;</b>
+<li>		<b>}</b>
+<li>	<b>}</b>
+<li>	l<b>[</b>end<b>] = </b>t<b>;</b>
+<li>	<em>return </em><a>0</a><b>;</b>
+<li><b>}</b>
+<li>
+<li><em>void </em>process_line<b>()</b>
+<li><b>{</b>
+<li>	<em>int </em>head <b>= </b><a>0</a><b>, </b>tail <b>= </b><a>0</a><b>;</b>
+<li>	<em>int </em>len<b>;</b>
+<li>
+<li><i>/* #define DEBUG */</i>
+<li><p>#ifdef DEBUG</p>
+<li>	<em>for </em><b>(; </b>l<b>[</b>head<b>]; </b>head<b>++) {</b>
+<li>		printf<b>(</b><q>"%x "</q><b>, </b>l<b>[</b>head<b>]);</b>
+<li>	<b>}</b>
+<li>	<em>return</em><b>;</b>
+<li><p>#endif</p>
+<li>
+<li>	len <b>= </b>strlen<b>(</b>l<b>);</b>
+<li>
+<li>	<em>if </em><b>(</b>len <b>== </b><em>sizeof </em>l <b>- </b><a>1</a><b>) {</b>
+<li>		fputs<b>(</b><q>"line character buffer limit exceeded"</q><b>, </b>stderr<b>);</b>
+<li>		<em>return</em><b>;</b>
+<li>	<b>}</b>
+<li>
+<li>	<i>/* strip trivial LF and CR characters */</i>
+<li>	<em>if </em><b>(</b>l<b>[</b>len <b>- </b><a>1</a><b>] == </b>'\n'<b>)</b>
+<li>		l<b>[--</b>len<b>] = </b>'\0'<b>;</b>
+<li>
+<li>	<em>if </em><b>(</b>l<b>[</b>len <b>- </b><a>1</a><b>] == </b>'\r'<b>)</b>
+<li>		l<b>[--</b>len<b>] = </b>'\0'<b>;</b>
+<li>
+<li>	<em>switch </em><b>(</b>line_state<b>)</b>
+<li>	<em>do </em><b>{</b>
+<li>		head <b>= </b>tail<b>;</b>
+<li>
+<li>	<em>default</em><b>:</b>
+<li>		<em>if </em><b>(</b>isspace<b>(</b>l<b>[</b>tail<b>])) {</b>
+<li>			putchar<b>(</b>l<b>[</b>tail<b>++]);</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>isalpha<b>(</b>l<b>[</b>tail<b>]) || </b>l<b>[</b>tail<b>] == </b>'_'<b>) {</b>
+<li>			<em>do </em>tail<b>++;</b>
+<li>			<em>while </em><b>(</b>isalnum<b>(</b>l<b>[</b>tail<b>]) || </b>l<b>[</b>tail<b>] == </b>'_'<b>);</b>
+<li>			outputHTML<b>(</b>is_keyword<b>(</b>head<b>, </b>tail<b>) ?</b>
+<li>				KEYWORD <b>: </b>IDENTIFIER<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'#'<b>) {</b>
+<li>	<em>case </em>preprocessor_directive<b>:</b>
+<li>			<i>/* repeat until meet comments */</i>
+<li>			<em>do </em>tail<b>++;</b>
+<li>			<em>while </em><b>(</b>l<b>[</b>tail<b>] &amp;&amp; (</b>l<b>[</b>tail<b>] != </b>'/'
+<li>				<b>|| (</b>l<b>[</b>tail <b>+ </b><a>1</a><b>] != </b>'/'
+<li>				<b>&amp;&amp; </b>l<b>[</b>tail <b>+ </b><a>1</a><b>] != </b>'*'<b>)));</b>
+<li>			<em>if </em><b>(!</b>l<b>[</b>tail<b>] &amp;&amp; </b>l<b>[</b>tail <b>- </b><a>1</a><b>] == </b>'\\'<b>)</b>
+<li>				line_state <b>= </b>preprocessor_directive<b>;</b>
+<li>			outputHTML<b>(</b>PREPROCESSOR<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>if </em><b>(!</b>l<b>[</b>tail<b>] &amp;&amp; </b>l<b>[</b>tail <b>- </b><a>1</a><b>] == </b>'\\'<b>) </b><em>return</em><b>;</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'"'<b>) {</b>
+<li>			tail<b>++;</b>
+<li>	<em>case </em>string_literal<b>:</b>
+<li>			<i>/* When l[tail] = '\0', it is (maybe)</i>
+<li><i>			a C++11 raw string literal, or syntax error */</i>
+<li>			<em>while </em><b>(</b>l<b>[</b>tail<b>] != </b>'"' <b>&amp;&amp; </b>l<b>[</b>tail<b>]) {</b>
+<li>				<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'\\' <b>&amp;&amp; !</b>l<b>[++</b>tail<b>]) {</b>
+<li>					<i>/* line wrap */</i>
+<li>					line_state <b>= </b>string_literal<b>;</b>
+<li>					outputHTML<b>(</b>STRING<b>, </b>head<b>, </b>tail<b>);</b>
+<li>					<em>return</em><b>;</b>
+<li>				<b>}</b>
+<li>				tail<b>++;</b>
+<li>			<b>}</b>
+<li>			tail<b>++;</b>
+<li>			outputHTML<b>(</b>STRING<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>continue</em><b>;	</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'\''<b>) {</b>
+<li>			<em>do </em><b>{</b>
+<li>				<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'\\' <b>&amp;&amp; </b>l<b>[</b>tail <b>+ </b><a>1</a><b>])</b>
+<li>					tail<b>++;</b>
+<li>				tail<b>++;</b>
+<li>			<b>} </b><em>while </em><b>(</b>l<b>[</b>tail<b>] != </b>'\'' <b>&amp;&amp; </b>l<b>[</b>tail<b>]);</b>
+<li>			tail<b>++;</b>
+<li>			outputHTML<b>(</b>IDENTIFIER<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'/' <b>&amp;&amp; </b>l<b>[</b>tail <b>+ </b><a>1</a><b>] == </b>'/'<b>) {</b>
+<li>	<em>case </em>single_line_comment<b>:</b>
+<li>			line_state <b>= </b>l<b>[</b>len <b>- </b><a>1</a><b>] == </b>'\\' <b>?</b>
+<li>				single_line_comment <b>: </b>none<b>;</b>
+<li>			outputHTML<b>(</b>COMMENT<b>, </b>head<b>, </b>len<b>);</b>
+<li>			<em>return</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>l<b>[</b>tail<b>] == </b>'/' <b>&amp;&amp; </b>l<b>[</b>tail <b>+ </b><a>1</a><b>] == </b>'*'<b>) {</b>
+<li>			tail <b>+= </b><a>2</a><b>;</b>
+<li>	<em>case </em>multiple_line_comment<b>:</b>
+<li>			<i>/* repeat until the end of the multiple-line comment */</i>
+<li>			<em>while </em><b>(</b>l<b>[</b>tail<b>] != </b>'*' <b>|| </b>l<b>[</b>tail <b>+ </b><a>1</a><b>] != </b>'/'<b>) {</b>
+<li>				<em>if </em><b>(!</b>l<b>[</b>tail<b>]) {</b>
+<li>			<i>/* at the end of line, the multiple line comment will</i>
+<li><i>			continue */</i>
+<li>					line_state <b>= </b>multiple_line_comment<b>;</b>
+<li>					outputHTML<b>(</b>COMMENT<b>, </b>head<b>, </b>tail<b>);</b>
+<li>					<em>return</em><b>;</b>
+<li>				<b>}</b>
+<li>				tail<b>++;</b>
+<li>			<b>}</b>
+<li>			tail <b>+= </b><a>2</a><b>;</b>
+<li>			outputHTML<b>(</b>COMMENT<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>isdigit<b>(</b>l<b>[</b>tail<b>]) ||</b>
+<li>			<b>(</b>l<b>[</b>tail<b>] == </b>'.' <b>&amp;&amp; </b>isdigit<b>(</b>l<b>[</b>tail <b>+ </b><a>1</a><b>]))) {</b>
+<li>			<em>do </em><b>{</b>
+<li>				tail<b>++;</b>
+<li>				<em>if </em><b>(</b>toupper<b>(</b>l<b>[</b>tail<b>]) == </b>'E'
+<li>					<b>&amp;&amp; (</b>l<b>[</b>tail <b>+ </b><a>1</a><b>] == </b>'+'
+<li>					<b>|| </b>l<b>[</b>tail <b>+ </b><a>1</a><b>] == </b>'-'<b>)){</b>
+<li>					tail <b>+= </b><a>2</a><b>;</b>
+<li>				<b>}</b>
+<li>			<b>} </b><em>while </em><b>(</b>isalnum<b>(</b>l<b>[</b>tail<b>]) || </b>l<b>[</b>tail<b>] == </b>'.'<b>);</b>
+<li>			outputHTML<b>(</b>NUMBER<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>ispunct<b>(</b>l<b>[</b>tail<b>])) {</b>
+<li>			tail<b>++;</b>
+<li>			outputHTML<b>(</b>SYMBOL<b>, </b>head<b>, </b>tail<b>);</b>
+<li>			<em>continue</em><b>;</b>
+<li>		<b>}</b>
+<li>
+<li>		<em>if </em><b>(</b>l<b>[</b>tail<b>]) {</b>
+<li>			fputs<b>(</b><q>"Unknown Error"</q><b>, </b>stderr<b>);</b>
+<li>			<em>return</em><b>;</b>
+<li>		<b>}</b>
+<li>	<b>} </b><em>while </em><b>(</b>l<b>[</b>tail<b>]);</b>
+<li>
+<li>	line_state <b>= </b>none<b>;</b>
+<li><b>}</b>
+<li>
+<li><em>int </em>main<b>()</b>
+<li><b>{</b>
+<li>	printf<b>(</b>
+<li>		<q>"&lt;!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' "</q>
+<li>		<q>"'http://www.w3.org/TR/html4/strict.dtd'&gt;"</q>
+<li>		<q>"&lt;meta http-equiv=content-type "</q>
+<li>		<q>"content='text/html; charset=utf-8'&gt;" </q><i>/* charset=gb2312 */</i>
+<li>		<q>"&lt;style type='text/css'&gt;"</q>
+<li>		<q>"ol.devcppimitator i {color:#0078d7} "</q>
+<li>		<q>"ol.devcppimitator q "</q>
+<li>		<q>"{color:blue; font-weight:bold; quotes:none} "</q>
+<li>		<q>"ol.devcppimitator b {color:red} "</q>
+<li>		<q>"ol.devcppimitator em "</q>
+<li>		<q>"{color:black; font-weight:bold; font-style:normal} "</q>
+<li>		<q>"ol.devcppimitator a {color:purple} "</q>
+<li>		<q>"ol.devcppimitator p {display:inline; color:green} "</q>
+<li>		<q>"ol.devcppimitator li {white-space:pre} " </q><i>/* ; tab-size:4 */</i>
+<li>		<i>/* tab-size is in CSS3 */</i>
+<li>	<b>);</b>
+<li>	printf<b>(</b>
+<li>		<q>"ol.devcppimitator {width:800px; margin:0 auto; "</q>
+<li>		<q>"padding-left:60px; border:solid 1px; "</q>
+<li>		<q>"font-family:Consolas,'Courier New',monospace}"</q>
+<li>		<q>"&lt;/style&gt;"</q>
+<li>		<q>"&lt;title&gt;Dev-cpp Imitator&lt;/title&gt;"</q>
+<li>		<q>"&lt;div style='width:1000px; margin:0 auto; padding:10px;"</q>
+<li>		<q>"border:solid 1px'&gt;"</q>
+<li>		<q>"&lt;p&gt;The sample is as follows:\n"</q>
+<li>		<q>"&lt;ol class=devcppimitator&gt;\n"</q>
+<li>	<b>);</b>
+<li>
+<li>	<em>while </em><b>(</b>fgets<b>(</b>l<b>, </b><em>sizeof </em>l<b>, </b>stdin<b>)) {</b>
+<li>		printf<b>(</b><q>"&lt;li&gt;"</q><b>);</b>
+<li>		process_line<b>();</b>
+<li>
+<li>		<i>/* flush buffer */</i>
+<li>		outputHTML<b>(</b>IDENTIFIER<b>, </b><a>0</a><b>, </b><a>0</a><b>);</b>
+<li>
+<li>		<i>/* This is necessary, because an empty li element</i>
+<li><i>		doesn't occupy a line, resulting in copy failures. */</i>
+<li>		putchar<b>(</b>'\n'<b>);</b>
+<li>	<b>}</b>
+<li>
+<li>	printf<b>(</b><q>"&lt;/ol&gt;\n&lt;/div&gt;"</q><b>);</b>
+<li>	<em>return </em><a>0</a><b>;</b>
+<li><b>}</b>
+</ol>
+</div>
+
+<p style=text-indent:2em>编译与运行的方法：
+<p style=text-indent:2em>先把上面的代码全部复制下来，保存为a.c。
+<!--<dl><dt><dd>-->
+<!--<p style=text-indent:4em>-->
+<p style=text-indent:2em>在DOS/Windows上：
+<p style=padding-left:100px>先用Dev-C++等工具直接编译，然后在cmd命令行中输入（使用重定向的方法）<br><code>a.exe &lt; a.c &gt; a.htm</code>
+<p style=text-indent:2em>如果你用<!--的是-->PowerShell那么则是
+<!--<p style=padding-left:100px><code>Get-Content a.c | .\a.exe &gt; a.htm</code>-->
+<p style=padding-left:100px><code>Get-Content a.c | .\a.exe | Out-File a.htm -Encoding utf8</code>
+<p style=text-indent:2em>在Linux上：
+<p style=padding-left:100px><code>gcc a.c -o a.out<br>./a.out &lt; a.c &gt; a.htm</code>
+<p style=text-indent:2em>再用浏览器打开a.htm文件，就可以看到被高亮的代码了。
+<p style=text-indent:2em>最后将a.htm中的整个ol元素（<!--只占一整行-->每行代码都会在HTML文件当中占用一行，相当于<!--你-->从第二行复制到倒数第二行）粘贴到你网页的HTML代码中间去，记得在头部添加文档级样式表，或者以外部样式表的方式，就比如我网站的<a href="/theme02.css">theme02.css</a>。
