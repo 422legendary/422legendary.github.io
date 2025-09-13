@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang=zh>
+<meta http-equiv=content-type content="charset=utf-8">
+<meta http-equiv=content-language content=zh>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson15/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Sat, 13 Sep 2025 01:48:18 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+.div-inside{background-color:ivory;margin:20px auto;width:700px;padding:0 20px 0px 20px;border:dashed 1px}
+.div-outside{clear:both;background-color:white;margin:0 auto;width:800px;padding:0 20px 20px 20px;border:dashed aqua 2px}
+dfn{font-weight:bold}
+.inline-span{display:inline-block;vertical-align:middle}
+span.square{display:inline-block;height:22px;width:22px;border:solid 1px;margin:0px 4px 0px 4px;vertical-align:middle;margin-top:2px;margin-bottom:2px}
+</style>
+
+<title>第十五课　方程法解决和差倍与年龄问题</title>
+<body style="background-color:whitesmoke;font-size:10pt">
+<div style="width:1000px;margin:auto">
+<p style=float:left>Date:2025/09/13.<br>Ordinal: 15.
+<blockquote style="float:right;text-align:right;font-size:12pt"><div><cite>他横任他横，明月照大江。——《倚天屠龙记》</cite></div></blockquote>
+
+<div class=div-outside>
+<h1 style=text-align:center>方程法解决和差倍与年龄问题</h1>
+<p style=text-indent:2em>学了<a href="../lesson01/">第一课</a>和<a href="../lesson02/">第二课</a>，我们对小学应用题的方程解法已经初窥门径。这节课，我们将继续学习和差倍问题、年龄问题等各类杂题，同时在此过程中掌握多元一次方程的通用解法。至于牛吃草问题和放水问题等特殊专题，以后再说。
+<p style=text-indent:2em>有好多杂乱题型的“妖魔鬼怪”，你并不需要管它那么多。只需自己机械地把题面文字的条件、信息之间的数量关系翻译为方程算式，什么问题都迎刃而解了。学了方程就像是“卡bug”了一样，如果将题目转化为纯粹的计算，很容易就不明不白地把题给做了出来。所以有很多小学老师都说要禁用方程，注重数学思维。然而，列方程不正是数学建模的思想吗？重庆中考每年都专门<!--必定-->会有一道列解方程的题，高中的物理题则更是，如果不按照规范列物理公式然后写“解得”，而是直接列算式的话，甚至直接算错。到底方程有多重要，其实大家都心知肚明。
+
+<div class=div-inside>
+<p>
+<b>例⒈</b>　小学图书馆的图书中有５４本不是漫画书，有４２本不是科技书。该图书馆有漫画书和科技书共６０本，科技书和漫画书分别有多少本？
+<p>
+<b>解答</b>　用三根横线的等号来表示它们被定义为相同的含义（在学校不能用）。设ｘ≡漫画书的数量，ｙ≡科技书的数量，ｚ≡其他书的数量，那么
+<p style="margin-left:30px">
+<span class=inline-span style="font-size:40px">{</span>
+<span class=inline-span>ｙ＋ｚ＝５４　①<br>ｘ＋ｚ＝４２　②<br>ｘ＋ｙ＝６０　③</span>
+<p>
+解得
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｘ＝２４<br>ｙ＝３６</span>
+<p>
+因此科技书有３６本，漫画书是２４……等等，这个方程你可能还不知道该怎么解！其实①＋②＋③，就可以得到ｘ＋ｙ＋ｚ的值等于１５６÷２＝７８了。然后再拿①和②分别去减这个式子就行。这是第一个小技巧——<dfn>加减消元法</dfn>。可别掉以轻心，以为后面的题也会这么简单。那是因为测试的题目只考强者！顺带一提，这就是“和差倍问题”当中的“和问题”了，列出来的方程中只有加法。
+<hr>
+<p>
+<b>练习题</b>　树林里有几种树，有１５００棵树不是松树，１２００棵不是杨树，松树、杨树共７００棵。杨树和松树分别有多少棵？
+</div>
+
+<div class=div-inside>
+<p>
+<b>例⒉</b>　把９０米的绳子分成三段，要使后一段比前一段多３米，三段绳子的长度分别是多少米？
+<p>
+<b>解答</b>　ｘ≡第一段的长度，ｙ≡第二段，ｚ≡第三段。
+<p style="margin-left:30px">
+<span class=inline-span>⎧<br><br>⎨<br>⎩</span>
+<span class=inline-span>ｙ－ｘ＝３　　　　①<br>ｚ－ｙ＝３　　　　②<br>ｘ＋ｙ＋ｚ＝９０　③</span>
+<p>
+下面是方程的解法。先把①和②变形
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｙ＝ｘ＋３　　　　④<br>ｚ＝ｙ＋３　　　　⑤</span>
+<p>
+再把⑤和③中的ｙ全部替换成④式中的ｘ＋３
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｚ＝ｘ＋３＋３　　　　⑥<br>ｘ＋ｘ＋３＋ｚ＝９０　⑦</span>
+<p>
+将⑦中的ｚ按照⑥展开
+<p style="margin-left:30px">
+ｘ＋ｘ＋３＋ｘ＋３＋３＝９０
+<br>
+　　　　　　　　　　ｘ＝２７
+<p>
+再代回①和②中就能求出ｙ与ｚ。
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｘ＝２７<br>ｙ＝３０<br>ｚ＝３３</span>
+<p>
+<b>提示</b>　这就是所谓的和差问题。解方程的技巧称为<dfn>等量替换法</dfn>。
+<hr>
+<p>
+<b>练习题</b>　淘气、胖胖、小光共有１００本课外书，淘气比胖胖多２０本，胖胖比小光多１０本。淘气、胖胖、小光分别有课外书多少本？
+</div>
+
+<div class=div-inside>
+<p>
+<b>例⒊</b>　三个物体的平均重量是３１千克，甲物体比乙、丙两个物体重量之和轻１千克，乙物体比丙物体的２倍还重２千克。三个物体分别重多少千克？
+<p>
+<b>解答</b>　还是一样的流程啊，先来设ｘ≡甲，ｙ≡乙，ｚ≡丙。
+<p style="margin-left:30px">
+<span class=inline-span>⎧<br><br>⎨<br>⎩</span>
+<span class=inline-span><span class=frac><span class=underline>ｘ＋ｙ＋ｚ</span><br>３</span>＝３１　　①<br>ｘ＝ｙ＋ｚ－１　　　②<br>ｙ＝２ｚ＋２　　　　③</span>
+<p>
+还是采取等量替代法，不用多说。最终解得
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｘ＝４６<br>ｙ＝３２<br>ｚ＝１５</span>
+<p>
+<b>注意</b>　此乃和差倍综合问题。通常把题目中的“比”字，直接翻译成等于符号。
+<hr>
+<p>
+<b>练习题</b>　小明家购进４种水果，总重９５斤，其中苹果２０斤，苹果与梨的重量之和比香蕉与哈密瓜的重量之和少３斤，哈密瓜比香蕉的３倍轻３斤。梨、香蕉、哈密瓜分别重多少斤？
+</div>
+
+<div class=div-inside>
+<p>
+<b>例⒋（难度等级：★★）</b>　老陈有几个儿子，老陈的年龄是儿子们年龄和的４．５倍，而１年前，老陈的年龄是他的几个儿子年龄和的７倍。４年后，老陈的年龄就只有他几个儿子的年龄和的２倍，那么老陈有几个儿子？
+<p>
+<b>解答</b>　年龄问题的关键就在于年龄差是永远不会变的——哎呀，然而在这道题当中完全用不到。直接设老陈今年的年龄为ｘ，今年儿子们的年龄和是ｙ，他有ｚ个儿子。则：
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｘ＝４．５ｙ<br>ｘ－１＝７（ｙ－ｚ×１）<br>ｘ＋４＝２（ｙ＋ｚ×４）</span>
+<p>
+让我们先来化简一下：
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｘ＝４．５ｙ<br>ｘ－１＝７ｙ－７ｚ<br>ｘ＋４＝２ｙ＋８ｚ</span>
+<p>
+接着运用等量替代法，将ｘ代入下面两式：
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>４．５ｙ－１＝７ｙ－７ｚ<br>４．５ｙ＋４＝２ｙ＋８ｚ</span>
+<p>
+继续化简，并且两边各自乘二，变成整数，“好看”一些：
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>１４ｚ－２＝５ｙ<br>５ｙ＝１６ｚ－８</span>
+<p>
+继续等量代换就完了。最终解得
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>ｘ＝３６<br>ｙ＝８<br>ｚ＝３</span>
+<p>
+<b>注意</b>　４年以后，每个儿子增长４岁，他们的年龄和总共增长４ｚ岁。一年前也同理。
+<hr>
+<p>
+练习题要开始上强度了！
+<p>
+<b>练习题⒈</b>　Ｂ逝世于Ａ生日之后１２９年，Ａ逝世于公元１９００年，Ａ、Ｂ两人在世的年龄总和为１５０岁。请问Ｂ出生于公元多少年？
+<p>
+<b>练习题⒉</b>　１９９４年父亲的年龄是哥哥和弟弟年龄之和的４倍。２０００年父亲的年龄是哥哥和弟弟年龄之和的２倍。父亲出生在哪一年？
+<p>
+<b>练习题⒊</b>　兄弟两人比年龄。哥哥对弟弟说：“当我是你今年的岁数那一年，你刚刚３岁。”弟弟对哥哥说：“当我长到你今年的岁数时，你就是１５岁了。”哥哥和弟弟今年各多少岁？
+</div>
+
+<div class=div-inside>
+<p>
+<b>例⒌</b>　解方程。
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>２ｘ＋５ｙ＝３１　①<br>３ｘ＋２ｙ＝１９　②</span>
+<p>
+<b>解答</b>　假如想消ｘ，那么找到２和３的最小公倍数是６，然后①式乘３，②×２：
+<p style="margin-left:30px">
+<span class=inline-span>⎰<br>⎱</span>
+<span class=inline-span>６ｘ＋１５ｙ＝９３　③<br>６ｘ＋４ｙ＝３８　　④</span>
+<p>
+③－④解出ｙ＝５，于是ｘ＝３。
+<p>
+<b>方法</b>　首先化为最简形式，有分数的化为整数。然后将两个式子中ｘ或ｙ的系数变为一样，就能抵消了。我欲名为<dfn>找到最小公倍数来作为系数法</dfn>。这个名字有点长啊。
+<hr>
+<p>
+<b>练习题</b>　（我以后尽量少出这种很麻烦的计算题。这个主要是想让你了解通用解法。你可以使用计算器。）
+<p style="margin-left:30px">
+<span class=inline-span>⎧<br><br>⎨<br>⎩</span>
+<span class=inline-span><span class=frac><span class=underline>２</span><br>３</span>ｘ＋<span class=frac><span class=underline>５</span><br>４</span>ｙ＝<span class=frac><span class=underline>５０３</span><br>４００</span><br><span class=frac><span class=underline>５</span><br>８</span>ｘ－<span class=frac><span class=underline>４</span><br>７</span>ｚ＝－２<span class=frac>３７<br><span class=overline>２１０</span></span><br>ｙ＋ｚ－<span class=frac>３７<br><span class=overline>３００</span></span>＝２ｘ＋４</span>
+</div>
+</div>
+
+<div class=div-outside style=margin-top:30pt>
+<h1 style=text-align:center>测验</h1>
+<div class=div-inside>
+<p>
+<b>题目⒈</b>　有两箱矿泉水，如果从乙箱拿出６０瓶放进甲箱，两箱的矿泉水就同样多；如果从甲箱拿出４０瓶放到乙箱，乙箱里的矿泉水瓶数就是甲箱的２倍多４０瓶。甲、乙两箱原来分别有多少瓶矿泉水？
+<p>
+<b>题目⒉</b>　一群学生去水电站参加社会实践活动，男生戴白色安全帽，女生戴红色安全帽。休息时，他们坐在一起，大家发现了一个有趣的现象，每位男生看到白色与红色的安全帽一样多，而每位女生看到白色的安全帽是红色安全帽的２倍。这群学生共有多少人？
+<p>
+<b>题目⒊</b>　从１~６中选出５个数填入<span class=square></span>中，使得算式：<span class=square></span>＋（<span class=square></span>－<span class=square></span>）×（<span class=square></span>÷<span class=square></span>）的得数尽可能地大，这个最大值是____。
+<p>
+<b>题目⒋</b>　某镇水库的可用水量为１２０００万立方米，假设年降水量不变，能维持该镇１６万人２０年的用水量，实施城市化建设，新迁入４万人后，水库只够维持居民１５年的用水量。每人年平均用水量多少立方米？
+<p>
+<b>题目⒌</b>　第一小组有６名少先队员，其中２名组长（正、副各一人）现在选派４名少先队员去参加劳动，如果<b>至少</b>有一个组长在内，共有多少种选法？
+</div>
+</div>
+
+</div>
