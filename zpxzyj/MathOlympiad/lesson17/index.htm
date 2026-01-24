@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson17/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Sat, 24 Jan 2026 09:01:34 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第十七课　数论（二）</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.6;
+	color: var(--dark-color);
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	padding-bottom: 40px;
+	min-height: 100vh;
+	}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+@media (min-width: 992px) {
+	.main-content {
+		grid-template-columns: 2fr 1fr;
+	}
+}
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.sidebar section {
+	background-color: rgba(255, 255, 255, 0.95);
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+.math-symbol {
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: var(--secondary-color);
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2.2rem;
+	}
+
+	section {
+		padding: 20px;
+	}
+
+	.feature-box {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.feature-icon {
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+
+	.math-container {
+		font-size: 0.9rem;
+		padding: 15px;
+	}
+}
+
+
+h3.roman-numeral {
+	color: #2c3e50;
+	font-size: 2rem;
+	margin-bottom: 10px;
+	position: relative;
+	display: inline-block;
+}
+
+h3.roman-numeral:after {
+	content: '';
+	position: absolute;
+	width: 60%;
+	height: 4px;
+	background: linear-gradient(to right, #3498db, #2c3e50);
+	bottom: -10px;
+	left: 20%;
+	border-radius: 2px;
+}
+
+.subtitle {
+	color: #7f8c8d;
+	font-size: 1.1rem;
+	margin-top: 15px;
+}
+
+.instructions {
+	background: #f1f8ff;
+	border-left: 4px solid #3498db;
+	padding: 15px 20px;
+	margin-bottom: 30px;
+	border-radius: 0 8px 8px 0;
+}
+
+.instructions h3 {
+	color: #2c3e50;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.instructions h3:before {
+	content: "💡";
+	margin-right: 10px;
+}
+
+.table-container {
+	border-spacing: 0;
+	overflow-x: auto;
+	margin: 25px auto;
+	border-radius: 8px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+	background: linear-gradient(to right, #2c3e50, #4a6491);
+	color: white;
+}
+
+thead th {
+	padding: 22px 12px;
+	font-weight: 600;
+	font-size: 1.2rem;
+	position: relative;
+}
+
+.row-header {
+	background: #f8f9fa;
+	color: #e74c3c;
+	border-right: 2px solid #eaeaea;
+	font-size: 1.15rem;
+	position: relative;
+	padding: 10px;
+}
+
+.row-header:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 10%;
+	height: 80%;
+	width: 2px;
+	background: #3498db;
+}
+
+thead th:first-child {
+	border-radius: 8px 0 0 0;
+}
+
+thead th:last-child {
+	border-radius: 0 8px 0 0;
+}
+
+thead th:not(:first-child) {
+	border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+</style>
+
+<header>
+<h1>数论（二）——位值原理、进制转换与同余、周期问题</h1>
+<p>ＡＩ给我生成了平滑圆角造型的Ｈ５网页。柔和平面风格更符合现代审美。不过本质结构都还一样。数学公式用了MathML。
+<p><a href="../lesson07/">第七课</a>就是数论（一）。进制转换与位值原理，去年７月２７稍微在纸上讲过。但今天正式来一次。位值原理是整除特征的基础。同余是周期问题的基础，以前第七课因数与倍数是余数为０的情况。周期问题是不定方程的基础。
+<p>小学阶段，只用学二进制到九进制。
+</header>
+
+<div style="max-width:1200px;margin:0 auto;padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>∑</span> ｒ进制数转十进制数</h2>
+<div class=question>例⒈　把七进制数３２６１０转化为十进制数。</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<h3>解答</h3>
+	<p>表示３２６１０是七进制数用３２６１０<sub>７</sub>。几进制就是逢几进一。七进制数，个位数７次后进第２位，第２位的１表示７。第２位数７次后进第３位，第３位的１表示７×７＝４９。第３位数７次后进第４位，第４位的１表示４９×７＝３４３……以此类推。
+	</div>
+</div>
+<div class=math-container>
+<math>
+	<msub><mrow><mo>(</mo><mn>32610</mn><mo>)</mo></mrow><mn>7</mn></msub>
+	<mo>=</mo>
+	<msup><mn>7</mn><mn>4</mn></msup><mo>×</mo><mn>3</mn>
+	<mo>+</mo>
+	<msup><mn>7</mn><mn>3</mn></msup><mo>×</mo><mn>2</mn>
+	<mo>+</mo>
+	<msup><mn>7</mn><mn>2</mn></msup><mo>×</mo><mn>6</mn>
+	<mo>+</mo>
+	<mn>7</mn><mo>×</mo><mn>1</mn>
+	<mo>+</mo>
+	<mn>0</mn>
+	<mo>=</mo>
+	<mn>8190</mn>
+</math>
+</div>
+<div class=exercise>练习题　把１２４４０３４３２<sub>５</sub>转成十进制数。（你的计算器呢？掏出来啊！！）<input type=button value="检验答案" onclick="alert('６２２３６７')"></div>
+</section>
+
+<section>
+<h2><span class=icon>∫</span> 十进制数转ｒ进制数</h2>
+<div class=question>例⒉　把６７１０２转化为六进制数。</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<h3>解答</h3>
+	<p>先把６７１０２放到六进制数的个位，可是六进制数的个位只能是０到５，逢６就要进１。那么６７１０２要进多少次１呢？
+	</div>
+</div>
+<div class=math-container>
+<math>
+	<mn>67102</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>11183</mn><mo>......</mo><mn>4</mn>
+</math>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<p>１１１８３次。余下的４就是个位。１１１８３再放到第二位，每有一个６就得向第三位进１。
+	</div>
+</div>
+<div class=math-container>
+<math>
+	<mn>11183</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>1863</mn><mo>......</mo><mn>5</mn>
+</math>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<p>第三位现在是１８６３。余数５是第二位。以此类推，继续“延展”到更高位。
+	</div>
+</div>
+<div class=math-container>
+<p>
+<math>
+	<mn>1863</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>310</mn><mo>......</mo><mn>3</mn>
+</math>
+<p>
+<math>
+	<mn>310</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>51</mn><mo>......</mo><mn>4</mn>
+</math>
+<p>
+<math>
+	<mn>51</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>8</mn><mo>......</mo><mn>3</mn>
+</math>
+<p>
+<math>
+	<mn>8</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>1</mn><mo>......</mo><mn>2</mn>
+</math>
+<p>
+<math>
+	<mn>1</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>0</mn><mo>......</mo><mn>1</mn>
+</math>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<p>称为<dfn>除<b>ｒ</b>取余法</dfn>。把所得的余数序列倒过来写，就是答案：１２３４３５４。
+	</div>
+</div>
+<div class=exercise>练习题　把５０７６４转化为九进制数。<input type=button value="检验答案" onclick="alert('７６５６４')"></div>
+</section>
+
+<section>
+<h2><span class="icon">∆</span> 罗马数字与位值原理</h2>
+<div class=question>例⒊　罗马数字ＭＭＣＤＸＬＩＩ是多少？</div>
+<div class=feature-box>
+	<div class=feature-icon>∀</div>
+	<div>
+	<h3>意义</h3>
+	<p>了解罗马数字，更好体会“位权”。
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>π</div>
+	<div style="text-align:center;width:100%;border-bottom:2px solid #eaeaea">
+	<h3 style=text-align:left>资料</h3>
+	<h3 class=roman-numeral>罗马数字转换表</h3>
+	<p class=subtitle>十进制数字与罗马数字对应关系表</p>
+	<div class=instructions>
+		<h3>使用说明</h3>
+		<p>此表展示了１－３９９９的数字如何转换为罗马数字。表格左侧为位数（个、十、百、千），上方为数字（１－９），交叉处为对应的罗马数字表示。
+	</div>
+	<table class=table-container>
+		<thead>
+		<tr><th><th>１<th>２<th>３<th>４<th>５<th>６<th>７<th>８<th>９
+		</thead>
+		<tr><td class=row-header>个位<td>Ｉ<td>ＩＩ<td>ＩＩＩ<td>ＩＶ<td>Ｖ<td>ＶＩ<td>ＶＩＩ<td>ＶＩＩＩ<td>ＩＸ
+		<tr><td class=row-header>十位<td>Ｘ<td>ＸＸ<td>ＸＸＸ<td>ＸＬ<td>Ｌ<td>ＬＸ<td>ＬＸＸ<td>ＬＸＸＸ<td>ＸＣ
+		<tr><td class=row-header>百位<td>Ｃ<td>ＣＣ<td>ＣＣＣ<td>ＣＤ<td>Ｄ<td>ＤＣ<td>ＤＣＣ<td>ＤＣＣＣ<td>ＣＭ
+		<tr><td class=row-header>千位<td>Ｍ<td>ＭＭ<td>ＭＭＭ<td><td><td><td><td><td>
+	</table>
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<h3>解释</h3>
+	<p>ＭＭ是２０００，ＣＤ是４００，ＸＬ是４０，ＩＩ是２。因此ＭＭＣＤＸＬＩＩ就是２４４２。
+	</div>
+</div>
+<div class=exercise>练习题　罗马数字ＭＣＣＣＬＸＶＩＩ是多少？<input type=button value="检验答案" onclick="alert('１３６７')"></div>
+</section>
+
+<section>
+<h2><span class="icon">∆</span> 同余的性质</h2>
+<div class=question>例⒋　－２除以３的余数是多少？</div>
+<div class=feature-box>
+	<div class=feature-icon>∀</div>
+	<div>
+	<h3>概念</h3>
+	<p>当<math><mrow><mi>x</mi><mo>mod</mo><mi>z</mi><mo>=</mo><mi>y</mi><mo>mod</mo><mi>z</mi></mrow></math>，我们说<math><mrow><mi>x</mi><mo>≡</mo><mi>y</mi><mo>(mod</mo><mi>z</mi><mtext>)</mtext></mrow></math>。读作“ｘ与ｙ模ｚ同余”。例如４３和５８除以３的余数都是１，就说<math><mrow><mi>43</mi><mo>≡</mo><mi>58</mi><mo>≡</mo><mi>1</mi><mo>(mod</mo><mi>3</mi><mtext>)</mtext></mrow></math>。两个同余等式可以相加减或相乘。（我可没说过可以做除法。）
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>π</div>
+	<div>
+	<h3>解答</h3>
+	<p>我们知道
+	<div class=math-container><math><mrow><mo>{</mo><mtable columnalign="left left" rowspacing="4pt"><mtr><mtd><mn>-2</mn><mo>≡</mo><mn>-2</mn><mo>(mod</mo><mn>3</mn><mtext>)</mtext></mtd><mtd><mtext>①</mtext></mtd></mtr><mtr><mtd><mn>0</mn><mo>≡</mo><mn>3</mn><mo>(mod</mo><mn>3</mn><mtext>)</mtext></mtd><mtd><mtext>②</mtext></mtd></mtr></mtable></mrow></math></div>
+	<p>①＋②得
+	<div class=math-container><math><mrow><mi>-2</mi><mo>≡</mo><mi>1</mi><mo>(mod</mo><mi>3</mi><mtext>)</mtext></mrow></math></div>
+	<p>也就是说，－２除以３的余数和１除以３的余数一样。答案就是１。
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>!</div>
+	<div>
+	<h3>启发</h3>
+	<p>余数与除数同号。被除数可增减除数任意多次，余数不变。
+	</div>
+</div>
+<div class=exercise>练习题　<math><mrow><mi>-100</mi><mo>mod</mo><mi>7</mi></mrow></math>是多少？<input type=button value="检验答案" onclick="alert('５')"></div>
+</section>
+
+<section>
+<h2><span class="icon">∆</span> 周期问题与同余的用途</h2>
+<div class=question>例⒌　小静把同样大小的红、白、黑珠子按照先３个红的，再２个白的，后１个黑的规律排列。请你算一算，第３０个珠子是什么颜色的？</div>
+<div class=feature-box>
+	<div class=feature-icon>π</div>
+	<div>
+	<h3>解答</h3>
+	<p>一个周期６颗珠子，模数就是６。
+	<div class=math-container><math><mrow><mi>30</mi><mo>≡</mo><mi>6</mi><mo>(mod</mo><mi>6</mi><mtext>)</mtext></mrow></math></div>
+	<p>第３０个珠子的颜色与第６颗相同，因此是黑色。
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>?</div>
+	<div>
+	<h3>趣闻</h3>
+	<p>其实周期问题早在<a href="../lesson03/test/">第三课的考试</a>中就做过。
+	</div>
+</div>
+<div class=exercise>练习题　昨天是６号，星期一，到３１号是星期几？<input type=button value="检验答案" onclick="alert('星期五')"></div>
+</section>
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>#</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年１月２４日（星期六）<br>序号：１７
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>"</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"一人，一家，一团体，一地方，乃至一国，不少单位都没有能跳出这周期率的支配力。"<br>
+	<span style="float:right;font-size:0.9rem">—— 历史周期率</span>
+	</div>
+</section>
+
+<section>
+	<h2><span class="icon">∀</span> ｒ进制数转十进制数</h2>
+	<div class=question>题目⒈　把１１１６２<sub>８</sub>转化为十进制数。<input type=button value="检验答案" onclick="alert('４７２２')"></div>
+</section>
+                
+<section>
+	<h2><span class="icon">∀</span> 十进制数转ｒ进制数</h2>
+	<div class=question>题目⒉　把３４８３转化为四进制数。<input type=button value="检验答案" onclick="alert('３１２１２３')"></div>
+</section>
+                
+<section>
+	<h2><span class="icon">∀</span> 追及问题</h2>
+	<div class=question>题目⒊　甲、乙两艘货轮分别从相距２５千米的两个码头向下游开出。甲轮每小时行３０千米，乙轮每小时行２５千米，甲轮需几小时赶上乙轮？<input type=button value="检验答案" onclick="alert('５小时')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">∀</span> 周期问题</h2>
+	<div class=question>题目⒋　把１～３５号卡片依次发给小红、小东、小静、小华四个人。已知１号发给小红，３０号应该发给谁？<input type=button value="检验答案" onclick="alert('小东')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">∀</span> 组合数</h2>
+	<div class=question>题目⒌　张者的iPad上有这些游戏：和平精英、王者荣耀、蛋仔派对、猫和老鼠、原神、第五人格、穿越火线、我的狗狗、欢乐披萨店、喷射大作战，荒野大镖客、以及黑暗与光明杀者神。如果空间不够了，必须要删除四款游戏，那么有多少种可能？<input type=button value="检验答案" onclick="alert('４９５')"></div>
+</section>
+</aside>
+
+</div>
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+</div>
