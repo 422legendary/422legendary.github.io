@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson18/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Sat, 14 Feb 2026 02:54:03 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第十八课　几何（三）</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	padding-bottom: 40px;
+	min-height: 100vh;
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+img {
+	display: block;
+}
+
+
+	.main-content {
+		grid-template-columns: 2fr 1fr;
+	}
+
+</style>
+
+<body>
+<div class=all style="width: 1450px;margin:0 auto;">
+<header>
+<h1>几何（三）——比例、等高模型与等积变形</h1>
+<p>以后还会继续学习鸟头模型、燕尾模型和风筝模型等等。这节课先学基础的。
+</header>
+<!--max-width:1200px;margin:0 auto;-->
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>∑</span> 比例</h2>
+<div class=question>例⒈　法国巴黎的埃菲尔铁塔高度约３２０ｍ。北京的世界公园里有一座埃菲尔铁塔的模型，它的高度与原塔高度的比是１ : １０。这座模型高多少米？</div>
+<div class=feature-box>
+	<div class=feature-icon>∀</div>
+	<div>
+	<h3>概念</h3>
+	<p>例如<math><mrow><mn>2.4</mn><mo> :</mo><mn>1.6</mn><mo>=</mo><mn>60</mn><mo> :</mo><mn>40</mn></mrow></math>，冒号是<dfn>比</dfn>，相当于除号。这个<dfn>比例</dfn>表示<math><mrow><mfrac><mn>2.4</mn><mn>1.6</mn></mfrac><mo>=</mo><mfrac><mn>60</mn><mn>40</mn></mfrac></mrow></math>。
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>∞</div>
+	<div>
+	<h3>解答</h3>
+	<p>设模型高<math><mi>x</mi></math>米，则<math><mrow><mi>x</mi><mo> :</mo><mn>320</mn><mo>=</mo><mn>1</mn><mo> :</mo><mn>10</mn></mrow></math>。如果<math><mi>x</mi></math>是<math><mn>1</mn></math>份，那么<math><mn>320</mn></math>就是<math><mn>10</mn></math>份。答案是３２米。
+	</div>
+</div>
+<div class=exercise>练习题　餐馆给餐具消毒，要用１００ｍＬ消毒液配成消毒水，如果消毒液与水的比是１ : １５０，应加入水多少毫升？<input type=button value="检验答案" onclick="alert('１５０００毫升')"></div>
+</section>
+
+<section>
+<h2><span class=icon>∫</span> 等高模型</h2>
+<div class=question>例⒉　Ｓ<sub>ΔＡＢＣ</sub>＝６２０，ＢＣ : ＣＤ＝１ : ２。三角形ＡＣＤ的面积是多少？<div id=imgview1><img alt=P1 src=P1.png width=620 height=440></div></div>
+<script>var imgview1_n=0, imgview1_div=document.getElementById('imgview1');imgview1_arr=['<img alt=P1 src=P1.png width=620 height=440>','<img alt=P2 src=P2.png width=620 height=440>'];</script>
+<div class=feature-box>
+	<div class=feature-icon>∀</div>
+	<div>
+	<h3>模型</h3>
+	<p>请<input type=button value="切换" onclick="if(imgview1_n){imgview1_div.innerHTML=imgview1_arr[0];}else{imgview1_div.innerHTML=imgview1_arr[1];}imgview1_n=!imgview1_n;">到第二页。ΔＡＢＣ与ΔＡＣＤ的高都是ＡＨ，这叫做<dfn>等高模型</dfn>。由于
+
+	<div class=math-container>
+	<math><mrow><msub><mi>S</mi><mrow><mi mathvariant="normal">△</mi><mi>ABC</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>BC</mi><mo>·</mo><mi>AH</mi></mrow><mn>2</mn></mfrac></mrow></math>
+	<div style=height:10px></div>
+	<math><mrow><msub><mi>S</mi><mrow><mi mathvariant="normal">△</mi><mi>ACD</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>CD</mi><mo>·</mo><mi>AH</mi></mrow><mn>2</mn></mfrac></mrow></math>
+	</div>
+	<p>因此，比例左右两边同时除以<math><mrow><mfrac><mi>AH</mi><mn>2</mn></mfrac></mrow></math>：
+
+	<div class=math-container>
+	<math><mrow><msub><mi>S</mi><mrow><mi mathvariant="normal">△</mi><mi>ABC</mi></mrow></msub><mo> :</mo><msub><mi>S</mi><mrow><mi mathvariant="normal">△</mi><mi>ACD</mi></mrow></msub>
+	<mo>=</mo>
+	<mfrac><mrow><mi>BC</mi><mo>·</mo><mi>AH</mi></mrow><mn>2</mn></mfrac>
+	<mo> :</mo>
+	<mfrac><mrow><mi>CD</mi><mo>·</mo><mi>AH</mi></mrow><mn>2</mn></mfrac>
+	<mo>=</mo>
+	<mi>BC</mi><mo> :</mo>
+	<mi>CD</mi>
+	</mrow></math>
+	</div>
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>π</div>
+	<div>
+	<h3>解答</h3>
+	<p><math>
+	<mrow><msub><mi>S</mi><mrow><mi mathvariant="normal">△</mi><mi>ABC</mi></mrow></msub><mo> :</mo><msub><mi>S</mi><mrow><mi mathvariant="normal">△</mi><mi>ACD</mi></mrow></msub>
+	<mo>=</mo>
+	<mi>1</mi>
+	<mo> :</mo>
+	<mi>2</mi>
+	</mrow>
+	</math>。Ｓ<sub>ΔＡＣＤ</sub>＝１２４０。
+	</div>
+</div>
+<div class=exercise>练习题　如图，ΔＡＢＣ的面积为６０平方厘米，ＡＥ＝ＥＣ，ＢＤ＝<span class=frac>１<br><span class=overline>３</span></span>ＢＣ。那么ΔＢＤＥ的面积是多少？<input type=button value="检验答案" onclick="alert('１０平方厘米')"></div>
+<img alt=P3 src=P3.png width=620 height=570>
+</section>
+
+<section>
+<h2><span class=icon>∆</span> 等积变形</h2>
+<div class=question>例⒊　如图所示：四边形ＡＢＣＤ和四边形ＣＥＦＧ都是正方形，且正方形ＡＢＣＤ的边长是１０厘米，ΔＢＦＤ的面积是多少平方厘米？<div id=imgview2><img alt=P8 src=P8.png width=620 height=390></div></div>
+<script>var imgview2_n=0, imgview2_div=document.getElementById('imgview2');imgview2_arr=['<img alt=P8 src=P8.png width=620 height=390>','<img alt=P9 src=P9.png width=620 height=390>'];</script>
+<div class=feature-box>
+	<div class=feature-icon>∀</div>
+	<div>
+	<h3>诀窍</h3>
+	<p><input type=button value="切换" onclick="if(imgview2_n){imgview2_div.innerHTML=imgview2_arr[0];}else{imgview2_div.innerHTML=imgview2_arr[1];}imgview2_n=!imgview2_n;">
+	<p>ΔＢＦＤ和ΔＢＣＤ的底都是ＢＤ，而且它们的高也相等（因为ＢＤ与ＣＦ平行，平行线间的距离处处相等）。所以ΔＢＦＤ变形为ΔＢＣＤ，面积不变。答案是５０平方厘米。
+	<p>跳转到抖音查看长知识棒棒小视频：<a href="https://www.douyin.com/video/7505811329694911781">https://www.douyin.com/video/7505811329694911781</a>
+	</div>
+</div>
+<div class=exercise>练习题　下图是五个面积为３平方厘米的小正方形组成的，图中阴影部分的面积是多少平方厘米？<input type=button value="检验答案" onclick="alert('４.５平方厘米')"></div>
+<img alt=P7 src=P7.png width=590 height=590>
+</section>
+
+<section>
+<h2><span class=icon>🔢</span> 逆用等高模型</h2>
+<div class=question>例⒋　如图所示：在ΔＡＢＣ中，ΔＡＤＥ、ΔＤＣＥ、ΔＢＣＤ的面积分别是８９平方厘米、２８平方厘米、２６平方厘米。ΔＢＤＥ的面积是多少平方厘米？<img alt=P11 src=P11.png width=640 height=450></div>
+<div class=feature-box>
+	<div class=feature-icon>∀</div>
+	<div>
+	<h3>解答</h3>
+	<p>ΔＡＤＣ和ΔＢＣＤ是等高模型，因此ＡＤ : ＤＢ＝ＳΔＡＤＣ : ＳΔＢＣＤ＝９ : ２。ΔＡＤＥ跟ΔＢＤＥ又是另一个等高模型，因此ＳΔＡＤＥ : ＳΔＢＤＥ＝ＡＤ : ＤＢ＝９ : ２。ＳΔＢＤＥ＝<span class=frac><span class=underline>１７８</span><br>９</span>。
+	</div>
+</div>
+<div class=exercise>练习题　如图所示：在ΔＡＢＣ中，ΔＡＢＤ、ΔＡＤＥ、ΔＥＤＣ的面积分别是２０平方厘米、２２平方厘米、２６平方厘米。ΔＢＤＥ的面积是多少平方厘米？<input type=button value="检验答案" onclick="alert('６５／６平方厘米')"></div>
+<img alt=P12 src=P12.png width=620 height=460>
+</section>
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>#</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年２月１４日（星期六）<br>序号：１８
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>"</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"数学中的比例，不仅仅是数字的和谐，更是宇宙秩序的呈现"<br>
+	<span style="float:right;font-size:0.9rem">—— 毕达哥拉斯</span>
+	</div>
+	<p>（AI说的，我也不知道是不是真的说过。）
+</section>
+
+<section>
+	<h2><span class="icon">💫</span> 比例</h2>
+	<div class=question>题目⒈　假设某种混凝土的配方中，水泥、沙子和石子的比是２ : ３ : ５。要搅拌２０ｔ这样的混凝土，需要水泥、沙子和石子各多少吨？<input type=button value="检验答案" onclick="alert('水泥４吨，沙子６吨，石子１０吨。')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">✏️</span> 等高模型</h2>
+	<div class=question>题目⒉　三角形ＡＢＣ各部分的面积如右图，则“？”部分的面积是多少？<input type=button value="检验答案" onclick="alert('６')"><img alt=P4 src=P4.png width=630 height=500></div>
+</section>
+
+<section>
+	<h2><span class="icon">🧠</span> 罗马数字与位值原理</h2>
+	<div class=question>题目⒊　将２７９转为罗马数字。<input type=button value="检验答案" onclick="alert('ＣＣＬＸＸＩＸ')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">📌</span> 等高模型与等积变形的混合题型</h2>
+	<div class=question>题目⒋　在梯形ＡＢＣＤ中，ＢＥ＝２ＥＣ，ＣＦ＝２ＡＦ，阴影部分的面积为３平方厘米，则梯形的面积为多少平方厘米？（提示：根据等积变形，由于Ｓ<sub>ΔＡＢＣ</sub>＝Ｓ<sub>ΔＤＢＣ</sub>，同时减去共有的部分ΔＦＢＣ，可以得到Ｓ<sub>ΔＡＦＢ</sub>＝Ｓ<sub>ΔＤＦＣ</sub>。）<input type=button value="检验答案" onclick="alert('２０.２５平方厘米')"><img alt=P6 src=P6.png width=620 height=270></div>
+</section>
+
+<section>
+	<h2><span class="icon">⭐</span> 方程法解决应用问题</h2>
+	<div class=question>题目⒌　某厂生产甲、乙两种文创产品。每天生产甲种文创产品的数量比每天生产乙种文创产品的数量多５０个，３天时间生产的甲种文创产品的数量比４天时间生产的乙种文创产品的数量多１００个。求该厂每天生产的甲、乙文创产品数量分别是多少个？<input type=button value="检验答案" onclick="alert('甲１００个，乙５０个。')"></div>
+</section>
+</aside>
+</div>
+
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+
+</div>
