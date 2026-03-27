@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson19/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Fri, 27 Mar 2026 02:47:15 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第十九课　杂题集（二）</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	padding-bottom: 40px;
+	min-height: 100vh;
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+.main-content {
+	grid-template-columns: 2fr 1fr;
+}
+
+</style>
+
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+<div class=all style="width: 1450px;margin:0 auto;">
+<header>
+<h1>将军<ruby>饮<rt>yìn</rt></ruby>马<span style=color:gray>和</span>一笔画</h1>
+<p>今天学《杂题集（二）》，将军饮马和一笔画的题型。
+</header>
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>🐴</span> 将军饮马模型</h2>
+<div class=question>例⒈　将军在Ａ点。他要先骑马去河边，给马喝水，然后再去Ｂ点。怎么走最短？<div style="text-align:center;display:inline-block;"><div style="width:470px;height:396px;border-radius:8px;box-shadow:0 5px 15px rgba(0, 0, 0, 0.2);" id=imgview1><img alt=P1 src=P1.svg></div>
+<div id=step1>第１页，共５页</div>
+<input type=button value="上一步" onclick="if(imgview1_n){imgview1_div.innerHTML=imgview1_arr[--imgview1_n];step1_div.innerHTML=step1_arr[imgview1_n];}">
+<input type=button value="下一步" onclick="if(imgview1_n+1<imgview1_arr.length){imgview1_div.innerHTML=imgview1_arr[++imgview1_n];step1_div.innerHTML=step1_arr[imgview1_n];}">
+</div></div>
+<script>var imgview1_n=0, imgview1_div=document.getElementById('imgview1');imgview1_arr=[
+'<img alt=P1 src=P1.svg>',
+'<img alt=P2 src=P2.svg>',
+'<img alt=P3 src=P3.svg>',
+'<img alt=P4 src=P4.svg>',
+'<img alt=P5 src=P5.svg>',
+],
+step1_div=document.getElementById('step1');step1_arr=[
+'第１页，共５页',
+'第２页，共５页',
+'第３页，共５页',
+'第４页，共５页',
+'第５页，共５页',
+];
+</script>
+<div class=feature-box>
+	<div class=feature-icon>🪞</div>
+	<div>
+	<h3>分析</h3>
+	<p>求ＰＡ＋ＰＢ的最小值。将ＰＡ沿着河的那条直线<dfn>反射变换</dfn>，变成ＰＣ。反射变换是什么意思呢？就像王者荣耀里镜的镜像嘛，河就理解为大招见影的那个中轴。于是ＰＡ与ＰＣ轴对称，长度相等。因此ＰＡ＋ＰＢ＝ＰＣ＋ＰＢ。两点之间线段最短，所以想要ＰＣ＋ＰＢ最短，就让Ｐ点移动到ＢＣ连线的地方。
+	</div>
+</div>
+<div class=exercise>练习题　如图，现在想在公路上建一个大巴停靠站，在哪建，Ａ、Ｂ两村的人到停靠站走的路最短？（画出示意图）<br><img alt=P6 src=P6.svg></div>
+</section>
+
+<section>
+<h2><span class=icon>🏇</span> 将军饮马变化</h2>
+<div class=question>例⒉　将军要从Ａ地去Ｂ地。过河时必须垂直过。怎样走路程最短？
+<div style="text-align:center;display:inline-block"><div style="width:470px;height:396px;border-radius:8px;box-shadow:0 5px 15px rgba(0, 0, 0, 0.2);" id=imgview2><img alt=P8 src=P8.svg></div>
+<div id=step2>第１页，共５页</div>
+<input type=button value="上一步" onclick="if(imgview2_n){imgview2_div.innerHTML=imgview2_arr[--imgview2_n];step2_div.innerHTML=step2_arr[imgview2_n];}">
+<input type=button value="下一步" onclick="if(imgview2_n+1<imgview2_arr.length){imgview2_div.innerHTML=imgview2_arr[++imgview2_n];step2_div.innerHTML=step2_arr[imgview2_n];}">
+</div></div>
+<script>var imgview2_n=0, imgview2_div=document.getElementById('imgview2');imgview2_arr=[
+'<img alt=P8 src=P8.svg>',
+'<img alt=P9 src=P9.svg>',
+'<img alt=P10 src=P10.svg>',
+'<img alt=P11 src=P11.svg>',
+'<img alt=P12 src=P12.svg>',
+],
+step2_div=document.getElementById('step2');step2_arr=[
+'第１页，共５页',
+'第２页，共５页',
+'第３页，共５页',
+'第４页，共５页',
+'第５页，共５页',
+];
+</script>
+<div class=feature-box>
+	<div class=feature-icon>🏞️</div>
+	<div>
+	<h3>分析</h3>
+	<p>求ＡＭ＋ＭＮ＋ＮＢ的最小值。ＭＮ的长度不变，所以就是求ＡＭ＋ＮＢ的最小值。将ＡＭ平移到ＣＮ，则ＡＭ＋ＮＢ＝ＣＮ＋ＮＢ≤ＣＢ。Ｎ点在ＣＢ上时最短。
+	</div>
+</div>
+<div class=exercise>练习题　将军在Ａ点。他要先骑马去河边，沿着河岸走一段路（固定长度），然后再去Ｂ点。怎么走最短？<br><img alt=P13 src=P13.svg></div>
+</section>
+
+<section>
+<h2><span class=icon>✏️</span> 一笔画</h2>
+<div class=question>例⒊　这是七桥问题。是否能不重复地走过所有的桥？
+<div style="width:700px">
+	<div style="text-align:center;display:inline-block;overflow:auto;width:700px;border-radius:8px;box-shadow:0 5px 15px rgba(0, 0, 0, 0.2);">
+		<div style="height:396px;" id=imgview3><img alt=P15 src=P15.png width=981 height=333></div>
+	</div>
+	<div style=text-align:center>
+		<div id=step3>第１页，共２页</div>
+		<input type=button value="上一步" onclick="if(imgview3_n){imgview3_div.innerHTML=imgview3_arr[--imgview3_n];step3_div.innerHTML=step3_arr[imgview3_n];}">
+		<input type=button value="下一步" onclick="if(imgview3_n+1<imgview3_arr.length){imgview3_div.innerHTML=imgview3_arr[++imgview3_n];step3_div.innerHTML=step3_arr[imgview3_n];}">
+	</div>
+</div>
+</div>
+
+<script>var imgview3_n=0, imgview3_div=document.getElementById('imgview3');imgview3_arr=[
+'<img alt=P15 src=P15.png width=981 height=333>',
+'<img alt=P16 src=P16.png width=981 height=333>',
+],
+step3_div=document.getElementById('step3'),step3_arr=[
+'第１页，共２页',
+'第２页，共２页',
+];
+</script>
+<div class=feature-box>
+	<div class=feature-icon>🌉</div>
+	<div>
+	<h3>概念</h3>
+	<p><dfn>奇数点</dfn>发出奇数条线，<dfn>偶数点</dfn>发出偶数条线。能一笔画的图形只有０个或２个奇数点，而且必须从一个奇数点出发，到另一个奇数点结束。
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>📚</div>
+	<div>
+	<h3>方法</h3>
+	<p>将图(1)转化为图(2)，发现有４个奇数点。那就不能一笔画成咯。
+	</div>
+</div>
+<div class=exercise>练习题　图中的线代表小路，请你考虑一下，能够不重复地爬遍小路的是甲蚂蚁还是乙蚂蚁，该怎样爬？<input type=button value="检验答案" onclick="alert('乙')"><br><img alt=P19 src=P19.svg></div>
+</section>
+
+<section>
+<h2><span class=icon>🧠</span> 脑筋急转弯</h2>
+<div class=question>例⒋　小灰灰用２４根火柴摆成的两个正方形，喜羊羊只移动其中的４根火柴，就能使它变成两个完全相同的正方形。你知道喜羊羊是怎么移动的吗？
+<br><img alt=P22 src=P22.png width=175 height=203></div>
+<div class=feature-box>
+	<div class=feature-icon>🔑</div>
+	<div>
+	<h3>解答</h3>
+	<p><img alt=P23 src=P23.png width=343 height=224>
+	</div>
+</div>
+<div class=feature-box>
+	<div class=feature-icon>💡</div>
+	<div>
+	<h3>启发</h3>
+	<p>很少人会想到正方形可以重叠吧。我们要尝试突破思维定势啊！
+	</div>
+</div>
+<script>
+var n = 0;
+function change() {
+	if (n){
+		d.innerHTML = '<img alt=P24 src=P24.png width=482 height=148>';
+		input123.value="检验答案"
+	}
+else{
+	d.innerHTML = '<img alt=P25 src=P25.png width=140 height=142>';
+	input123.value="返回原题"
+	}
+n=!n;
+}
+</script>
+<div class=exercise>练习题　如图所示，黑板上画了９个点，我们可以用５条线段把它们串联起来，而且这５条线段是可以用一笔画成的。实际上我们可以做得更好：用４条线段就能把这９个点串联起来，而且这４条线段仍然是用一笔画成的。请大家找出这种画法。<input type=button value="检验答案" onclick="change()" id=kkk2><div id=kkk style="height:170px"><img alt=P24 src=P24.png width=482 height=148></div></div>
+<script>var d = document.getElementById('kkk'), input123 =  document.getElementById('kkk2');</script>
+</section>
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>📂</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年３月２７日（星期五）<br>序号：１９
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>🥁</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"白日登山望烽火，黄昏饮马傍交河。"<br>
+	<span style="float:right;font-size:0.9rem">——【唐】李颀《古从军行》</span>
+	</div>
+	<div class=math-container style=font-style:italic>
+	"一鼓作气，再而衰，三而竭。"<br>
+	<span style="float:right;font-size:0.9rem">——《曹刿论战》</span>
+	</div>
+</section>
+
+<section>
+	<h2><span class="icon">🏇</span> 将军饮马</h2>
+	<div class=question>题目⒈　如图，正方形ＡＢＣＤ的边长是４，Ｍ在ＤＣ上，且ＤＭ＝１， Ｎ是ＡＣ边上的一动点，则ΔＤＭＮ周长的最小值是？<input type=button value="检验答案" onclick="alert('６')"><br><img alt=P7 src=P7.svg></div>
+</section>
+
+<section>
+	<h2><span class="icon">✏️</span> 一笔画</h2>
+	<div class=question>题目⒉　如图(1)是纪念辛亥革命１００周年的武汉市辛亥革命纪念馆某场馆的示意图。乐乐跟爸爸从入口进入场馆，你是否能帮乐乐的爸爸找到一条参观路线，每扇门恰好经过一次？为什么？<input type=button value="检验答案" onclick="alert('不能，因为奇数点有３个。')"><br>
+
+<div style="text-align:center;display:inline-block;overflow:auto;width:570px"><div style="height:396px;" id=imgview4><img alt=P17 src=P17.png width=849 height=316></div>
+
+</div>
+
+<div style=text-align:center>
+<div id=step4>第１页，共２页</div>
+<input type=button value="上一步" onclick="if(imgview4_n){imgview4_div.innerHTML=imgview4_arr[--imgview4_n];step4_div.innerHTML=step4_arr[imgview4_n];}">
+<input type=button value="下一步" onclick="if(imgview4_n+1<imgview4_arr.length){imgview4_div.innerHTML=imgview4_arr[++imgview4_n];step4_div.innerHTML=step4_arr[imgview4_n];}">
+</div>
+</div>
+
+<script>var imgview4_n=0, imgview4_div=document.getElementById('imgview4');imgview4_arr=[
+'<img alt=P17 src=P17.png width=849 height=316>',
+'<img alt=P18 src=P18.png width=849 height=316>',
+],
+step4_div=document.getElementById('step4'),step4_arr=[
+'第１页，共２页',
+'第２页，共２页',
+];
+</script>
+</section>
+
+<section>
+	<h2><span class="icon">📐</span> 等高模型</h2>
+	<div class=question>题目⒊　如图，已知平行四边形ＡＢＣＤ的面积为６０平方厘米，ＥＤ＝３ＢＥ，求阴影部分的面积。<input type=button value="检验答案" onclick="alert('７．５平方厘米')"><br><img alt=P5 src="../lesson18/P5.png" width=590 height=250></div>
+</section>
+
+<section>
+	<h2><span class="icon">✏️ </span> 一笔画</h2>
+	<div class=question>题目⒋　这是儿童游乐场的平面图，要使游客能走遍每条路而不重复。问：出入口应设在哪里？<input type=button value="检验答案" onclick="alert('Ａ点与Ｄ点')"><br><img alt=P21 src="P21.svg"></div>
+</section>
+
+<section>
+	<h2><span class="icon">🏎️ </span> 行程问题</h2>
+	<div class=question>题目⒌　甲、乙两车分别从Ａ，Ｂ两站同时相对开出。第一次相遇时，甲车行了８０千米，两车继续以原来速度前进，各车到站后立即返回，第二次相遇地点与第一次相遇地点相距４０千米。Ａ，Ｂ两站相距多少千米？<input type=button value="检验答案" onclick="alert('１４０千米或１８０千米')"></div>
+</section>
+</aside>
+</div>
+
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+
+</div>
