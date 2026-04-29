@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson20/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Wed, 29 Apr 2026 03:48:09 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第二十课　概率（上）</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	padding-bottom: 40px;
+	min-height: 100vh;
+	width: 1450px;
+	margin:0 auto;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+.main-content {
+	grid-template-columns: 2fr 1fr;
+}
+
+</style>
+
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+<div class=all>
+<header>
+<h1>概率（上）</h1>
+<p>我才发现概率太难了，所以得分两节课讲。<dfn>概率</dfn>就是一件事有多少可能会发生，又称<dfn>可能性</dfn>。英文是probability [ˌprɒbəˈbɪləti]，事件Ａ的概率用Ｐ（Ａ）表示。若一件事必然发生，它的概率就是１；若一件事一定不会发生，它的概率为０。
+</header>
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>🎲</span> 概率的定义</h2>
+<div class=question>例⒈　掷<ruby>骰<rt>tóu</rt></ruby>子，点数为６的概率是多少？</div>
+<div class=feature-box><div class=feature-icon>📜</div>
+<div><h3>定义</h3><p><dfn>古典概率模型</dfn>：共有ｎ种等可能结果，其中符合条件的情况有ｋ种，则概率是<span class=frac>ｋ<br><span class=overline>ｎ</span></span>。</div>
+</div>
+<div class=feature-box><div class=feature-icon>∞</div>
+<div><h3>解答</h3><p>有６种等可能结果｛１，２，３，４，５，６｝，其中符合条件的是｛６｝，有１种。因此Ｐ（点数为６）＝<span class=frac>１<br><span class=overline>６</span></span>，就是答案了。</div>
+</div>
+<div class=exercise>练习题　从不包含大小王牌的５２张扑克牌中随机抽取一张，抽到男人的概率是？<input type=button value="检验答案" onclick="alert('２／１３')"></div>
+</section>
+
+<section>
+<h2><span class=icon>📋</span> 列举法</h2>
+<div class=question>例⒉　掷两个骰（tou）子，和是８的概率是多少？</div>
+<div class=feature-box><div class=feature-icon>∞</div>
+<div><h3>解答</h3><p>有６×６＝３６种等可能情况。假如用（２，６）表示第一个骰子掷出了２，第二个是６，那么其中符合条件的是｛（２，６），（３，５），（４，４），（５，３），（６，２）｝，共有５种。所以概率是<span class=frac>５<br><span class=overline>３６</span></span>。</div>
+</div>
+<div class=exercise>练习题　抛掷两枚骰子（１号和２号），Ｐ（１号骰子的点数大于２号骰子的点数）是多少？<input type=button value="检验答案" onclick="alert('５／１２')"></div>
+</section>
+
+<section>
+<h2><span class=icon>➕</span> 概率的加法与乘法</h2>
+<div class=question>例⒊　张者合成四词条金枪。他有２把双词条和１把三词条。首先用２把双词条合成，有１０％概率出四词条，２５％三词条，６５％双词条。如果第一次就成功，那就不合成了。不然再用结果和三词条合成第２次。双词条加三词条，１５％四词条，６０％三词条，２５％双词条。三词条加三词条，有３５％概率出四词条。两次都没合成成功，那就彻底失败了。他成功合成四词条的概率到底是多少？</div>
+<div class=feature-box><div class=feature-icon>∞</div>
+<div><h3>解答</h3><p>第一次就成功的概率有１０％。第一次合出三词条，第二次成功的概率是２５％×３５％＝８.７５％。第一次合成双词条，第二次成功的概率是６５％×１５％＝９.７５％。总的概率是１０％＋８.７５％＋９.７５％＝２８.５％</div>
+</div>
+<div class=feature-box><div class=feature-icon>📑</div>
+<div>
+<h3>理论</h3>
+<p><dfn>概率的乘法公式</dfn>：如果Ａ、Ｂ是两个事件，那么
+<div class=math-container>Ｐ（Ａ且Ｂ）＝Ｐ（Ａ）P（Ａ发生的条件下，Ｂ）</div>
+<p>例如
+<div class=math-container>Ｐ（第一次合成三词条且第二次合成四词条）<br>＝Ｐ（第一次合成三词条）P（第一次合成三词条的条件下，第二次合成四词条）<br>＝２５％×３５％<br>＝８.７５％。</div>
+<p><dfn>概率的加法公式</dfn>：如果Ａ和Ｂ不可能同时发生，那么
+<div class=math-container>Ｐ（Ａ或Ｂ）＝Ｐ（Ａ）＋Ｐ（Ｂ）</div>
+<p>例如
+<div class=math-container>Ｐ（成功合成四词条）<br>＝P（第一次成功，或者第一次合成了三词条然后第二次成功，或者第一次合成了双词条然后第二次成功）<br>＝Ｐ（第一次成功）＋Ｐ（第一次合成了三词条然后第二次成功）＋P（第一次合成了双词条然后第二次成功）<br>＝１０％＋８.７５％＋９.７５％<br>＝２８.５％</div>
+</div>
+</div>
+<div class=exercise>练习题　某学校有Ａ、Ｂ两家餐厅，王同学第１天午餐时随机地选择一家餐厅用餐。如果第１天去Ａ餐厅，那么第２天去Ａ餐厅的概率为０.６；如果第１天去Ｂ餐厅，那么第２天去Ａ餐厅的概率为０.８。计算王同学第２天去Ａ餐厅用餐的概率。<input type=button value="检验答案" onclick="alert('０.７')"></div>
+</section>
+
+<section>
+<h2><span class=icon>🎱</span> 取后不放回</h2>
+<div class=question>例⒋　盒子里有１１个黑球，１６个白球，１３个红球。一次取出９个，恰好有２个黑球，３个白球，４个红球的概率是多少？</div>
+<div class=feature-box><div class=feature-icon>∞</div>
+<div><h3>解答</h3><p>共４０个球，取出９个，共有（<span class=frac>４０<br>９</span>）＝２７３４３８８８０种等可能组合。２个黑球有（<span class=frac>１１<br>２</span>）种组合。３个白球有（<span class=frac>１６<br>３</span>）种组合。４个红球有（<span class=frac>１３<br>４</span>）种组合。根据乘法原理，选２个黑球，３个白球，４个红球，共有（<span class=frac>１１<br>２</span>）×（<span class=frac>１６<br>３</span>）×（<span class=frac>１３<br>４</span>）＝２２０２２０００种组合，这是符合条件的情况数。从而概率是<span class=frac>２２０２２０００<br><span class=overline>２７３４３８８８０</span></span>≈８.０５％。</div>
+</div>
+<div class=feature-box><div class=feature-icon>💡</div>
+<div><h3>套路</h3><p>关键在于不放回，且不分顺序，所以才能用组合数。类似的题都能转化为盒子里抽球的模型。记得计算前先约分。</div>
+</div>
+<div class=exercise>练习题　一个班５０人，抽考１０个学生。弟弟和他一个好朋友一起被抽考到，有多少的概率？<input type=button value="检验答案" onclick="alert('９／２４５')"></div>
+</section>
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>📂</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年４月２９日（星期三）<br>序号：２０
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>🍀</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"运气也是实力的一部分。"
+	</div>
+</section>
+
+<section>
+	<h2><span class="icon">🎰</span> 古典概率模型</h2>
+	<div class=question>题目⒈　某福利彩票中心六合彩是从１，２，３，…，４８和４９中任意抽出６个互不相同的数。开奖抽出的前五个号码为１７，２６，３０，２和４３，那么第六个号码为２９的概率是几分之几？<input type=button value="检验答案" onclick="alert('１／４４')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">📋</span> 列举法</h2>
+	<div class=question>题目⒉　有５张数字卡片【０】、【２】、【３】、【５】、【８】，从这些数学卡片中任取三张摆成一个三位数，那么摆成偶数的可能性是多少？<input type=button value="检验答案" onclick="alert('５／８')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">≡</span> 同余</h2>
+	<div class=question>题目⒊　－５ mod ３是多少？<input type=button value="检验答案" onclick="alert('１')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">✍️ </span> 概率的加法与乘法</h2>
+	<div class=question>题目⒋　现有１２道四选一的单选题，学生张者对其中９道题有思路，３道题完全没有思路。有思路的题做对的概率为０.９，没有思路的题只好任意猜一个答案，猜对答案的概率为０.２５。张者从这１２道题中随机选择１题，求他做对该题的概率。<input type=button value="检验答案" onclick="alert('７３.７５％')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">🐴 </span> 将军饮马</h2>
+	<div class=question>题目⒌　将军在Ａ点。他要先给马喝水，再给马吃草，最后回到Ａ点。怎么走最短？<br><img alt=P14 src="../lesson19/P14.svg"></div>
+</section>
+</aside>
+</div>
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+</div>
