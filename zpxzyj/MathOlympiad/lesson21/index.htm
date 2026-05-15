@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson21/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Fri, 15 May 2026 01:56:37 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第二十一课　工程问题</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	padding-bottom: 40px;
+	min-height: 100vh;
+	width: 1450px;
+	margin:0 auto;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+.main-content {
+	grid-template-columns: 2fr 1fr;
+}
+
+</style>
+
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+<div class=all>
+<header>
+<h1>工程问题</h1>
+<p>工程问题其实跟行程问题差不多，都是数据的和差关系，只不过它更侧重于分数与比例。效率跟速度也很像嘛。一起做就是相遇问题，进水排水就是追及问题。
+</header>
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>🥻</span> 工作总量单位“１”</h2>
+<div class=question>例⒈　服装厂生产一批服装，第一小组单独生产要２０小时，第二小组单独生产要３０小时，如果两组一起生产１０小时，能完成这批服装的几分之几？</div>
+<div class=feature-box><div class=feature-icon>📜</div>
+<div><h3>解答</h3>
+<p>第一小组的效率：１÷２０＝<span class=frac>１<br><span class=overline>２０</span></span>
+<p>第二小组的效率：１÷３０＝<span class=frac>１<br><span class=overline>３０</span></span>
+<p>一起生产的效率：<span class=frac>１<br><span class=overline>２０</span></span>＋<span class=frac>１<br><span class=overline>３０</span></span>
+<p>工作量：（<span class=frac>１<br><span class=overline>２０</span></span>＋<span class=frac>１<br><span class=overline>３０</span></span>）×１０＝<span class=frac>５<br><span class=overline>６</span></span>
+</div>
+</div>
+<div class=feature-box><div class=feature-icon>📐</div>
+<div><h3>提示</h3><p>工作总量不设未知数，直接看做单位“１”。效率＝总量÷时间。</div>
+</div>
+<div class=exercise>练习题　制作一个书柜，如果张木匠单独制作，需要７小时才能完成。如果这个书柜先由李木匠制作<span class=frac>１<br><span class=overline>４</span></span>，剩下的由张木匠制作，还要多少小时才能完成？<input type=button value="检验答案" onclick="alert('２１／４')"></div>
+</section>
+
+<section>
+<h2><span class=icon>💧</span> 进水放水</h2>
+<div class=question>例⒉　一个水池有Ａ、Ｂ两个进水管，Ｃ为出水管。单开Ａ管８小时可将空池住满，单开Ｂ管１２小时可将空池注满，单开Ｃ管２４小时可将满池的水放完。三管齐开多少小时能注满这个水池的<span class=frac>３<br><span class=overline>４</span></span>？</div>
+<div class=feature-box><div class=feature-icon>🔎</div>
+<div><h3>解答</h3>
+<p>开三个管的进水效率：<span class=frac>１<br><span class=overline>８</span></span>＋<span class=frac>１<br><span class=overline>１２</span></span>－<span class=frac>１<br><span class=overline>２４</span></span>＝<span class=frac>１<br><span class=overline>６</span></span>
+<p>时间：<span class=frac>３<br><span class=overline>４</span></span>÷<span class=frac>１<br><span class=overline>６</span></span>＝<span class=frac>９<br><span class=overline>２</span></span>（小时）
+</div>
+</div>
+<div class=feature-box><div class=feature-icon>🚰</div>
+<div><h3>提示</h3><p>排水管，效率是负数。</div>
+</div>
+<div class=exercise>练习题　一个水池装有进水管和出水管，单开进水管<span class=frac>１<br><span class=overline>５</span></span>小时可以将空池注满；单开出水管<span class=frac>１<br><span class=overline>３</span></span>小时可以将满池水放完。现在池中存有<span class=frac>１<br><span class=overline>６</span></span>的水，如果同时打开进、出两个水管，多长时间才能注满全池？<input type=button value="检验答案" onclick="alert('５／１２')"></div>
+</section>
+
+<section>
+<h2><span class=icon>🏥</span> 中途休息</h2>
+<div class=question>例⒊　一件工作，如果甲、乙单独做分别需要２０天和３０天完成，现在两人一起合作，中间甲因病休息了几天，结果用了１５天才完成，则甲休息了几天？</div>
+<div class=feature-box><div class=feature-icon>✅</div>
+<div><h3>解法</h3>
+<p>设甲休息了ｘ天。
+<div class=math-container><span class=frac>１<br><span class=overline>２０</span></span>（１５－ｘ）＋<span class=frac>１５<br><span class=overline>３０</span></span>＝１</div>
+<p>解得ｘ＝５
+</div>
+</div>
+<div class=feature-box><div class=feature-icon>📝</div>
+<div><h3>方法</h3><p>休息多少天，设未知数。</div>
+</div>
+<div class=exercise>练习题　有一批零件，如果甲车间单独完成需要５０小时，乙车间单独完成需要３０小时，在甲车间单独完成若干小时后，由于要承担其他紧急任务，剩余的任务由乙车间继续完成，这样一共用了４２小时。问乙车间完成的零件量占这批零件总量的几分之几？<input type=button value="检验答案" onclick="alert('２／５')"></div>
+</section>
+
+<section>
+<h2><span class=icon>🐌</span> 轮流做、蜗牛爬井问题</h2>
+<div class=question>例⒋　一项工程，甲单独做要１２小时完成，乙单独做要１８小时完成。若甲先做１小时，然后乙接替甲做１小时，再由甲接替乙做１小时……两人如此交替工作，需要几小时才能完成任务？</div>
+<div class=feature-box><div class=feature-icon>🧩</div>
+<div><h3>解答</h3>
+<p>甲、乙各做１小时是一个周期，工作量有<span class=frac>１<br><span class=overline>１２</span></span>＋<span class=frac>１<br><span class=overline>１８</span></span>＝<span class=frac>５<br><span class=overline>３６</span></span>。
+<div class=math-container>１÷<span class=frac>５<br><span class=overline>３６</span></span>＝７（个）……<span class=frac>１<br><span class=overline>３６</span></span></div>
+<p>７个周期以后，还剩<span class=frac>１<br><span class=overline>３６</span></span>的工作。轮到甲了，还要做<span class=frac>１<br><span class=overline>３６</span></span>÷<span class=frac>１<br><span class=overline>１２</span></span>＝<span class=frac>１<br><span class=overline>３</span></span>小时。总时间是７×２＋<span class=frac>１<br><span class=overline>３</span></span>＝<span style=display:inline-block>１４<span class=frac>１<br><span class=overline>３</span></span></span>小时。
+</div>
+</div>
+<div class=feature-box><div class=feature-icon>🪢</div>
+<div><h3>思维</h3><p>这就像是周期问题。除去反复的循环部分，关键看不同的最后一轮。</div>
+</div>
+<div class=exercise>练习题　一个枯井１２米深，蜗牛在井底向上爬，白天爬６米，夜晚下滑４米，请问第几天爬到井口？<input type=button value="检验答案" onclick="alert('第４天')"></div>
+</section>
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>📂</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年５月１５日（星期五）<br>序号：２１
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>🍇</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"蜗牛背着那重重的壳呀，一步一步地往上爬。"<br>
+	<span style="float:right;font-size:0.9rem">——《蜗牛与黄鹂鸟》</span>
+	</div>
+</section>
+
+<section>
+	<h2><span class="icon">🪴</span> 单位“１”</h2>
+	<div class=question>题目⒈　园林工人布置花坛，甲单独做２０天可以做完，甲、乙两人合作需１２天，乙单独做需要多少天可以做完？<input type=button value="检验答案" onclick="alert('３０天')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">🔨</span> 中途休息</h2>
+	<div class=question>题目⒉　一件工作，甲独做要２０天完成，乙独做要１２天完成。这件工作先由甲做了若干天，然后由乙继续做完，从开始到完工共用了１４天。这件工作由甲先做了几天？<input type=button value="检验答案" onclick="alert('５天')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">▷</span> 等积变形</h2>
+	<div class=question>题目⒊　如图所示：正方形ＡＢＣＤ和正方形ＥＣＧＦ并排放置，已知ＡＢ＝５厘米，ＤＥ＝２厘米，则阴影部分的面积是多少平方厘米？<input type=button value="检验答案" onclick="alert('１２.５平方厘米')"><img alt=P10 src="../lesson18/P10.png" width=620 height=390></div>
+</section>
+
+<section>
+	<h2><span class="icon">🔁 </span> 轮流做</h2>
+	<div class=question>题目⒋　蓄水池有甲、丙两条进水管和乙、丁两条排水管，要注满一池水，单开甲管需要３小时，单开丙管需要５小时；要排光一池水，单开乙管需要４小时，单开丁管需要６小时。现在池中有<span class=frac>１<br><span class=overline>６</span></span>池水，如果按甲、乙、丙、丁、甲、乙、丙、丁……的顺序轮流开１小时，多少小时后水开始溢出水池？<input type=button value="检验答案" onclick="alert('２０又３／４小时')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">🐴 </span> 概率</h2>
+	<div class=question>题目⒌　张者和两个朋友用５４张扑克牌斗地主。叫地主之前，他抽到王炸的概率是？<input type=button value="检验答案" onclick="alert('１３６／１４３１')"></div>
+</section>
+</aside>
+</div>
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+</div>
