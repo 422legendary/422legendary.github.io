@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson22/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Fri, 29 May 2026 03:01:28 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第二十二课　数论（三）</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+span.square{display:inline-block;height:12pt;width:12pt;border:solid 1px;margin:0px 4px 0px 4px;vertical-align:middle}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	padding-bottom: 40px;
+	min-height: 100vh;
+	width: 1450px;
+	margin:0 auto;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+.main-content {
+	grid-template-columns: 2fr 1fr;
+}
+
+</style>
+
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+<div class=all>
+<header>
+<h1>数论（三）——整除特征、韩信点兵问题</h1>
+<p>数论其实就是研究余数这些的。韩信点兵问题，又叫中国剩余定理，非常重要，连网络加密也用到了。
+</header>
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>➗</span> 除以２、４、５、８、２５、１２５</h2>
+<div class=question>例⒈　８４９２１１８４８２９１３４０９除以８的余数是多少？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>由于１０００＝８×１２５，所以原数与原数除以１０００的余数模８同余。先去掉了多少个１０００，就相当于去掉了更多的８嘛，不影响余数。答案变成４０９除以８的余数，１。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>原数＝８４９２１１８４８２９１３×１０００＋４０９。加号左边是８的倍数，只剩下４０９。</div></div>
+<div class=feature-box><div class=feature-icon>🧠</div><div><h3>方法</h3><p>看尾数。２、４、８分别与十、百、千同余。５也是十。２５是百。１２５是千。</div></div>
+<div class=exercise>练习题　９８２９２３０１２９除以２５的余数是多少？<input type=button value="检验答案" onclick="alert('４')"></div>
+</section>
+
+<section>
+<h2><span class=icon>➗</span> 除以３、９</h2>
+<div class=question>例⒉　７０４６８除以９的余数是多少？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>７＋０＋４＋６＋８除以９的余数是７。就是答案。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>７０４６８≡７０４６×１０＋８≡７０４６×（９＋１）＋８≡７０４６＋８（ｍｏｄ　９）<p>同理可得７０４６＋８≡７０４×１０＋６＋８≡７０４＋６＋８（ｍｏｄ　９），等等。<p>就这样把数位都拆开了。</div></div>
+<div class=feature-box><div class=feature-icon>🧠</div><div><h3>方法</h3><p>根据位值原理，将余数化成<dfn>数位和</dfn>。</div></div>
+<div class=exercise>练习题　若８位数２３４５<span class=square></span>７８９能够被３整除，那么<span class=square></span>里的数可能是多少？<input type=button value="检验答案" onclick="alert('１、４、７')"></div>
+</section>
+
+<section>
+<h2><span class=icon>➗</span> 除以７、１１、１３、１０１、１００１</h2>
+<div class=question>例⒊　５１４４３９２８１５除以１３的余数是多少？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>从右到左，３个３个地分成单段。８１５－３９２＋１４４－５＝５６２。５６２除以１３的余数是３，答案就是３。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>由于１００１＝７×１１×１３，先看除以１００１的余数。<p>５１４４３９２８１５≡５１４４３９２×（１００１－１）＋８１５≡－５１４４３９２＋８１５（ｍｏｄ　１００１）<p>同理可得－５１４４３９２＋８１５≡－（－５１４４＋３９２）＋８１５≡５１４４－３９２＋８１５（ｍｏｄ　１００１）<p>再拆：５１４４－３９２＋８１５≡－５＋１４４－３９２＋８１５（ｍｏｄ　１００１），完事儿。</div></div>
+<div class=feature-box><div class=feature-icon>🧠</div><div><h3>方法</h3><p>分段。１００１就拆成×１０００，１０１就拆成×１００，１１就拆成×１０。７、１１、１３以１００１。</div></div>
+<div class=exercise>练习题　３４５７４５６除以７的余数是多少？<input type=button value="检验答案" onclick="alert('２')"></div>
+</section>
+
+<section>
+<h2><span class=icon>➖</span> 负数余数法</h2>
+<div class=question>例⒋　１３２的平方除以１３３的余数？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>（－１）×（－１）＝１。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>我们知道１３２≡－１（ｍｏｄ　１３３）。由于同余式可乘，两边同时平方：１３２<sup>２</sup>≡（－１）<sup>２</sup>≡１（ｍｏｄ　１３３）。<p>或者这样理解：１３２<sup>２</sup>＝（１３３－１）<sup>２</sup><p>拆括号：（１３３－１）<sup>２</sup>＝１３３（１３３－１）－１（１３３－１），余数明显是１。</div></div>
+<div class=feature-box><div class=feature-icon>🔎</div><div><h3>注意</h3><p>有些变成负数，反而会好算一点。</div></div>
+<div class=exercise>练习题　２１４７４８×１１除以２１４７５０的余数是多少？<input type=button value="检验答案" onclick="alert('２１４７２８')"></div>
+</section>
+
+<section>
+<h2><span class=icon>🧮</span> 韩信点兵问题</h2>
+<div class=question>例⒌　一个自然数，除以２０的余数是１１，除以１２的余数是７，除以４３的余数是１３。这个数最小是多少？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>满足第一个条件的数有１１、３１、５１等等。其中满足第二个条件的最小是３１。ｌｃｍ（２０，１２）＝６０，所以前两个条件转化为除以６０的余数是３１。有３１、９１、１５１、２１１、２７１，其中２７１满足第三个条件。ｌｃｍ（６０，４３）＝２５８０。那么三个条件合并起来就等价于：除以２５８０的余数是２７１。答案当然是２７１。</div></div>
+<div class=feature-box><div class=feature-icon>⚖️</div><div><h3>算法</h3><p>列举法。或者叫做逐级满足法。</div></div>
+<div class=exercise>练习题　《孙子算经》：今有物，不知其数。三三数之，剩二；五五数之，剩三；七七数之，剩二。问：“物几何？”<input type=button value="检验答案" onclick="alert('二十三')"></div>
+</section>
+
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>📂</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年５月２９日（星期五）<br>序号：２２
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>🌸</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"三人同行七十稀，五树梅花廿一枝。<br>七子团圆正月半，除百零五便得知。"<br>
+	<span style="float:right;font-size:0.9rem">——程大位《算法统宗》</span>
+	</div>
+</section>
+
+<section>
+	<h2><span class="icon">➗</span> 除以３、９</h2>
+	<div class=question>题目⒈　四位数<span class=overline>３ａａ１</span>是９的倍数，求这个四位数。<input type=button value="检验答案" onclick="alert('３７７１')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">➗</span> 除以７、８</h2>
+	<div class=question>题目⒉　在“<span class=square></span>”内填上合适的数，使六位数“<span class=overline><span class=square></span>１９９８<span class=square></span></span>”能被５６整除。（提示：相当于同时被７和８整除。）<input type=button value="检验答案" onclick="alert('３１９９８４')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">🚰</span> 进水放水</h2>
+	<div class=question>题目⒊　一个水池装有一个进水管和一个出水管，单开进水管５小时可将空池灌满，单开出水管７小时可将满池水排空。如果进水管开了２小时后，再打开出水管，经过几小时，池内有半池水？<input type=button value="检验答案" onclick="alert('７／４小时')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">➖</span> 负数余数法</h2>
+	<div class=question>题目⒋　一盒围棋子，４颗４颗地数多３颗，６颗６颗地数多５颗，１５颗１５颗地数多１４颗，这盒棋子在２５０～３００颗之间，这盒棋子共有多少颗？（提示：利用负数，或者说，先借１颗棋子。）<input type=button value="检验答案" onclick="alert('２９９颗')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">✏️</span> 一笔画</h2>
+	<div class=question>题目⒌　下图是巨人学校某分校办公区的平面图，A、B、C、Ｄ为四个办公室，E、Ｆ为两条走廊。一个学生能否从Ｅ走廊到Ｆ走廊不重复地穿过每一扇门？如果不能，请说明理由。如果能，怎么走？<input type=button value="检验答案" onclick="alert('不能，因为有４个奇数点。')"><br><img alt=P20 src="../lesson19/P20.png"></div>
+</section>
+</aside>
+</div>
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+</div>
