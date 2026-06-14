@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson23/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Sun, 14 Jun 2026 02:36:14 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第二十三课　几何（四）</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+span.square{display:inline-block;height:12pt;width:12pt;border:solid 1px;margin:0px 4px 0px 4px;vertical-align:middle}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	padding-bottom: 40px;
+	min-height: 100vh;
+	width: 1450px;
+	margin:0 auto;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+.main-content {
+	grid-template-columns: 2fr 1fr;
+}
+
+</style>
+
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+<div class=all>
+<header>
+<h1>几何（四）——边角边全等、平行线</h1>
+<p>在欧几里得的年代，只有上层人士才学几何学，用来开发智力。或许对生活没什么用，但是可以锻炼思维。另外就是中考要考啊。
+</header>
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2><span class=icon>V</span> 边角边全等</h2>
+<div class=question>例⒈　ＡＢ＝ＤＥ，ＡＣ＝ＤＦ，∠Ａ＝∠Ｃ，ＢＣ＝３１。ＥＦ的长度是多少？<div><img alt=P06 src=P06.gif width=337 height=214></div></div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>三角形ＡＢＣ全等于三角形ＤＥＦ。所以ＥＦ＝ＢＣ，长度也是３１。</div></div>
+<div class=feature-box><div class=feature-icon>🪨</div><div><h3>公理</h3><p>两对应边的长度分别相等，而且它们的夹角大小也相等。那么这两个三角形全等。</div></div>
+<div class=feature-box><div class=feature-icon>🔬</div><div><h3>性质</h3><p>全等的两个三角形，对应边相等，对应角也相等。全等的图形形状和大小都相同。全等的图形能彼此重合，或镜像反转后重合。</div></div>
+<div class=exercise>练习题　ＡＢ＝ＢＤ，∠ＡＢＣ＝∠ＣＢＤ。ＡＣ＝４２，ＣＤ等于多少？<input type=button value="检验答案" onclick="alert('４２')"><br><img alt=P01 src="P01.svg"></div>
+</section>
+
+<section>
+<h2><span class=icon>X</span> 对顶角</h2>
+<div class=question>例⒉　∠１＝３３°。∠２多大？<br>
+<div style="text-align:center;margin:auto"><div style="display:inline-block;width:320px;height:250px;border-radius:8px;box-shadow:0 5px 15px rgba(0, 0, 0, 0.2)" id=imgview1><img alt=P03 src=P03.svg></div>
+<div id=step1>第１页，共２页</div>
+<input type=button value="上一步" onclick="if(imgview1_n){imgview1_div.innerHTML=imgview1_arr[--imgview1_n];step1_div.innerHTML=step1_arr[imgview1_n];}">
+<input type=button value="下一步" onclick="if(imgview1_n+1<imgview1_arr.length){imgview1_div.innerHTML=imgview1_arr[++imgview1_n];step1_div.innerHTML=step1_arr[imgview1_n];}">
+</div>
+</div>
+<script>var imgview1_n=0, imgview1_div=document.getElementById('imgview1');imgview1_arr=[
+'<img alt=P03 src=P03.svg>',
+'<img alt=P04 src=P04.svg>',
+],
+step1_div=document.getElementById('step1');step1_arr=[
+'第１页，共２页',
+'第２页，共２页',
+];
+</script>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>∠１＋∠３＝１８０°，∠２＋∠３＝１８０°，所以∠１＝∠２。答案是３３°。</div></div>
+<div class=feature-box><div class=feature-icon>🪨</div><div><h3>定理</h3><p>对顶角相等。</div></div>
+<div class=exercise>练习题　Ｃ是ＡＤ的中点，也是ＢＥ的中点。ＡＢ＝９，ＤＥ多长？<input type=button value="检验答案" onclick="alert('９')"><br><img alt=P05 src=P05.svg></div>
+</section>
+
+<section>
+<h2><span class=icon>Z</span> 内错角与平行线</h2>
+<div class=question>例⒊　∠１＝５４°。∠２＝５４°。ａ和ｂ的位置关系是怎么样的？<br><img alt=P07 src=P07.svg></div>
+<div class=feature-box><div class=feature-icon>📜</div><div><h3>定义</h3><p>平行线不相交。</div></div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>答案</h3><p>如果两条直线的<dfn>内错角</dfn>相等，那么这两条直线平行。所以ａ平行于ｂ。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>假设ａ和ｂ相交，那么取ＡＢ中点Ｄ，延长ＣＤ，使得ＤＥ＝ＣＤ。三角形ＢＤＣ和三角形ＡＤＥ全等（边角边），因此∠ＥＡＤ＝∠２。那么∠ＦＡＥ＝∠１－∠ＥＡＤ，就变成了０度！不可能吧。因此最开始的假设就是错的，只能平行了。<br><img alt=P08 src="P08.svg"></div></div>
+<div class=feature-box><div class=feature-icon>📐</div><div><h3>方法</h3><p>这种辅助线称为“倍长中线”。</div></div>
+<div class=feature-box><div class=feature-icon>🪨</div><div><h3>逆定理</h3><p>如果两条直线平行，那么这两条直线的内错角相等。证明如下：<p>已知ａ与ｂ平行。假设∠１≠∠ＡＢＣ，那就从Ｂ点作一条线ｃ使得∠１＝∠３。于是ａ与ｃ平行。从Ｂ点经过的就有两条线与ａ平行啦！这不行啊。所以∠１必须等于∠ＡＢＣ。<br><img alt=P09 src="P09.svg"></div></div>
+<div class=exercise>练习题　ＡＢ与ＣＤ平行且相等。ＢＦ＝ＤＥ。请证明：ＡＥ与ＣＦ平行且相等。<br><img alt=P12 src=P12.svg></div>
+</section>
+
+<section>
+<h2><span class=icon>FC</span> 同位角、同旁内角</h2>
+<div class=question>例⒋　ａ平行于ｂ。已知∠１＝１２５°，那么∠２多少度？∠３多少度？<br><img alt=P10 src=P10.svg></div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>∠２跟∠１是两条平行线的<dfn>同位角</dfn>，因此相等，∠２也是１２５°。∠３和∠１是两条平行线的<dfn>同旁内角</dfn>，相加等于１８０°，所以∠３＝５５°。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>∠４跟∠１是平行线间的内错角，自然相等。∠４和∠２是对顶角，所以∠２＝∠４。∠４跟∠３相加等于１８０°，因此∠１跟∠３也是。</div></div>
+<div class=feature-box><div class=feature-icon>🪨</div><div><h3>逆定理</h3><p>同位角和同旁内角也能证明两直线平行。如果要证明，跟内错角的方法一样。</div></div>
+<div class=exercise>练习题　ａ<i>∥</i>ｂ，ｃ<i>∥</i>ｄ。∠１＝８０度，∠２多少度？<input type=button value="检验答案" onclick="alert('１００度')"><br><img alt=P11 src=P11.svg></div>
+</section>
+
+<section>
+<h2><span class=icon>∆</span> 三角形内角和</h2>
+<div class=question>例⒌　∠Ａ＝５５°，∠Ｂ＝７５°，∠Ｃ多少度？<br>
+
+<div style="text-align:center;margin:auto"><div style="display:inline-block;width:260px;height:290px;border-radius:8px;box-shadow:0 5px 15px rgba(0, 0, 0, 0.2);position:relative" id=imgview2><img alt=P13 src=P13.svg style="position:absolute;left:0;bottom:0"></div>
+<div id=step2>第１页，共２页</div>
+<input type=button value="上一步" onclick="if(imgview2_n){imgview2_div.innerHTML=imgview2_arr[--imgview2_n];step2_div.innerHTML=step2_arr[imgview2_n];}">
+<input type=button value="下一步" onclick="if(imgview2_n+1<imgview2_arr.length){imgview2_div.innerHTML=imgview2_arr[++imgview2_n];step2_div.innerHTML=step2_arr[imgview2_n];}">
+</div>
+</div>
+<script>var imgview2_n=0, imgview2_div=document.getElementById('imgview2');imgview2_arr=[
+'<img alt=P13 src=P13.svg style="position:absolute;left:0;bottom:0">',
+'<img alt=P14 src=P14.svg style="position:absolute;left:0;bottom:0">',
+],
+step2_div=document.getElementById('step2');step2_arr=[
+'第１页，共２页',
+'第２页，共２页',
+];
+</script>
+
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>１８０°－５５°－７５°＝５０°。</div></div>
+<div class=feature-box><div class=feature-icon>🪨</div><div><h3>定理</h3><p>三角形的内角和是１８０°。</div></div>
+<div class=feature-box><div class=feature-icon>📝</div><div><h3>证明</h3><p>延长ＡＣ并且过Ｃ作ＡＢ的平行线。那么∠１＋∠２＋∠Ｃ＝１８０°。而∠Ａ＝∠１（同位角），∠Ｂ＝∠２（内错角）。</div></div>
+<div class=exercise>练习题　ＡＢ＝ＡＣ＝ＢＣ。∠Ａ多少度？<input type=button value="检验答案" onclick="alert('６０度')"><br><img alt=P15 src=P15.svg></div>
+</section>
+
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>📂</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年６月１４日（星期日）<br>序号：２３
+	</div>
+</section>
+
+<section>
+	<h2><span class=icon>🪙</span> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"请给这小伙子三个硬币，因为他想从几何学里得到实际利益。"<br>
+	<span style="float:right;font-size:0.9rem">——欧几里得</span>
+	</div>
+</section>
+
+<section>
+	<h2><span class="icon">V</span> 边角边全等</h2>
+	<div class=question>题目⒈　如图，ＡＢ＝ＢＣ，∠Ａ＝７０°。∠Ｃ等于多少度？<input type=button value="检验答案" onclick="alert('７０度')"><br><img alt=P02 src=P02.svg></div>
+</section>
+
+<section>
+	<h2><span class="icon">FC</span> 同位角、同旁内角</h2>
+	<div class=question>题目⒉　如图，ＡＢ∥ＣＤ，∠α＝４５°，∠Ｄ＝∠Ｃ，依次求出∠Ｄ，∠Ｃ，∠Ｂ的度数。<input type=button value="检验答案" onclick="alert('４５°，４５°，１３５°')"><br><img alt=P18 src=P18.svg></div>
+</section>
+
+<section>
+	<h2><span class="icon">📚</span> 整除特征</h2>
+	<div class=question>题目⒊　六年级７２名学生交钱购买《优秀作文集》，一共“６<span class=square></span>５．３<span class=square></span>”元（“<span class=square></span>”里的数字看不请），每人交了多少钱？（怎么变成竖式谜题了，不过这次请用整除特征的方法做。）<input type=button value="检验答案" onclick="alert('９．３８元')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">∆</span> 三角形内角和</h2>
+	<div class=question>题目⒋　∠Ａ＝４０°，∠Ｃ＝６０°。ＢＨ垂直于ＡＣ。ＢＤ是∠ＡＢＣ的角平分线。∠ＤＢＨ多少度？（垂直表示两条直线交点那里是直角。）<input type=button value="检验答案" onclick="alert('１０°')"><br><img alt=P19 src=P19.svg></div>
+</section>
+
+<section>
+	<h2><span class="icon">🔮</span> 概率</h2>
+	<div class=question>题目⒌　４个同样的小球，分别标上数字１，２，３，４，每次任意摸出２个小球，两数之和为偶数算甲赢，两数之和为奇数算乙赢，这样的游戏规则公平吗？为什么？<input type=button value="检验答案" onclick="alert('不公平')"></div>
+</section>
+</aside>
+</div>
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+</div>
