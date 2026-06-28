@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta name=location content="https://qowk.xyz/zpxzyj/MathOlympiad/lesson24/index.htm">
+<meta name=author lang=zh content="张书睿">
+<meta name=contact content="https://qowk.xyz/contact/">
+<meta name=date content="Sun, 28 Jun 2026 00:47:20 GMT">
+<meta name=revised content=0>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>第二十四课　分数难题</title>
+<style>
+:root {
+	--primary-color: #4a6fa5;
+	--secondary-color: #166088;
+	--accent-color: #ff7e5f;
+	--light-color: #f8f9fa;
+	--dark-color: #333;
+	--border-radius: 16px;
+	--shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frac{text-indent:0;display:inline-block;vertical-align:middle;text-align:center;margin-left:4px;margin-right:4px}
+.underline{border-bottom:solid 1px}
+.overline{border-top:solid 1px}
+span.square{display:inline-block;height:12pt;width:12pt;border:solid 1px;margin:0px 4px 0px 4px;vertical-align:middle}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div.all {
+	line-height: 1.6;
+	color: var(--dark-color);
+	padding-bottom: 40px;
+	min-height: 100vh;
+	width: 1450px;
+	margin:0 auto;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+header {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 30px 0;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-bottom: 40px;
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header p {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	max-width: 800px;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom:10px;
+	position: relative;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+section {
+	background-color: white;
+	border-radius: var(--border-radius);
+	padding: 25px;
+	margin-bottom: 25px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+	color: var(--secondary-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent-color);
+	border-radius: 4px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.math-container {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: calc(var(--border-radius) - 4px);
+	margin: 15px 0;
+	text-align: center;
+	font-size: 1.1rem;
+	border-left: 5px solid var(--accent-color);
+	overflow-x: auto;
+}
+
+.icon {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	margin-right: 10px;
+	color: var(--accent-color);
+}
+
+.feature-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: calc(var(--border-radius) - 4px);
+	border: 2px dashed #c3cfe2;
+}
+
+.feature-icon {
+	font-size: 2.5rem;
+	color: var(--primary-color);
+	margin-right: 20px;
+	min-width: 70px;
+	text-align: center;
+}
+
+
+.question {
+	margin-bottom: 15px;
+}
+
+.exercise {
+	margin-top: 40px;
+	font-size: 0.95rem;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	padding: 25px;
+	color: var(--dark-color);
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+}
+
+.main-content {
+	grid-template-columns: 2fr 1fr;
+}
+
+</style>
+
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+<div class=all>
+<header>
+<h1>分数难题——裂项、算账、浓度问题</h1>
+<p>裂项相消是一种很高明的数学思想；算账，做生意有用；学会算浓度，以后研究化学会用。都很有用的。
+</header>
+<div style="padding: 0 20px">
+<div class=main-content>
+
+<main>
+<section>
+<h2>⛓️‍💥 裂项</h2>
+<div class=question>例⒈　计算：<span class=frac>１<br><span class=overline>６×１０</span></span>＋<span class=frac>１<br><span class=overline>１０×１４</span></span>＋<span class=frac>１<br><span class=overline>１４×１８</span></span>＋　…　＋<span class=frac>１<br><span class=overline>４２２×４２６</span></span>。</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><div class=math-container>原式＝<span class=frac>１<br><span class=overline>４</span></span>（<span class=frac>１０－６<br><span class=overline>６×１０</span></span>＋<span class=frac>１４－１０<br><span class=overline>１０×１４</span></span>＋<span class=frac>１８－１４<br><span class=overline>１４×１８</span></span>＋　…　＋<span class=frac>４２６－４２２<br><span class=overline>４２２×４２６</span></span>）<br>＝<span class=frac>１<br><span class=overline>４</span></span>（<span class=frac>１０<br><span class=overline>６×１０</span></span>－<span class=frac>６<br><span class=overline>６×１０</span></span>＋<span class=frac>１４<br><span class=overline>１０×１４</span></span>－<span class=frac>１０<br><span class=overline>１０×１４</span></span>＋<span class=frac>１８<br><span class=overline>１４×１８</span></span>－<span class=frac>１４<br><span class=overline>１４×１８</span></span>＋　…　＋<span class=frac>４２６<br><span class=overline>４２２×４２６</span></span>－<span class=frac>４２２<br><span class=overline>４２２×４２６</span></span>）<br>＝<span class=frac>１<br><span class=overline>４</span></span>（<span class=frac>１<br><span class=overline>６</span></span>－<span class=frac>１<br><span class=overline>１０</span></span>＋<span class=frac>１<br><span class=overline>１０</span></span>－<span class=frac>１<br><span class=overline>１４</span></span>＋<span class=frac>１<br><span class=overline>１４</span></span>－<span class=frac>１<br><span class=overline>１８</span></span>＋　…　＋<span class=frac>１<br><span class=overline>４２２</span></span>－<span class=frac>１<br><span class=overline>４２６</span></span>）<br>＝<span class=frac>１<br><span class=overline>４</span></span>（<span class=frac>１<br><span class=overline>６</span></span>－<span class=frac>１<br><span class=overline>４２６</span></span>）<br>＝<span class=frac>３５<br><span class=overline>８５２</span></span></div></div></div>
+<div class=feature-box><div class=feature-icon>📜</div><div><h3>解释</h3><p>裂开每项，前后抵消。</div></div>
+<div class=exercise>练习题　计算：<span class=frac>１<br><span class=overline>１×４</span></span>＋<span class=frac>１<br><span class=overline>４×７</span></span>＋<span class=frac>１<br><span class=overline>７×１０</span></span>＋　…　＋<span class=frac>１<br><span class=overline>９７×１００</span></span>。<input type=button value="检验答案" onclick="alert('３３／１００')"></div>
+</section>
+
+<section>
+<h2><span class=icon>＋</span> 裂成两项之和</h2>
+<div class=question>例⒉　计算：<span class=frac>３<br><span class=overline>２</span></span>－<span class=frac>５<br><span class=overline>６</span></span>＋<span class=frac>７<br><span class=overline>１２</span></span>－<span class=frac>９<br><span class=overline>２０</span></span>＋<span class=frac>１１<br><span class=overline>３０</span></span>－<span class=frac>１３<br><span class=overline>４２</span></span>＋<span class=frac>１５<br><span class=overline>５６</span></span>。</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><div class=math-container>原式＝<span class=frac>１＋２<br><span class=overline>１×２</span></span>－<span class=frac>２＋３<br><span class=overline>２×３</span></span>＋<span class=frac>３＋４<br><span class=overline>３×４</span></span>－<span class=frac>４＋５<br><span class=overline>４×５</span></span>＋<span class=frac>５＋６<br><span class=overline>５×６</span></span>－<span class=frac>６＋７<br><span class=overline>６×７</span></span>＋<span class=frac>７＋８<br><span class=overline>７×８</span></span><br>＝１＋<span class=frac>１<br><span class=overline>２</span></span>－<span class=frac>１<br><span class=overline>２</span></span>－<span class=frac>１<br><span class=overline>３</span></span>＋<span class=frac>１<br><span class=overline>３</span></span>＋<span class=frac>１<br><span class=overline>４</span></span>－<span class=frac>１<br><span class=overline>４</span></span>－<span class=frac>１<br><span class=overline>５</span></span>＋<span class=frac>１<br><span class=overline>５</span></span>＋<span class=frac>１<br><span class=overline>６</span></span>－<span class=frac>１<br><span class=overline>６</span></span>－<span class=frac>１<br><span class=overline>７</span></span>＋<span class=frac>１<br><span class=overline>７</span></span>＋<span class=frac>１<br><span class=overline>８</span></span><br>＝１<span class=frac>１<br><span class=overline>８</span></span></div></div></div>
+<div class=feature-box><div class=feature-icon>🔎</div><div><h3>澄清</h3><p>还是裂项，不过这次把一项分成两项之和。例⒈是两项之差。</div></div>
+<div class=exercise>练习题　计算：<span class=frac>４<br><span class=overline>１×３</span></span>－<span class=frac>８<br><span class=overline>３×５</span></span>＋<span class=frac>１２<br><span class=overline>５×７</span></span>－<span class=frac>１６<br><span class=overline>７×９</span></span>＋<span class=frac>２０<br><span class=overline>９×１１</span></span>－<span class=frac>２４<br><span class=overline>１１×１３</span></span>。<input type=button value="检验答案" onclick="alert('１２／１３')"></div>
+</section>
+
+<section>
+<h2><span class=icon>3️⃣</span> 分母是三连乘</h2>
+<div class=question>例⒊　计算：<span class=frac>２<br><span class=overline>３×４×５</span></span>＋<span class=frac>２<br><span class=overline>４×５×６</span></span>＋<span class=frac>２<br><span class=overline>５×６×７</span></span>＋<span class=frac>２<br><span class=overline>６×７×８</span></span>＋<span class=frac>２<br><span class=overline>７×８×９</span></span>＋<span class=frac>２<br><span class=overline>８×９×１０</span></span>。</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><div class=math-container>原式＝<span class=frac>５－３<br><span class=overline>３×４×５</span></span>＋<span class=frac>６－４<br><span class=overline>４×５×６</span></span>＋<span class=frac>７－５<br><span class=overline>５×６×７</span></span>＋<span class=frac>８－６<br><span class=overline>６×７×８</span></span>＋<span class=frac>９－７<br><span class=overline>７×８×９</span></span>＋<span class=frac>１０－８<br><span class=overline>８×９×１０</span></span><br>＝<span class=frac>１<br><span class=overline>３×４</span></span>－<span class=frac>１<br><span class=overline>４×５</span></span>＋<span class=frac>１<br><span class=overline>４×５</span></span>－<span class=frac>１<br><span class=overline>５×６</span></span>＋<span class=frac>１<br><span class=overline>５×６</span></span>－<span class=frac>１<br><span class=overline>６×７</span></span>＋<span class=frac>１<br><span class=overline>６×７</span></span>－<span class=frac>１<br><span class=overline>７×８</span></span>＋<span class=frac>１<br><span class=overline>７×８</span></span>－<span class=frac>１<br><span class=overline>８×９</span></span>＋<span class=frac>１<br><span class=overline>８×９</span></span>－<span class=frac>１<br><span class=overline>９×１０</span></span><br>＝<span class=frac>１３<br><span class=overline>１８０</span></span></div></div></div>
+<div class=feature-box><div class=feature-icon>📑</div><div><h3>阐明</h3><p>和前面一样，分子化成两数差。</div></div>
+<div class=exercise>练习题　计算：<span class=frac>１<br><span class=overline>１×３×５</span></span>＋<span class=frac>１<br><span class=overline>３×５×７</span></span>＋<span class=frac>１<br><span class=overline>５×７×９</span></span>＋　…　＋<span class=frac>１<br><span class=overline>２０１１×２０１３×２０１５</span></span>。<input type=button value="检验答案" onclick="alert('１１２６７２／１３５２０６５')"></div>
+</section>
+
+<section>
+<h2><span class=icon>🧪</span> 浓度问题</h2>
+<div class=question>例⒋　两种合金分别含铜６％和２０％，要想得到含铜１６％的新合金８７５克，问需要这两种合金各多少克？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>设要第一种ｘ克，则第二种要８７５－ｘ克。
+<div class=math-container>
+６％ｘ＋２０％（８７５－ｘ）＝１６％·８７５
+</div>
+<p>解得ｘ＝２５０，则第二种是６２５克。
+</div></div>
+<div class=feature-box><div class=feature-icon>🪢</div><div><h3>公式</h3><p>浓度＝溶质／溶液。（单位有时是体积，有时是质量。）</div></div>
+<div class=exercise>练习题　现有浓度为５０％的酒精溶液４２０克，加入浓度为３０％的酒精溶液多少克，混合后所得到的酒精溶液的浓度变为３７.５％？<input type=button value="检验答案" onclick="alert('７００克')"></div>
+</section>
+
+<section>
+<h2><span class=icon>💰</span> 算账</h2>
+<div class=question>例⒌　某种商品按原定价出售，每件利润为成本的２５％。后来按原定价的９０％出售，获得的总利润比原来增加２５％，那么降价后的销售量是原销售量的多少倍？</div>
+<div class=feature-box><div class=feature-icon>✅</div><div><h3>解答</h3><p>降价后每件利润为成本的１２５％×９０％－１＝１２.５％。设以前销售ａ件，现在销售量ｂ件，则２５％ａ×１２５％＝１２.５％ｂ。解得ｂ＝２.５ａ。答案是２.５倍。</div></div>
+<div class=feature-box><div class=feature-icon>🪢</div><div><h3>方法</h3><p>改变定价后，重新算利润就行。利润＝售价－成本。利润率＝利润÷售价。</div></div>
+<div class=exercise>练习题　李叔叔在淘宝上订购定价为１００元的某种商品８０件，李叔叔对网店掌柜说：“如果你肯减价，那么每降价１元，我就多订购４件。”网店掌柜算了一下，若降价５％，则由于李叔叔多订购，获得的利润反而比原来多１００元。每件商品的成本是多少元？<input type=button value="检验答案" onclick="alert('７０元')"></div>
+</section>
+
+</main>
+
+<aside class=sidebar>
+<section>
+	<h2><span class=icon>📂</span> 文件</h2>
+	<div class=math-container style=font-style:italic>
+	上传日期：２０２６年６月２８日（星期日）<br>序号：２４
+	</div>
+</section>
+
+<section>
+	<h2><img alt=a src=a.png style=vertical-align:middle> 引言</h2>
+	<div class=math-container style=font-style:italic>
+	"我裂开了"<br>
+	<span style="float:right;font-size:0.9rem">——一个梗</span>
+	</div>
+</section>
+
+<section>
+	<h2>🔗‍💥 裂项</h2>
+	<div class=question>题目⒈　计算：１＋<span class=frac>１<br><span class=overline>１＋２</span></span>＋<span class=frac>１<br><span class=overline>１＋２＋３</span></span>＋<span class=frac>１<br><span class=overline>１＋２＋３＋４</span></span>＋　…　＋<span class=frac>１<br><span class=overline>１＋２＋３＋…＋１００</span></span>。<input type=button value="检验答案" onclick="alert('２００／１０１')"></div>
+</section>
+
+<section>
+	<h2>3️⃣ 裂项</h2>
+	<div class=question>题目⒉　计算：１－<span class=frac>２<br><span class=overline>１×（１＋２）</span></span>－<span class=frac>３<br><span class=overline>（１＋２）×（１＋２＋３）</span></span>－<span class=frac>４<br><span class=overline>（１＋２＋３）×（１＋２＋３＋４）</span></span>－　…　－<span class=frac>１０<br><span class=overline>（１＋２＋…＋９）×（１＋２＋…＋１０）</span></span>。<input type=button value="检验答案" onclick="alert('１／５５')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">🔨</span> 工程问题</h2>
+	<div class=question>题目⒊　有两个同样的仓库，搬运完其中一个仓库的货物，甲需要６小时，乙需要７小时，丙需要１４小时。甲、乙同时开始各搬运一个仓库的货物，开始时，丙先帮甲搬运，后来又去帮乙搬运，最后两个仓库的货物同时搬完，则丙帮甲几小时，帮乙几小时？<input type=button value="检验答案" onclick="alert('帮甲１.７５小时，帮乙３.５小时')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">⚗️</span> 浓度问题</h2>
+	<div class=question>题目⒋　生理盐水是浓度为０.９％的氯化钠溶液。它模拟多种细胞液的离子浓度，可以用来清洁隐形眼镜、洗涤红细胞等。配制０.８升的生理盐水，需要多少浓度为３６％的浓盐水，和多少纯水混合？<input type=button value="检验答案" onclick="alert('２０克盐水，７８０克纯水')"></div>
+</section>
+
+<section>
+	<h2><span class="icon">X</span> 对顶角</h2>
+	<div class=question>题目⒌　如图，直线ａ，ｂ相交，∠１＝３８°，求∠２，∠３，∠４的度数。<input type=button value="检验答案" onclick="alert('１４２°，３８°，１４２°')"><br><img alt=P17 src="../lesson23/P17.svg"></div>
+</section>
+</aside>
+</div>
+
+<footer>
+<div class=container>
+	<p>数学信息网页 © 2026  | 探索数学的无限可能
+	<div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+	qowk.xyz
+	</div>
+</div>
+</footer>
+
+</div>
+</div>
